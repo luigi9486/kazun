@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Parafii - Parafia Kazuń Bielany</title>
+    
+    <!-- Podpięcie głównego pliku stylów ze strony głównej -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts dla stylowania tekstu historycznego -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Specjalne style tylko dla podstrony historycznej */
+        .history-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 15px;
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.8;
+        }
+
+        .history-header {
+            text-align: center;
+            padding: 30px 15px 20px;
+            margin-bottom: 25px;
+        }
+
+        .history-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #d69e2e; /* Złoty odcień spójny z resztą strony */
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .history-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 4px solid #d69e2e;
+            margin-bottom: 25px;
+        }
+
+        .dropcap::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            float: left;
+            line-height: 0.8;
+            padding-top: 4px;
+            padding-right: 10px;
+            color: #d69e2e;
+            font-weight: bold;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            color: #d69e2e;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Główny Nagłówek i Nawigacja (Identyczne jak w index.html) -->
+    <header class="main-header">
+        <h1 class="nav-title">PARAFIA KAZUŃ BIELANY</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#ogloszenia">Ogłoszenia</a></li>
+                <li><a href="index.html#intencje">Intencje</a></li>
+                <li><a href="index.html#msze">Msze Święte</a></li>
+                <li><a href="historia.html" class="active">Historia</a></li>
+                <li><a href="kancelaria.html">Kontakt</a></li>
+            </ul>
+            <button id="theme-toggle">🌙 Tryb Nocny</button>
+        </nav>
+    </header>
+
+    <!-- Treść Główna Podstrony -->
+    <main class="history-container">
+        
+        <div class="history-header">
+            <h1>Dzieje Parafii w Kazuniu</h1>
+            <div class="subtitle">Poznaj bogatą historię naszej wspólnoty na przestrzeni wieków</div>
+        </div>
+
+        <article class="history-card">
+            <h2>Początki Wspólnoty</h2>
+            <p class="dropcap">
+                Historia naszej parafii sięga zamierzchłych czasów, kiedy to pierwsze wzmianki o osadnictwie na tych terenach pojawiły się w kronikach. Wspólnota rozwijała się dynamicznie, stanowiąc ważny punkt na mapie duchowej i kulturalnej całego regionu.
+            </p>
+            <p>
+                Przez kolejne stulecia kościół był nie tylko miejscem modlitwy, ale również schronieniem dla mieszkańców w trudnych momentach dziejowych.
+            </p>
+        </article>
+
+        <div class="divider">✦ ✦ ✦</div>
+
+        <article class="history-card">
+            <h2>Budowa Świątyni</h2>
+            <p>
+                Obecny kształt architektoniczny jest wynikiem starań wielu pokoleń parafian oraz duszpasterzy. Każdy detal wystroju niesie ze sobą wyjątkową opowieść o wierze, poświęceniu i tradycji.
+            </p>
+        </article>
+
+    </main>
+
+    <!-- Stopka -->
+    <footer>
+        <p>&copy; Parafia Kazuń Bielany – Wszelkie prawa zastrzeżone</p>
+        <p><a href="index.html">&larr; Powrót do strony głównej</a></p>
+    </footer>
+
+    <!-- Podpięcie skryptu JavaScript (dla obsługi trybu nocnego) -->
+    <script src="script.js"></script>
+</body>
+</html>
