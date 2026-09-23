@@ -5,44 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historia Parafii - Parafia Kazuń Bielany</title>
     
-    <!-- Podpięcie głównego pliku stylów ze strony głównej -->
+    <!-- Podpięcie głównego pliku stylów -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Google Fonts dla stylowania tekstu historycznego -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-
-
-    <script>
-    const toggleBtn = document.querySelector('.theme-toggle');
-
-    // 1. Sprawdzanie zapamiętanego motywu w pamięci przeglądarki
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-        if (toggleBtn) toggleBtn.textContent = '☀️ Tryb Dzienny';
-    }
-
-    // 2. Obsługa kliknięcia przycisku
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                toggleBtn.textContent = '☀️ Tryb Dzienny';
-            } else {
-                localStorage.setItem('theme', 'light');
-                toggleBtn.textContent = '🌙 Tryb Nocny';
-            }
-        });
-    }
-</script>
-
-    /*
+    <!-- Style dedykowane dla karty historii -->
     <style>
-        /* Specjalne style tylko dla podstrony historycznej */
         .history-container {
             max-width: 800px;
             margin: 30px auto;
@@ -60,22 +32,22 @@
         .history-header h1 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.5rem;
-            color: #d69e2e; /* Złoty odcień spójny z resztą strony */
+            color: var(--accent-gold, #d69e2e);
             margin-bottom: 5px;
         }
 
         .subtitle {
             font-style: italic;
-            color: #666;
+            opacity: 0.8;
             font-size: 1.1rem;
         }
 
         .history-card {
-            background: #ffffff;
+            background: var(--card-bg, #ffffff);
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-left: 4px solid #d69e2e;
+            box-shadow: var(--shadow, 0 4px 12px rgba(0,0,0,0.05));
+            border-left: 4px solid var(--accent-gold, #d69e2e);
             margin-bottom: 25px;
         }
 
@@ -86,23 +58,21 @@
             line-height: 0.8;
             padding-top: 4px;
             padding-right: 10px;
-            color: #d69e2e;
+            color: var(--accent-gold, #d69e2e);
             font-weight: bold;
         }
 
         .divider {
             text-align: center;
             margin: 30px 0;
-            color: #d69e2e;
+            color: var(--accent-gold, #d69e2e);
             font-size: 1.3rem;
         }
    </style>
-*/
-    
 </head>
 <body>
 
-    <!-- Główny Nagłówek i Nawigacja (Identyczne jak w index.html) -->
+    <!-- Główny Nagłówek i Nawigacja -->
     <header class="main-header">
         <h1 class="nav-title">PARAFIA KAZUŃ BIELANY</h1>
         <nav>
@@ -113,7 +83,7 @@
                 <li><a href="historia.html" class="active">Historia</a></li>
                 <li><a href="kancelaria.html">Kontakt</a></li>
             </ul>
-            <button id="theme-toggle">🌙 Tryb Nocny</button>
+            <button class="theme-toggle">🌙 Tryb Nocny</button>
         </nav>
     </header>
 
@@ -152,7 +122,30 @@
         <p><a href="index.html">&larr; Powrót do strony głównej</a></p>
     </footer>
 
-    <!-- Podpięcie skryptu JavaScript (dla obsługi trybu nocnego) -->
-    <script src="script.js"></script>
+    <!-- Skrypt trybu nocnego umieszczony na samym dole (działa błyskawicznie) -->
+    <script>
+        const toggleBtn = document.querySelector('.theme-toggle');
+
+        // Sprawdzanie zapamiętanego motywu przy wejściu na stronę
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            if (toggleBtn) toggleBtn.textContent = '☀️ Tryb Dzienny';
+        }
+
+        // Obsługa kliknięcia w przycisk
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    toggleBtn.textContent = '☀️ Tryb Dzienny';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    toggleBtn.textContent = '🌙 Tryb Nocny';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
