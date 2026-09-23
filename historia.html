@@ -8,15 +8,15 @@
     <!-- Podpięcie głównego pliku stylów -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts dla stylowania tekstu historycznego -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-    <!-- Style dedykowane dla karty historii -->
     <style>
+        /* Style dedykowane dla treści historycznej */
         .history-container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 30px auto;
             padding: 0 15px;
             font-family: 'Lora', Georgia, serif;
@@ -25,35 +25,54 @@
 
         .history-header {
             text-align: center;
-            padding: 30px 15px 20px;
+            padding: 20px 15px;
             margin-bottom: 25px;
         }
 
         .history-header h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             color: var(--accent-gold, #d69e2e);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .subtitle {
             font-style: italic;
-            opacity: 0.8;
-            font-size: 1.1rem;
+            opacity: 0.85;
+            font-size: 1.05rem;
         }
 
         .history-card {
             background: var(--card-bg, #ffffff);
             padding: 30px;
-            border-radius: 12px;
+            border-radius: 14px;
             box-shadow: var(--shadow, 0 4px 12px rgba(0,0,0,0.05));
             border-left: 4px solid var(--accent-gold, #d69e2e);
             margin-bottom: 25px;
         }
 
+        .history-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            color: var(--accent-gold, #d69e2e);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed rgba(214, 158, 46, 0.3);
+            padding-bottom: 8px;
+        }
+
+        .history-card p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .history-card p:last-child {
+            margin-bottom: 0;
+        }
+
         .dropcap::first-letter {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
+            font-size: 3.6rem;
             float: left;
             line-height: 0.8;
             padding-top: 4px;
@@ -62,13 +81,56 @@
             font-weight: bold;
         }
 
+        /* Lista proboszczów */
+        .priests-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .priests-list li {
+            background: rgba(214, 158, 46, 0.08);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            border-left: 3px solid var(--accent-gold, #d69e2e);
+        }
+
+        .villages-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .villages-list li {
+            background: rgba(214, 158, 46, 0.12);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
         .divider {
             text-align: center;
             margin: 30px 0;
             color: var(--accent-gold, #d69e2e);
             font-size: 1.3rem;
         }
-   </style>
+
+        .source-note {
+            font-size: 0.85rem;
+            font-style: italic;
+            opacity: 0.75;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -91,28 +153,81 @@
     <main class="history-container">
         
         <div class="history-header">
-            <h1>Dzieje Parafii w Kazuniu</h1>
-            <div class="subtitle">Poznaj bogatą historię naszej wspólnoty na przestrzeni wieków</div>
+            <h1>Z Kart Historii Parafii Kazuń</h1>
+            <div class="subtitle">Poznaj dzieje naszej wspólnoty duszpasterskiej na przestrzeni wieków</div>
         </div>
 
+        <!-- Karta 1 -->
         <article class="history-card">
-            <h2>Początki Wspólnoty</h2>
+            <h2>Początki Dziejowe i Średniowiecze</h2>
             <p class="dropcap">
-                Historia naszej parafii sięga zamierzchłych czasów, kiedy to pierwsze wzmianki o osadnictwie na tych terenach pojawiły się w kronikach. Wspólnota rozwijała się dynamicznie, stanowiąc ważny punkt na mapie duchowej i kulturalnej całego regionu.
+                Parafia Kazuń należy do starych ośrodków duszpasterskich na Mazowszu w dorzeczu Wisły. Wyłoniła się zapewne z parafii Łomna. Miejscowość Kazuń Polski, znana dawniej również jako Kadzom i Kazom, wspominana jest w starych dokumentach z 1477 roku. Przypuszcza się, że założyli ją w XIV wieku książęta mazowieccy. 
             </p>
             <p>
-                Przez kolejne stulecia kościół był nie tylko miejscem modlitwy, ale również schronieniem dla mieszkańców w trudnych momentach dziejowych.
+                Kodeks dyplomatyczny Mazowiecki (1863, s. 183) podaje, że w 1447 roku książę mazowiecki Bolesław nadał kościołowi św. Doroty w Kazuniu łąki. Z tego wywnioskować można, że już w tym czasie istniała tu świątynia. Do parafii należały wtedy tylko Kazuń Wielki i Mały oraz Grochale (dawniej Grocholice).
+            </p>
+            <p>
+                Ze względu na szkody wynikające z częstych wylewów Wisły, biskup nadał plebanii w Kazuniu w 1564 roku dodatkową dziesięcinę snopną z królewskiej wsi Młociny. Dokument z wizytacji biskupiej w 1616 roku podaje, że po spaleniu kościoła w 1596 roku stanęła tu nowa drewniana świątynia pod wezwaniem św. Anny.
+            </p>
+        </article>
+
+        <!-- Karta 2 -->
+        <article class="history-card">
+            <h2>Kolejne Świątynie i Budowa Obecnego Kościoła</h2>
+            <p>
+                W 1717 roku Gabriel Wieliszewski wybudował w Kazuniu kościół drewniany pod wezwaniem Najświętszego Imienia Maryi. Kościół ten zawalił się w 1810 roku, a w jego miejscu ks. Józef Puczkowski vzniósł w 1813 roku nowy drewniany kościół pw. Matki Bożej Szkaplerznej. W 1901 roku stanął kolejny drewniany kościół, który jednak w 1913 roku spłonął. Ocalała dzwonnica z dobudowaną drewnianą kaplicą zastępowała kościół przez ćwierć wieku.
+            </p>
+            <p>
+                Obecny kościół, również pod wezwaniem Matki Bożej Szkaplerznej, został zbudowany w latach 1935–1939 staraniem ks. Tadeusza Majchrzaka. Kamień węgielny wmurował 20.10.1935 roku biskup Antoni Szlagowski, a konsekracji dokonał arcybiskup Stanisław Gall w 1939 roku. W latach 1949–1956 świątynię przebudowano. Jest trójnawowa, murowana, ma wieżę i trzy ołtarze. W ołtarzu głównym znajduje się XIX-wieczny obraz MB Szkaplerznej w metalowej sukience.
             </p>
         </article>
 
         <div class="divider">✦ ✦ ✦</div>
 
+        <!-- Karta 3 -->
         <article class="history-card">
-            <h2>Budowa Świątyni</h2>
+            <h2>Teren Parafii i Wioski</h2>
             <p>
-                Obecny kształt architektoniczny jest wynikiem starań wielu pokoleń parafian oraz duszpasterzy. Każdy detal wystroju niesie ze sobą wyjątkową opowieść o wierze, poświęceniu i tradycji.
+                Parafia liczy obecnie ok. 3500 mieszkańców żyjących w 15 miejscowościach:
+            </p>
+            <ul class="villages-list">
+                <li>Augustówek</li><li>Cybulice A</li><li>Cybulice Duże</li>
+                <li>Cybulice Małe</li><li>Czeczotki</li><li>Grochale</li>
+                <li>Janów</li><li>Jesionka</li><li>Kazuń Bielany</li>
+                <li>Kazuń Nowy</li><li>Kazuń Polski</li><li>Małocice</li>
+                <li>Sady</li><li>Wólka Czosnowska</li><li>Wrzosówka</li>
+            </ul>
+            <p style="margin-top: 15px;">
+                We Małocicach od lat istnieje kaplica filialna pw. Podwyższenia Krzyża Świętego (urządzona w 1999 r. w dawnej remizie strażackiej z inicjatywy ks. Jana Kozickiego). Cmentarz grzebalny mieści się tuż przy kościele parafialnym po drugiej stronie drogi.
             </p>
         </article>
+
+        <!-- Karta 4: Wykaz Proboszczów -->
+        <article class="history-card">
+            <h2>Wykaz Znanych Proboszczów</h2>
+            <ul class="priests-list">
+                <li><strong>Ks. Józef Puczkowski</strong> (1813)</li>
+                <li><strong>Ks. Julian Kazimierz Budziszewski</strong> (1913)</li>
+                <li><strong>Ks. Leon Dobrowolski</strong> (1914 – 1916)</li>
+                <li><strong>Ks. Władysław Wieczorek</strong> (1916 – 1919)</li>
+                <li><strong>Ks. Antoni Montak</strong> (1919 – 1921)</li>
+                <li><strong>Ks. Feliks Kozak</strong> (1921 – 1928)</li>
+                <li><strong>Ks. Władysław Kulesza</strong> (1928 – 1933)</li>
+                <li><strong>Ks. Tadeusz Majchrzak</strong> (1933 – 1939)</li>
+                <li><strong>Ks. Tomasz Grzanka</strong> (1939 – 1943)</li>
+                <li><strong>Ks. Henryk Jóźwik</strong> (1943 – 1945)</li>
+                <li><strong>Ks. Tadeusz Kaźmierski</strong> (1945 – 1962)</li>
+                <li><strong>Ks. Jan Jerzy Półkośnik</strong> (1962 – 1980)</li>
+                <li><strong>Ks. Ryszard Rzewnicki</strong> (1980 – 1988)</li>
+                <li><strong>Ks. Mirosław Konopka</strong> (1988 – 1990)</li>
+                <li><strong>Ks. Jan Kozicki</strong> (1990 – 2009)</li>
+                <li><strong>Ks. Adam Wyszyński</strong> (od 2009)</li>
+            </ul>
+        </article>
+
+        <p class="source-note">
+            Na podstawie opracowania ks. Grzegorza Kalwarczyka – <em>Dekanat Kampinoski w archidiecezji warszawskiej</em> (2000 r.).
+        </p>
 
     </main>
 
@@ -122,21 +237,18 @@
         <p><a href="index.html">&larr; Powrót do strony głównej</a></p>
     </footer>
 
-    <!-- Skrypt trybu nocnego umieszczony na samym dole (działa błyskawicznie) -->
+    <!-- Skrypt Trybu Nocnego -->
     <script>
         const toggleBtn = document.querySelector('.theme-toggle');
 
-        // Sprawdzanie zapamiętanego motywu przy wejściu na stronę
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
             if (toggleBtn) toggleBtn.textContent = '☀️ Tryb Dzienny';
         }
 
-        // Obsługa kliknięcia w przycisk
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => {
                 document.body.classList.toggle('dark-mode');
-                
                 if (document.body.classList.contains('dark-mode')) {
                     localStorage.setItem('theme', 'dark');
                     toggleBtn.textContent = '☀️ Tryb Dzienny';
