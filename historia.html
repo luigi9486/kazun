@@ -13,6 +13,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
+
+
+    <script>
+    const toggleBtn = document.querySelector('.theme-toggle');
+
+    // 1. Sprawdzanie zapamiętanego motywu w pamięci przeglądarki
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        if (toggleBtn) toggleBtn.textContent = '☀️ Tryb Dzienny';
+    }
+
+    // 2. Obsługa kliknięcia przycisku
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleBtn.textContent = '☀️ Tryb Dzienny';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleBtn.textContent = '🌙 Tryb Nocny';
+            }
+        });
+    }
+</script>
+
+    /*
     <style>
         /* Specjalne style tylko dla podstrony historycznej */
         .history-container {
@@ -68,7 +96,9 @@
             color: #d69e2e;
             font-size: 1.3rem;
         }
-    </style>
+   </style>
+*/
+    
 </head>
 <body>
 
