@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupy Parafialne - Parafia Kazuń Bielany</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .groups-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .group-card {
+            background: var(--card-bg, #ffffff);
+            border: 1px solid var(--border-color, #e0e0e0);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .group-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            border-bottom: 2px solid var(--accent-gold, #c5a059);
+            padding-bottom: 0.4rem;
+        }
+
+        .group-icon {
+            font-size: 1.5rem;
+        }
+
+        .group-title {
+            font-family: 'Georgia', serif;
+            color: var(--accent-gold, #c5a059);
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .group-details {
+            line-height: 1.6;
+        }
+
+        .meeting-info {
+            background: var(--header-bg, #f8f9fa);
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            margin-top: 0.8rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamiczny nagłówek ładowany przez nav.js -->
+    <header id="main-header"></header>
+
+    <main class="groups-container">
+        <h1 style="text-align: center; font-family: 'Georgia', serif; margin-bottom: 2rem; color: var(--accent-gold, #c5a059);">Grupy i Wspólnoty Parafialne</h1>
+
+        <!-- SCHOLA DZIECIĘCA -->
+        <div class="group-card">
+            <div class="group-header">
+                <span class="group-icon">🎵</span>
+                <h2 class="group-title">Schola Dziecięca</h2>
+            </div>
+            <div class="group-details">
+                <p>Schola ubogaca oprawę muzyczną Niedzielnej Mszy Świętej o godz. 11:00. Zapraszamy wszystkie dzieci chcące chwalić Pana Boga śpiewem i grą na instrumentach.</p>
+                <div class="meeting-info">🕒 Próby: Soboty, godz. 17:00 (Salka parafialna)</div>
+            </div>
+        </div>
+
+        <!-- CHÓR PARAFIALNY -->
+        <div class="group-card">
+            <div class="group-header">
+                <span class="group-icon">🎼</span>
+                <h2 class="group-title">Chór Parafialny</h2>
+            </div>
+            <div class="group-details">
+                <p>Chór zrzesza młodzież i dorosłych. Przygotowuje oprawę wokalną na największe uroczystości parafialne i świąteczne.</p>
+                <div class="meeting-info">🕒 Próby: Piątki, godz. 19:00</div>
+            </div>
+        </div>
+
+        <!-- ŻYWY RÓŻANIEC -->
+        <div class="group-card">
+            <div class="group-header">
+                <span class="group-icon">📿</span>
+                <h2 class="group-title">Żywy Różaniec / Kółka Różańcowe</h2>
+            </div>
+            <div class="group-details">
+                <p>Członkowie Kółek Różańcowych codziennie modlą się w intencjach Kościoła, Parafii i Ojczyzny. Zmiana tajemnic różańcowych odbywa się w każdą I Niedzielę miesiąca po Mszy Świętej.</p>
+                <div class="meeting-info">🕒 Spotkania: I Niedziela miesiąca</div>
+            </div>
+        </div>
+
+        <!-- MINISTRANCI -->
+        <div class="group-card">
+            <div class="group-header">
+                <span class="group-icon">✝️</span>
+                <h2 class="group-title">Liturgiczna Służba Ołtarza (Ministranci i Lektorzy)</h2>
+            </div>
+            <div class="group-details">
+                <p>Służba ołtarza to chłopięca i młodzieżowa wspólnota dbająca o piękno sprawowanej liturgii. Zapraszamy chłopców po I Komunii Świętej oraz starszą młodzież.</p>
+                <div class="meeting-info">🕒 Zbiórki: Zgodnie z harmonogramem księdza opiekuna</div>
+            </div>
+        </div>
+
+        <!-- BIELANKI I ASYSTA -->
+        <div class="group-card">
+            <div class="group-header">
+                <span class="group-icon">🌸</span>
+                <h2 class="group-title">Bielanki oraz Asysta Procesyjna (Chorągiew)</h2>
+            </div>
+            <div class="group-details">
+                <p>Dziewczęta (Bielanki) oraz dorośli tworzący asystę procesyjną dbają o oprawę procesji odpustowych, fatimskich i eucharystycznych.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Dynamiczna stopka ładowana przez nav.js -->
+    <footer id="main-footer"></footer>
+
+    <script src="nav.js"></script>
+</body>
+</html>
