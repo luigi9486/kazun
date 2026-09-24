@@ -444,3 +444,13 @@ footer {
         gap: 1.5rem;
     }
 }
+/* Odstęp od góry dla całej zawartości strony pod przyklejonym menu */
+main {
+    margin-top: 1rem;
+}
+
+/* Zapas miejsca na górzak przy przewijaniu do konkretnych sekcji */
+.card, section {
+    scroll-margin-top: 120px;
+}
+
