@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. Szablon Nagłówka
+    // 1. Szablon Nagłówka z nowymi pozycjami w menu
     const headerHTML = `
         <nav>
             <a href="index.html" class="logo">Parafia Kazuń Bielany</a>
@@ -8,8 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="ogloszenia.html">Ogłoszenia</a></li>
                 <li><a href="intencje.html">Intencje</a></li>
                 <li><a href="msze.html">Msze Święte</a></li>
+                <li><a href="grupy.html">Grupy</a></li>
                 <li><a href="historia.html">Historia</a></li>
                 <li><a href="kancelaria.html">Kancelaria i kontakt</a></li>
+                <li><a href="https://www.ecmentarze.pl/iframe/kazunbielany" target="_blank" rel="noopener">Cmentarz</a></li>
             </ul>
 
             <button class="theme-toggle" onclick="toggleTheme()">
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cookieHTML = `
         <div id="cookie-banner" class="cookie-banner">
             <div class="cookie-content">
-                <p>Ta strona używa plików cookies w celu zapewnienia prawidłowego działania oraz wygody przeglądania. Korzystając ze strony, wyrażasz zgodę na ich używanie.</p>
+                <p>Ta strona używa plików cookies w celu zapewnienia prawidłowego działania oraz wygody przeglądania. Korzystając ze strony, wyrażasz zgody na ich używanie.</p>
                 <button onclick="acceptCookies()" class="cookie-btn">Akceptuję</button>
             </div>
         </div>
