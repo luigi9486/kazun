@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="grupy.html">Grupy</a></li>
                 <li><a href="historia.html">Historia</a></li>
                 <li><a href="kancelaria.html">Kancelaria i kontakt</a></li>
-                <li><a href="https://www.ecmentarze.pl/iframe/kazunbielany" target="_blank" rel="noopener">Cmentarz</a></li>
+                <li><a href="cmentarz.html" target=">Cmentarz</a></li>
             </ul>
 
             <button class="theme-toggle" onclick="toggleTheme()">
