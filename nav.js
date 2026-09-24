@@ -19,30 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>
     `;
 
-    // 2. Szablon Rozbudowanej Stopki
+    // 2. Uproszczona Stopka (Tylko nazwa, adres, telefon i e-mail)
     const footerHTML = `
-        <div class="footer-container">
-            <!-- Kolumna 1: Dane i Kontakt -->
-            <div class="footer-col">
+        <div class="footer-container" style="justify-content: center; text-align: center; display: block; padding: 1.5rem 1rem;">
+            <div class="footer-col" style="max-width: 600px; margin: 0 auto;">
                 <h3>Parafia Kazuń Bielany</h3>
-                <p>ul. Wojska Polskiego 1<br>05-152 Czosnów</p>
-                <p>📞 <a href="tel:+48...">+48...</a></p>
-                <p>✉️ <a href="mailto:parafia.kazun@gmail.com">parafia.kazun@gmail.com</a></p>
-            </div>
-
-            <!-- Kolumna 2: Godziny Kancelarii -->
-            <div class="footer-col">
-                <h3>Kancelaria Parafialna</h3>
-                <p><strong>Środa:</strong> 15:00 – 17:00</p>
-                <p><strong>Sobota:</strong> 10:00 – 12:00</p>
-                <p><em>(Pogrzeb: o każdej porze)</em></p>
-            </div>
-
-            <!-- Kolumna 3: Szybkie Linki -->
-            <div class="footer-col">
-                <h3>Szybki Kontakt</h3>
-                <p><a href="kancelaria.html">Sprawy sakramentalne</a></p>
-                <p><a href="kancelaria.html#mapa">Mapa i dojazd</a></p>
+                <p>ul. Wojska Polskiego 1, 05-152 Czosnów</p>
+                <p>📞 <a href="tel:+48...">+48...</a> &nbsp;|&nbsp; ✉️ <a href="mailto:parafia.kazun@gmail.com">parafia.kazun@gmail.com</a></p>
             </div>
         </div>
 
