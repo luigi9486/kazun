@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="grupy.html">Grupy</a></li>
                 <li><a href="historia.html">Historia</a></li>
                 <li><a href="kancelaria.html">Kancelaria i kontakt</a></li>
-                <li><a href="cmentarz.html" target=">Cmentarz</a></li>
+                <li><a href="cmentarz.html">Cmentarz</a></li>
             </ul>
 
             <button class="theme-toggle" onclick="toggleTheme()">
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>
     `;
 
-    // 2. Stopka z danymi kontaktowymi i Standardami Ochrony Małoletnich
+    // 2. Stopka z danymi kontaktowymi i poprawnie podpiętymi Standardami Ochrony Małoletnich
     const footerHTML = `
         <div class="footer-container" style="justify-content: center; text-align: center; display: block; padding: 1.5rem 1rem;">
             <div class="footer-col" style="max-width: 600px; margin: 0 auto;">
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p>📞 <a href="tel:+48...">+48...</a> &nbsp;|&nbsp; ✉️ <a href="mailto:parafia.kazun@gmail.com">parafia.kazun@gmail.com</a></p>
                 
                 <p style="margin-top: 1rem;">
-                    <a href="standardy.html" target="_blank" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
+                    <a href="standardy.html" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
                         🛡️ Standardy Ochrony Małoletnich
                     </a>
                 </p>
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cookieHTML = `
         <div id="cookie-banner" class="cookie-banner">
             <div class="cookie-content">
-                <p>Ta strona używa plików cookies w celu zapewnienia prawidłowego działania oraz wygody przeglądania. Korzystając ze strony, wyrażasz zgody na ich używanie.</p>
+                <p>Ta strona używa plików cookies w celu zapewnienia prawidłowego działania oraz wygody przeglądania. Korzystając ze strony, wyrażasz zgodę na ich używanie.</p>
                 <button onclick="acceptCookies()" class="cookie-btn">Akceptuję</button>
             </div>
         </div>
