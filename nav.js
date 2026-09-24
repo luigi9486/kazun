@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
         
             
             <ul class="nav-links">
-                <li><a href="index.html#ogloszenia">Ogłoszenia</a></li>
-                <li><a href="index.html#intencje">Intencje</a></li>
+                <li><a href=ogloszenia.html">Ogłoszenia</a></li>
+                <li><a href=intencje.html">Intencje</a></li>
                 <li><a href="msze.html">Msze Święte</a></li>
                 <li><a href="historia.html">Historia</a></li>
                 <li><a href="kancelaria.html">Kancelaria i kontakt</a></li>
