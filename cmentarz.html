@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cmentarz Parafialny - Parafia Kazuń Bielany</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cemetery-container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .cemetery-card {
+            background: var(--card-bg, #ffffff);
+            border: 1px solid var(--border-color, #e0e0e0);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            height: 750px;
+            margin-top: 1.5rem;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color, #e0e0e0);
+            background: #ffffff; /* Tło ładowania ramki */
+        }
+
+        .iframe-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamiczny nagłówek ładowany przez nav.js -->
+    <header id="main-header"></header>
+
+    <main class="cemetery-container">
+        <div class="cemetery-card">
+            <h1 style="font-family: 'Georgia', serif; color: var(--accent-gold, #c5a059); margin-bottom: 0.5rem;">Cmentarz Parafialny</h1>
+            <p style="opacity: 0.8; max-width: 700px; margin: 0 auto;">
+                Zapraszamy do skorzystania z internetowej wyszukiwarki grobów na naszym cmentarzu parafialnym w Kazuniu Bielanach.
+            </p>
+
+            <!-- Osadzona wyszukiwarka E-Cmentarze -->
+            <div class="iframe-wrapper">
+                <iframe src="https://www.ecmentarze.pl/iframe/kazunbielany" title="Wyszukiwarka grobów - Cmentarz Kazuń Bielany"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- Dynamiczna stopka ładowana przez nav.js -->
+    <footer id="main-footer"></footer>
+
+    <script src="nav.js"></script>
+</body>
+</html>
