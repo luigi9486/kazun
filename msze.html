@@ -93,6 +93,43 @@
             line-height: 1.8;
         }
 
+        /* Sekcja Mszy Wotywnych */
+        .votive-section {
+            margin-top: 2rem;
+        }
+
+        .votive-section h2.section-header {
+            font-family: 'Georgia', serif;
+            color: var(--accent-gold);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        /* Stylowe przyciski odnośników formularzy */
+        .votive-links {
+            margin-top: 1.2rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .votive-link-btn {
+            color: var(--accent-gold);
+            font-weight: bold;
+            text-decoration: none;
+            padding: 0.35rem 0.7rem;
+            border: 1px solid rgba(214, 158, 46, 0.4);
+            border-radius: 6px;
+            background: rgba(214, 158, 46, 0.08);
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .votive-link-btn:hover {
+            background: rgba(214, 158, 46, 0.2);
+            border-color: var(--accent-gold);
+        }
+
         @media (max-width: 768px) {
             .services-grid {
                 grid-template-columns: 1fr;
@@ -167,7 +204,32 @@
             </div>
         </section>
 
-        <!-- MIEJSCE NA ETAP 2: Msze Święte Wotywne -->
+        <!-- ETAP 2: Msze Święte Wotywne -->
+        <section class="votive-section">
+            <h2 class="section-header">MSZE ŚWIĘTE WOTYWNE</h2>
+
+            <!-- KARTA 1: MSZA ŚWIĘTA WOTYWNA DO NAJŚWIĘTSZEJ MARYI PANNY -->
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <div class="card-icon">🌹</div>
+                <h2>MSZA ŚWIĘTA WOTYWNA DO NAJŚWIĘTSZEJ MARYI PANNY</h2>
+                
+                <p style="margin-top: 1rem; line-height: 1.6;">
+                    Gdy nie wypada święta lub uroczystości, w każdą sobotę o godz. 18:00 odprawia się msza św. wotywna do NMP według jednego z tych formularzy mszalnych.
+                </p>
+
+                <div class="votive-links">
+                    <a href="http://ordo.pallotyni.pl/index.php/mszal-rzymski/msze-wspolne/541-3-msza-o-najswietszej-maryi-pannie" target="_blank" rel="noopener" class="votive-link-btn">[1]</a>
+                    <a href="http://ordo.pallotyni.pl/index.php/mszal-rzymski/msze-wspolne/542-4-msza-o-najswietszej-maryi-pannie" target="_blank" rel="noopener" class="votive-link-btn">[2]</a>
+                    <a href="http://ordo.pallotyni.pl/index.php/mszal-rzymski/msze-wspolne/543-5-msza-o-najswietszej-maryi-pannie" target="_blank" rel="noopener" class="votive-link-btn">[3]</a>
+                    <a href="http://ordo.pallotyni.pl/index.php/mszal-rzymski/msze-wspolne/544-6-msza-o-najswietszej-maryi-pannie-w-adwencie" target="_blank" rel="noopener" class="votive-link-btn">[4]</a>
+                    <a href="http://ordo.pallotyni.pl/index.php/mszal-rzymski/msze-wspolne/545-7-msza-o-najswietszej-maryi-pannie-w-okresie-narodzenia-panskiego" target="_blank" rel="noopener" class="votive-link-btn">[5]</a>
+                    <a href="http://ordo.pallotyni.pl/index.php/mszal-rzymski/msze-wspolne/546-8-msza-o-najswietszej-maryi-pannie-w-okresie-wielkanocnym" target="_blank" rel="noopener" class="votive-link-btn">[6]</a>
+                </div>
+            </div>
+
+            <!-- Tutaj możesz dopisywać kolejne karty Mszy Wotywnych (np. do św. Józefa) -->
+
+        </section>
 
     </main>
 
