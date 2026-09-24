@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Msze Święte i Nabożeństwa - Parafia Kazuń Bielany</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .page-container {
+            max-width: 1000px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            font-family: 'Georgia', serif;
+            color: var(--accent-gold);
+            font-size: 2.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.8rem;
+        }
+
+        .schedule-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed rgba(214, 158, 46, 0.25);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .schedule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .time-badge {
+            font-weight: 700;
+            color: var(--accent-gold);
+            background: rgba(214, 158, 46, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .info-callout {
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent-gold);
+            padding: 1.2rem;
+            border-radius: 0 10px 10px 0;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            box-shadow: var(--shadow);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamiczny nagłówek ładowany przez nav.js -->
+    <header id="main-header"></header>
+
+    <main class="page-container" style="display: block;">
+        
+        <div class="page-title">
+            <h1>Msze Święte i Nabożeństwa</h1>
+            <p>Porządek nabożeństw w Kościele Parafialnym oraz Kaplicy Filialnej</p>
+        </div>
+
+        <!-- Porządek Mszy Świętych w podziale na lokalizacje -->
+        <div class="services-grid">
+            
+            <!-- Kościół w Kazuniu -->
+            <div class="card">
+                <div class="card-icon">⛪</div>
+                <h2>Kościół Parafialny w Kazuniu</h2>
+                
+                <div class="location-group">
+                    <div class="location-title">Niedziele i Święta</div>
+                    <ul class="schedule-list">
+                        <li><span>Msza poranna</span> <span class="time-badge">8:00</span></li>
+                        <li><span>Suma (z udziałem dzieci)</span> <span class="time-badge">10:00</span></li>
+                        <li><span>Msza popołudniowa</span> <span class="time-badge">17:00</span></li>
+                    </ul>
+                </div>
+
+                <div class="location-group">
+                    <div class="location-title">Dni Powszednie</div>
+                    <ul class="schedule-list">
+                        <li><span>Msze wieczorne</span> <span class="time-badge">17:00 i 17:30</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Kaplica w Małocicach -->
+            <div class="card">
+                <div class="card-icon">🏠</div>
+                <h2>Kaplica w Małocicach</h2>
+                <p><em>p.w. Podwyższenia Krzyża Świętego</em></p>
+                
+                <div class="location-group">
+                    <div class="location-title">Niedziele i Święta</div>
+                    <ul class="schedule-list">
+                        <li><span>Msza Święta</span> <span class="time-badge">11:30</span></li>
+                    </ul>
+                </div>
+
+                <div class="info-callout" style="margin-top: 1.5rem;">
+                    💡 Spowiedź w kaplicy odbywa się przed każdą niedzielną Mszą Świętą.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Okresowe Nabożeństwa -->
+        <section class="card" style="margin-bottom: 2rem;">
+            <div class="card-icon">🕯️</div>
+            <h2>Nabożeństwa Okresowe i Stałe</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                
+                <div>
+                    <div class="location-group">
+                        <div class="location-title">🌹 Majowe i Czerwcowe</div>
+                        <p>Po Mszy Świętej o godz. 17:00</p>
+                    </div>
+
+                    <div class="location-group">
+                        <div class="location-title">📿 Październikowe (Różańcowe)</div>
+                        <p>Dla dzieci i dorosłych po Mszy Św. wieczornej (17:00)</p>
+                    </div>
+
+                    <div class="location-group">
+                        <div class="location-title">✝️ Wielki Post</div>
+                        <p><strong>Droga Krzyżowa:</strong> Piątki o 16:30</p>
+                        <p><strong>Gorzkie Żale:</strong> Niedziele po Mszy o 10:00</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="location-group">
+                        <div class="location-title">❤️ Pierwsze Piątki Miesiąca</div>
+                        <p>Nabożeństwo do Najświętszego Serca Pana Jezusa i spowiedź od godz. 16:30</p>
+                    </div>
+
+                    <div class="location-group">
+                        <div class="location-title">🙏 Spowiedź Święta</div>
+                        <p>Codziennie 15 minut przed każdą Mszą Świętą</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Dynamiczna stopka ładowana przez nav.js -->
+    <footer id="main-footer"></footer>
+
+    <!-- Wczytanie zewnętrznej nawigacji, stopki oraz wspólnego trybu nocnego -->
+    <script src="nav.js"></script>
+</body>
+</html>
