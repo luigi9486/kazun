@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 1. Szablon Nagłówka
     const headerHTML = `
         <nav>
-            <a href="index.html" class="logo">Parafia Kazuń Bielany</a>
+        
             
             <ul class="nav-links">
                 <li><a href="index.html#ogloszenia">Ogłoszenia</a></li>
