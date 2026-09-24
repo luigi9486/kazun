@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ogłoszenia Duszpasterskie - Parafia Kazuń Bielany</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Wymuszenie czystego, pełnego układu podstrony */
+        main.page-container {
+            display: block !important;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Nagłówek podstrony */
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            font-family: 'Georgia', serif;
+            color: var(--accent-gold);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title p {
+            font-size: 1.05rem;
+            opacity: 0.85;
+        }
+
+        /* Sekcja Akordeonu / Rozwijanych Ogłoszeń */
+        .announcements-section {
+            margin-top: 1rem;
+        }
+
+        /* Stylowanie karty ogłoszeń (details/summary) */
+        details.announcement-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(214, 158, 46, 0.2);
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        details.announcement-card[open] {
+            border-color: var(--accent-gold);
+        }
+
+        summary.announcement-header {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            background: rgba(214, 158, 46, 0.04);
+        }
+
+        summary.announcement-header::-webkit-details-marker {
+            display: none;
+        }
+
+        summary.announcement-header::after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+            margin-left: 0.5rem;
+        }
+
+        details[open] summary.announcement-header::after {
+            transform: rotate(180deg);
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .header-title {
+            font-family: 'Georgia', serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .header-date {
+            font-size: 0.85rem;
+            opacity: 0.75;
+        }
+
+        .announcement-body {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(214, 158, 46, 0.15);
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        .announcement-body p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .announcement-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .announcement-body ul {
+            margin: 0.5rem 0 1rem 1.2rem;
+            padding: 0;
+        }
+
+        .announcement-body li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Tabela intencji / liturgii */
+        .intentions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .intentions-table th, 
+        .intentions-table td {
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            border-bottom: 1px dashed rgba(214, 158, 46, 0.25);
+        }
+
+        .intentions-table th {
+            color: var(--accent-gold);
+            font-family: 'Georgia', serif;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        /* Wyróżnienie istotnych ogłoszeń */
+        .highlight-box {
+            background: rgba(214, 158, 46, 0.08);
+            border-left: 3px solid var(--accent-gold);
+            padding: 0.8rem 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        @media (max-width: 600px) {
+            summary.announcement-header {
+                padding: 1rem;
+            }
+            .announcement-body {
+                padding: 1rem;
+            }
+            .intentions-table th, 
+            .intentions-table td {
+                padding: 0.5rem 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamiczny nagłówek ładowany przez nav.js -->
+    <header id="main-header"></header>
+
+    <main class="page-container">
+        
+        <!-- Tytuł podstrony -->
+        <div class="page-title">
+            <h1>OGŁOSZENIA DUSZPASTERSKIE</h1>
+            <p>Słowo duszpasterzy i aktualne wydarzenia z życia parafii</p>
+        </div>
+
+        <section class="announcements-section">
+
+            <!-- OGŁOSZENIE 1: 13.09.2026 (NAJNOWSZE - OTWARTE) -->
+            <details class="announcement-card" open>
+                <summary class="announcement-header">
+                    <div class="header-info">
+                        <span class="header-title">XXIV Niedziela Zwykła</span>
+                        <span class="header-date">📅 13 września 2026 r.</span>
+                    </div>
+                </summary>
+                <div class="accordion-body announcement-body">
+                    <div class="highlight-box">
+                        <strong>Renowacja Misji Świętych ze św. Michałem Archaniołem:</strong><br>
+                        <ul>
+                            <li><strong>Niedziela (13.09):</strong> Nauki podczas każdej Mszy św.</li>
+                            <li><strong>Poniedziałek – Czwartek (14–17.09):</strong> Nauki w Kazuniu rano o g. 9:30 i wieczorem o g. 18:00, a w Małocicach o g. 11:30.</li>
+                            <li>Codziennie wieczorne Nabożeństwo ze św. Michałem Archaniołem o g. 20:00 połączone z Adoracją Najświętszego Sakramentu i konferencją.</li>
+                            <li><strong>Spowiedź:</strong> We wtorek i w środę przed Mszą św.</li>
+                            <li><strong>Czwartek (zakończenie):</strong> Obrzęd zawierzenia parafii i naszych rodzin opiece św. Michała Archanioła. Prosimy o modlitwę w intencji owoców rekolekcji.</li>
+                        </ul>
+                    </div>
+
+                    <p>Dziś w niedzielę 13.09 po Mszy św. wieczornej odbędzie się <strong>Procesja Fatimska</strong>. Zapraszamy.</p>
+
+                    <p><strong>Wspomnienia liturgiczne i święta w tygodniu:</strong></p>
+                    <ul>
+                        <li>Poniedziałek (14.09) – Święto Podwyższenia Krzyża Świętego.</li>
+                        <li>Wtorek (15.09) – Wspomnienie Matki Bożej Bolesnej.</li>
+                        <li>Czwartek (17.09) – Wspomnienie św. Zygmunta Szczęsnego Felińskiego, biskupa.</li>
+                        <li>Piątek (18.09) – Wspomnienie św. Stanisława Kostki, patrona Polski, Archidiecezji Warszawskiej i ministrantów.</li>
+                    </ul>
+
+                    <p>W tę sobotę (3. miesiąca) podczas Mszy św. będą czytane <strong>wypominki roczne</strong>.</p>
+
+                    <p>Zapraszamy dziewczynki na próby <strong>scholii</strong> w soboty o godz. 17:00 oraz dorosłych na próby <strong>chóru</strong> w piątki o godz. 19:00.</p>
+
+                    <p>Zachęcamy do włączenia się w <strong>zbiórkę elektroodpadów</strong>. Prosimy o składowanie ich na parkingu przed Kościołem przy ogrodzeniu boiska.</p>
+
+                    <p><i>Życzymy wszystkim pięknego wypoczynku, a parafianom oraz gościom udanej niedzieli i spokojnego tygodnia.</i></p>
+                </div>
+            </details>
+
+            <!-- OGŁOSZENIE 2: 06.09.2026 -->
+            <details class="announcement-card">
+                <summary class="announcement-header">
+                    <div class="header-info">
+                        <span class="header-title">XXIII Niedziela Zwykła</span>
+                        <span class="header-date">📅 6 września 2026 r.</span>
+                    </div>
+                </summary>
+                <div class="accordion-body announcement-body">
+                    <p>Dziś z racji I niedzieli miesiąca po Sumie odbędzie się Adoracja i Procesja. Zapraszamy bielanki, członków Róży Różańcowej i panów do chorągwi.</p>
+
+                    <p>Przypominamy, że dzisiaj (6.09) wracamy do stałego porządku Mszy św. niedzielnych o g. 12:30.</p>
+
+                    <p>We wtorek przypada święto Narodzenia NMP (Matki Bożej Siewnej) – po każdej Mszy św. odbędzie się obrzęd błogosławieństwa ziarna siewnego i nasion.</p>
+
+                    <p>W środę przypada Nowenna do św. Józefa, a w czwartek rozpoczynamy przygotowania do I Komunii św. o godz. 18:45 w Kazuniu i w Małocicach.</p>
+
+                    <p>W sobotę (12.09) wspomnienie Imienia Najświętszej Maryi Panny, związane z 343. rocznicą wiktorii wiedeńskiej z 1683 r.</p>
+
+                    <p>Przypominamy, że za tydzień (13–17.09) planowana jest Renowacja Misji Świętych. Za tydzień ofiary na tacę będą przeznaczone na Seminarium Duchowne.</p>
+
+                    <p>Zapraszamy na próby scholii (soboty, g. 17:00) i chóru (piątki, g. 19:00) oraz zachęcamy do udziału w zbiórce elektroodpadów na parkingu przed Kościołem.</p>
+
+                    <p><i>Życzymy wszystkim pięknego wypoczynku oraz spokojnego tygodnia.</i></p>
+                </div>
+            </details>
+
+            <!-- OGŁOSZENIE 3: 30.08.2026 -->
+            <details class="announcement-card">
+                <summary class="announcement-header">
+                    <div class="header-info">
+                        <span class="header-title">XXII Niedziela Zwykła (Jubileusz Kaplicy)</span>
+                        <span class="header-date">📅 30 sierpnia 2026 r.</span>
+                    </div>
+                </summary>
+                <div class="accordion-body announcement-body">
+                    <div class="highlight-box">
+                        <strong>25-lecie powstania Kaplicy w Małocicach:</strong><br>
+                        Dziś celebrujemy srebrny jubileusz kaplicy! O godz. 14:30 odbędzie się złożenie kwiatów przy pomniku Mordu Małocickiego i uczniów szkoły, a o godz. 15:00 Msza św. dziękczynna (uwaga: brak Mszy św. o g. 9:30). Po liturgii koncert dziękczynny oraz Piknik 5 Sołectw na terenie parkingu za kaplicą.
+                    </div>
+
+                    <p>We wtorek (1 września) przypada 87. rocznica agresji niemieckiej na Polskę. Pamiętajmy w modlitwie o obrońcach Ojczyzny.</p>
+
+                    <p>Również we wtorek rozpoczyna się nowy rok szkolny i katechetyczny. Spowiedź dla uczniów od godz. 17:30, Msza św. o godz. 18:00.</p>
+
+                    <p>W tym tygodniu przypada I czwartek, I piątek (spowiedź w Małocicach o 15:00, Msza o 15:30; w Kazuniu spowiedź od 17:30) oraz I sobota miesiąca (Nabożeństwo Fatimskie o godz. 17:10, następnie Msza św.).</p>
+
+                    <p>Dziękujemy za dotychczas przyniesione kwiaty z ogrodów i prosimy o dalsze wsparcie w dekorowaniu świątyni.</p>
+
+                    <p><i>Życzymy owocnego nowego roku szkolnego i udanego tygodnia.</i></p>
+                </div>
+            </details>
+
+            <!-- OGŁOSZENIE 4: 23.08.2026 -->
+            <details class="announcement-card">
+                <summary class="announcement-header">
+                    <div class="header-info">
+                        <span class="header-title">XXI Niedziela Zwykła</span>
+                        <span class="header-date">📅 23 sierpnia 2026 r.</span>
+                    </div>
+                </summary>
+                <div class="accordion-body announcement-body">
+                    <p>W środę (26.08) przypada <strong>Uroczystość Najświętszej Maryi Panny Częstochowskiej</strong>, głównej patronki Polski. Msze święte: w Małocicach o godz. 15:00, w Kazuniu o godz. 18:00. Prosimy o wywieszenie flag narodowych i maryjnych.</p>
+
+                    <p>Zapowiedź wydarzeń: W niedzielę 30.08 obchodzić będziemy 25-lecie kaplicy w Małocicach wraz z koncertem i Piknikiem 5 Sołectw.</p>
+
+                    <p>Składamy podziękowania osobom ofiarującym kwiaty z własnych ogrodów do dekoracji kościoła.</p>
+
+                    <p><i>Życzymy wszystkim udanej niedzieli i błogosławionego tygodnia.</i></p>
+                </div>
+            </details>
+
+            <!-- OGŁOSZENIE 5: 16.08.2026 -->
+            <details class="announcement-card">
+                <summary class="announcement-header">
+                    <div class="header-info">
+                        <span class="header-title">XX Niedziela Zwykła</span>
+                        <span class="header-date">📅 16 sierpnia 2026 r.</span>
+                    </div>
+                </summary>
+                <div class="accordion-body announcement-body">
+                    <p>Sierpień jest miesiącem pamięci narodowej i pielgrzymowania na Jasną Górę. Pamiętajmy o bohaterach i pielgrzymach w naszych modlitwach.</p>
+
+                    <p>W tym tygodniu: środa – wspomnienie św. Jana Eudesa; sobota (22.08) – wspomnienie NMP Królowej.</p>
+
+                    <p>W czwartek (20.08) o godz. 20:00 zapraszamy na łąkę naprzeciwko Kościoła na <strong>Kino Letnie</strong> (projekcja filmu: „Clifford – wielki czerwony pies”).</p>
+
+                    <p><strong>Zapowiedzi przedślubne (2):</strong> Adrian Aniszewski (kawaler) i Małgorzata Kowalska (panna), oboje z tutejszej parafii, zamieszkali w Grochalach Starych.</p>
+
+                    <p><i>Życzymy udanego wypoczynku wakacyjnego!</i></p>
+                </div>
+            </details>
+
+            <!-- OGŁOSZENIE 6: 09.08.2026 -->
+            <details class="announcement-card">
+                <summary class="announcement-header">
+                    <div class="header-info">
+                        <span class="header-title">XIX Niedziela Zwykła</span>
+                        <span class="header-date">📅 9 sierpnia 2026 r.</span>
+                    </div>
+                </summary>
+                <div class="accordion-body announcement-body">
+                    <p>W czwartek (13.08) zapraszamy na Nabożeństwo Fatimskie. Po Mszy wieczornej wyruszymy w procesji z figurą MB Fatimskiej.</p>
+
+                    <p>W sobotę (15.08) przypada <strong>Uroczystość Wniebowzięcia NMP</strong> (obowiązek uczestnictwa we Mszy św.). Porządek niedzielny. Po każdej Mszy św. obrzéd błogosławieństwa ziół i kwiatów. Jest to także rocznica Cudu nad Wisłą i Święto Wojska Polskiego.</p>
+
+                    <p>W sobotę od godz. 17:10 czytanie wypominek rocznych, a o godz. 18:00 Msza św. za zmarłych.</p>
+
+                    <p><strong>Zapowiedzi przedślubne (1):</strong> Adrian Aniszewski i Małgorzata Kowalska.</p>
+                </div>
+            </details>
+
+            <!-- OGŁOSZENIE 7: 02.08.2026 -->
+            <details class="announcement-card">
+                <summary class="announcement-header">
+                    <div class="header-info">
+                        <span class="header-title">XVIII Niedziela Zwykła</span>
+                        <span class="header-date">📅 2 sierpnia 2026 r.</span>
+                    </div>
+                </summary>
+                <div class="accordion-body announcement-body">
+                    <p>Dziś I niedziela miesiąca – po Sumie o godz. 11:50 Adoracja i Procesja Eucharystyczna.</p>
+
+                    <p>W poniedziałek (3.08) gościć będziemy ok. 220 pielgrzymów z Ełku (przyjście ok. 18:30). Prosimy parafian o otworzenie serc i domów dla pielgrzymów.</p>
+
+                    <p>W tym tygodniu: środa (5.08) – MB Śnieżnej; czwartek – Przemienienie Pańskie (I czwartek); piątek – I piątek (spowiedź od 17:30, po Mszy o 18:00 Adoracja Nocna – zapisy pod chórem).</p>
+                </div>
+            </details>
+
+            <!-- OGŁOSZENIE 8: 26.07.2026 (LITURGIA & INTENCJE) -->
+            <details class="announcement-card">
+                <summary class="announcement-header">
+                    <div class="header-info">
+                        <span class="header-title">XVII Niedziela Zwykła (Intencje Mszalne)</span>
+                        <span class="header-date">📅 26 lipca 2026 r.</span>
+                    </div>
+                </summary>
+                <div class="accordion-body announcement-body">
+                    <p><strong>Liturgia i intencje parafialne na niedzielę 26.07.2026 r.:</strong></p>
+                    
+                    <table class="intentions-table">
+                        <thead>
+                            <tr>
+                                <th>Godz.</th>
+                                <th>Intencja Mszalna</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>7:30</strong></td>
+                                <td>† Anny, Czesława Mosakowskich, Czesławy Gołębiowskiej i Sławomira Wiśniewskiego</td>
+                            </tr>
+                            <tr>
+                                <td><strong>9:30</strong><br><small>(Małocice)</small></td>
+                                <td>† Henryka i zmarłych z rodz. Wojtczaków, Stanisława i Stanisławy Dudek</td>
+                            </tr>
+                            <tr>
+                                <td><strong>11:00</strong></td>
+                                <td>
+                                    <strong>Msza św. zbiorowa w intencji Parafian:</strong><br>
+                                    1) † Władysławy, Czesława, Stanisława oraz zm. z rodz. Kowalewskich<br>
+                                    2) † Mieczysława Pędzisz (10. rocz. śm.)<br>
+                                    3) † Zdzisławy (18. rocz. śm.), Marianny, Czesława Połeć, Stefanii, Franciszka Ryńskich, Adeli Kaczorowskiej<br>
+                                    4) † Leonarda Wojcieskiego<br>
+                                    5) † Krzysztofa Tomaszewskiego (imieninowa)<br>
+                                    6) † Waldemara Symon (8. rocz. śm.)<br>
+                                    <i>Sakrament chrztu: Aleksander</i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>18:00</strong></td>
+                                <td>† Krzysztofa Sarneckiego (4. rocz. śm.) oraz Renalda Andrzejewskiego</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+
+            <!-- OGŁOSZENIE 9: 19.07.2026 -->
+            <details class="announcement-card">
+                <summary class="announcement-header">
+                    <div class="header-info">
+                        <span class="header-title">XVI Niedziela Zwykła</span>
+                        <span class="header-date">📅 19 lipca 2026 r.</span>
+                    </div>
+                </summary>
+                <div class="accordion-body announcement-body">
+                    <p>Składamy serdeczne "Bóg zapłać" wszystkim za pomoc w przygotowaniu uroczystości odpustowych w naszej parafii.</p>
+
+                    <p>Dziś po Mszach św. odbywa się obrzéd <strong>błogosławieństwa pojazdów</strong> z racji nadchodzącego wspomnienia św. Krzysztofa.</p>
+
+                    <p>Zapowiedź: Za rok będziemy celebrować piękny jubileusz <strong>550-lecia powstania naszej parafii w Kazuniu nad Wisłą</strong>. O planowanych inwestycjach będziemy informować wkrótce.</p>
+
+                    <p><i>Spokojnej niedzieli i udanego wypoczynku niedzielnego!</i></p>
+                </div>
+            </details>
+
+        </section>
+
+    </main>
+
+    <!-- Dynamiczna stopka ładowana przez nav.js -->
+    <footer id="main-footer"></footer>
+
+    <!-- Skrypt nawigacji, stopki oraz trybu nocnego -->
+    <script src="nav.js"></script>
+</body>
+</html>
