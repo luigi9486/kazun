@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p>📞 <a href="tel:+48...">+48...</a> &nbsp;|&nbsp; ✉️ <a href="mailto:parafia.kazun@gmail.com">parafia.kazun@gmail.com</a></p>
                 
                 <p style="margin-top: 1rem;">
-                    <a href="standardy_ochrony_dzieci.pdf" target="_blank" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
-                        🛡️ Standardy Ochrony Małoletnich (PDF)
+                    <a href="standardy.html" target="_blank" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
+                        🛡️ Standardy Ochrony Małoletnich
                     </a>
                 </p>
             </div>
