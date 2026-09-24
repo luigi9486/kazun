@@ -19,18 +19,34 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>
     `;
 
-    // 2. Uproszczona Stopka (Tylko nazwa, adres, telefon i e-mail)
+    // 2. Stopka z danymi kontaktowymi i Standardami Ochrony Małoletnich
     const footerHTML = `
         <div class="footer-container" style="justify-content: center; text-align: center; display: block; padding: 1.5rem 1rem;">
             <div class="footer-col" style="max-width: 600px; margin: 0 auto;">
                 <h3>Parafia Kazuń Bielany</h3>
                 <p>ul. Wojska Polskiego 1, 05-152 Czosnów</p>
                 <p>📞 <a href="tel:+48...">+48...</a> &nbsp;|&nbsp; ✉️ <a href="mailto:parafia.kazun@gmail.com">parafia.kazun@gmail.com</a></p>
+                
+                <p style="margin-top: 1rem;">
+                    <a href="standardy_ochrony_dzieci.pdf" target="_blank" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
+                        🛡️ Standardy Ochrony Małoletnich (PDF)
+                    </a>
+                </p>
             </div>
         </div>
 
         <div class="footer-bottom">
             <p>&copy; Parafia Rzymskokatolicka Matki Bożej Szkaplerznej w Kazuniu Bielanach</p>
+        </div>
+    `;
+
+    // 3. Szablon Paska Ciasteczek
+    const cookieHTML = `
+        <div id="cookie-banner" class="cookie-banner">
+            <div class="cookie-content">
+                <p>Ta strona używa plików cookies w celu zapewnienia prawidłowego działania oraz wygody przeglądania. Korzystając ze strony, wyrażasz zgodę na ich używanie.</p>
+                <button onclick="acceptCookies()" class="cookie-btn">Akceptuję</button>
+            </div>
         </div>
     `;
 
@@ -44,6 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const footerElement = document.getElementById("main-footer");
     if (footerElement) {
         footerElement.innerHTML = footerHTML;
+    }
+
+    // Wyświetlenie banneru ciasteczek (jeśli nie zostały wcześniej zaakceptowane)
+    if (!localStorage.getItem("cookiesAccepted")) {
+        document.body.insertAdjacentHTML("beforeend", cookieHTML);
     }
 
     // Automatyczne podświetlanie aktywnej podstrony w menu
@@ -61,6 +82,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedTheme = localStorage.getItem("theme");
     applyTheme(savedTheme === "dark");
 });
+
+/* Obsługa akceptacji ciasteczek */
+function acceptCookies() {
+    localStorage.setItem("cookiesAccepted", "true");
+    const banner = document.getElementById("cookie-banner");
+    if (banner) {
+        banner.style.opacity = "0";
+        setTimeout(() => banner.remove(), 300);
+    }
+}
 
 /* Logika przełączania motywu */
 function toggleTheme() {
