@@ -8,15 +8,20 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .page-container {
-            max-width: 1000px;
+        /* Nadpisanie układu main dla podstrony */
+        main.page-container {
+            display: block !important;
+            max-width: 1100px;
             margin: 1.5rem auto;
             padding: 0 1rem;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .page-title {
             text-align: center;
             margin-bottom: 2rem;
+            padding-top: 1rem;
         }
 
         .page-title h1 {
@@ -28,9 +33,10 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
+            width: 100%;
         }
 
         .schedule-list {
@@ -45,6 +51,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 0.5rem;
             font-size: 0.95rem;
         }
 
@@ -55,20 +62,11 @@
         .time-badge {
             font-weight: 700;
             color: var(--accent-gold);
-            background: rgba(214, 158, 46, 0.1);
+            background: rgba(214, 158, 46, 0.12);
             padding: 0.2rem 0.6rem;
             border-radius: 6px;
             white-space: nowrap;
-        }
-
-        .info-callout {
-            background: var(--card-bg);
-            border-left: 4px solid var(--accent-gold);
-            padding: 1rem 1.2rem;
-            border-radius: 0 10px 10px 0;
-            margin-top: 1rem;
-            font-size: 0.95rem;
-            box-shadow: var(--shadow);
+            flex-shrink: 0;
         }
 
         .votive-box {
@@ -77,6 +75,12 @@
             border-radius: 10px;
             padding: 1rem;
             margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -146,7 +150,7 @@
             <h2>Msze Święte Wotywne (godz. 18:00)</h2>
             <p>Gdy w dany dzień nie wypada święto lub uroczystość:</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div class="services-grid" style="margin-top: 1rem; margin-bottom: 0;">
                 <div class="votive-box">
                     <div class="location-title">Środa – Do św. Józefa</div>
                     <p style="font-size: 0.9rem; margin-top: 0.3rem;">Odprawiana według stałych formularzy mszalnych do opiekuna Świętej Rodziny.</p>
@@ -201,7 +205,7 @@
                         <div class="location-title">I Sobota Miesiąca</div>
                         <ul class="schedule-list">
                             <li><span>Msza wotywna do Niepokalanego Serca NMP</span> <span class="time-badge">18:00</span></li>
-                            <li><span>Nabożeństwo Fatimskie (Różańcowe)</span> <span class="time-badge">18:30</span></li>
+                            <li><span>Nabożeństwo Fatimskie (Różaniec)</span> <span class="time-badge">18:30</span></li>
                         </ul>
                     </div>
 
@@ -222,7 +226,7 @@
             <div class="card-icon">🌹</div>
             <h2>Inne Nabożeństwa i Okresowe</h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+            <div class="services-grid" style="margin-top: 1rem; margin-bottom: 0;">
                 <div>
                     <div class="location-group">
                         <div class="location-title">🌸 Majowe i Czerwcowe</div>
