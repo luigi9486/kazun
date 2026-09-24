@@ -28,7 +28,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
@@ -58,16 +58,25 @@
             background: rgba(214, 158, 46, 0.1);
             padding: 0.2rem 0.6rem;
             border-radius: 6px;
+            white-space: nowrap;
         }
 
         .info-callout {
             background: var(--card-bg);
             border-left: 4px solid var(--accent-gold);
-            padding: 1.2rem;
+            padding: 1rem 1.2rem;
             border-radius: 0 10px 10px 0;
             margin-top: 1rem;
             font-size: 0.95rem;
             box-shadow: var(--shadow);
+        }
+
+        .votive-box {
+            background: rgba(214, 158, 46, 0.05);
+            border: 1px solid rgba(214, 158, 46, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -76,14 +85,14 @@
     <!-- Dynamiczny nagłówek ładowany przez nav.js -->
     <header id="main-header"></header>
 
-    <main class="page-container" style="display: block;">
+    <main class="page-container">
         
         <div class="page-title">
             <h1>Msze Święte i Nabożeństwa</h1>
-            <p>Porządek nabożeństw w Kościele Parafialnym oraz Kaplicy Filialnej</p>
+            <p>Porządek nabożeństw w Kościele Parafialnym w Kazuniu oraz Kaplicy w Małocicach</p>
         </div>
 
-        <!-- Porządek Mszy Świętych w podziale na lokalizacje -->
+        <!-- 1. GŁÓWNY HARMONOGRAM MSZY -->
         <div class="services-grid">
             
             <!-- Kościół w Kazuniu -->
@@ -94,77 +103,155 @@
                 <div class="location-group">
                     <div class="location-title">Niedziele i Święta</div>
                     <ul class="schedule-list">
-                        <li><span>Msza poranna</span> <span class="time-badge">8:00</span></li>
-                        <li><span>Suma (z udziałem dzieci)</span> <span class="time-badge">10:00</span></li>
-                        <li><span>Msza popołudniowa</span> <span class="time-badge">17:00</span></li>
+                        <li><span>Msza św. (z udziałem chóru)</span> <span class="time-badge">7:30</span></li>
+                        <li><span>Msza św. (z udziałem dzieci)</span> <span class="time-badge">11:00</span></li>
+                        <li><span>Msza św. (w intencji Parafian)</span> <span class="time-badge">12:30</span></li>
+                        <li><span>Msza św. (z udziałem młodzieży)</span> <span class="time-badge">18:00</span></li>
                     </ul>
                 </div>
 
                 <div class="location-group">
                     <div class="location-title">Dni Powszednie</div>
                     <ul class="schedule-list">
-                        <li><span>Msze wieczorne</span> <span class="time-badge">17:00 i 17:30</span></li>
+                        <li><span>Msza Święta wieczorna</span> <span class="time-badge">18:00</span></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Kaplica w Małocicach -->
+            <!-- Kaplica w Małocicach & Sakrament Pokuty -->
             <div class="card">
                 <div class="card-icon">🏠</div>
                 <h2>Kaplica w Małocicach</h2>
-                <p><em>p.w. Podwyższenia Krzyża Świętego</em></p>
                 
                 <div class="location-group">
                     <div class="location-title">Niedziele i Święta</div>
                     <ul class="schedule-list">
-                        <li><span>Msza Święta</span> <span class="time-badge">11:30</span></li>
+                        <li><span>Msza Święta</span> <span class="time-badge">9:30</span></li>
                     </ul>
                 </div>
 
-                <div class="info-callout" style="margin-top: 1.5rem;">
-                    💡 Spowiedź w kaplicy odbywa się przed każdą niedzielną Mszą Świętą.
+                <div style="margin-top: 2rem;">
+                    <div class="card-icon">🕯️</div>
+                    <h2>Sakrament Pokuty i Pojednania</h2>
+                    <p style="margin-top: 0.5rem;"><strong>Dni powszednie oraz Niedziele:</strong><br>15 minut przed każdą Mszą Świętą.</p>
+                    <p style="margin-top: 0.5rem;"><strong>Na wezwanie:</strong> O każdej porze do chorych.</p>
                 </div>
             </div>
 
         </div>
 
-        <!-- Okresowe Nabożeństwa -->
+        <!-- 2. MSZE ŚWIĘTE WOTYWNE (ŚRODY I SOBOTY) -->
         <section class="card" style="margin-bottom: 2rem;">
-            <div class="card-icon">🕯️</div>
-            <h2>Nabożeństwa Okresowe i Stałe</h2>
+            <div class="card-icon">✨</div>
+            <h2>Msze Święte Wotywne (godz. 18:00)</h2>
+            <p>Gdy w dany dzień nie wypada święto lub uroczystość:</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div class="votive-box">
+                    <div class="location-title">Środa – Do św. Józefa</div>
+                    <p style="font-size: 0.9rem; margin-top: 0.3rem;">Odprawiana według stałych formularzy mszalnych do opiekuna Świętej Rodziny.</p>
+                </div>
+
+                <div class="votive-box">
+                    <div class="location-title">Sobota – Do Najświętszej Maryi Panny</div>
+                    <p style="font-size: 0.9rem; margin-top: 0.3rem;">Odprawiana według formularzy mszalnych wotywnych do NMP.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. NABOŻEŃSTWA PIERWSZYCH DNI MIESIĄCA -->
+        <section class="card" style="margin-bottom: 2rem;">
+            <div class="card-icon">❤️</div>
+            <h2>Nabożeństwa I-szych Dni Miesiąca</h2>
+            
+            <div class="services-grid" style="margin-top: 1rem; margin-bottom: 0;">
                 
                 <div>
                     <div class="location-group">
-                        <div class="location-title">🌹 Majowe i Czerwcowe</div>
-                        <p>Po Mszy Świętej o godz. 17:00</p>
+                        <div class="location-title">I Czwartek Miesiąca</div>
+                        <ul class="schedule-list">
+                            <li><span>Msza św. o Chrystusie Kapłanie</span> <span class="time-badge">18:00</span></li>
+                            <li><span>Litania do Chrystusa Kapłana</span> <span class="time-badge">18:30</span></li>
+                            <li><span>Adoracja Najświętszego Sakramentu</span> <span class="time-badge">18:40</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="location-group">
+                        <div class="location-title">I Piątek Miesiąca (Kazuń)</div>
+                        <p style="font-size: 0.85rem; color: var(--accent-gold); margin-bottom: 0.3rem;">Msza wotywna o Najświętszym Sercu Pana Jezusa</p>
+                        <ul class="schedule-list">
+                            <li><span>Spowiedź święta</span> <span class="time-badge">17:30</span></li>
+                            <li><span>Msza Święta</span> <span class="time-badge">18:00</span></li>
+                            <li><span>Nabożeństwo i Litania do NSPJ</span> <span class="time-badge">18:30</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="location-group">
+                        <div class="location-title">I Piątek Miesiąca (Małocice)</div>
+                        <ul class="schedule-list">
+                            <li><span>Spowiedź święta</span> <span class="time-badge">16:00</span></li>
+                            <li><span>Msza Święta</span> <span class="time-badge">16:30</span></li>
+                            <li><span>Nabożeństwo I-piątkowe</span> <span class="time-badge">17:00</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="location-group">
+                        <div class="location-title">I Sobota Miesiąca</div>
+                        <ul class="schedule-list">
+                            <li><span>Msza wotywna do Niepokalanego Serca NMP</span> <span class="time-badge">18:00</span></li>
+                            <li><span>Nabożeństwo Fatimskie (Różańcowe)</span> <span class="time-badge">18:30</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="location-group">
+                        <div class="location-title">I Niedziela Miesiąca</div>
+                        <ul class="schedule-list">
+                            <li><span>Suma z chórem</span> <span class="time-badge">12:30</span></li>
+                            <li><span>Adoracja i Procesja Eucharystyczna</span> <span class="time-badge">13:30</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. INNE NABOŻEŃSTWA I OKRESOWE -->
+        <section class="card" style="margin-bottom: 2rem;">
+            <div class="card-icon">🌹</div>
+            <h2>Inne Nabożeństwa i Okresowe</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                <div>
+                    <div class="location-group">
+                        <div class="location-title">🌸 Majowe i Czerwcowe</div>
+                        <p>Codziennie o godz. <strong>17:30</strong></p>
                     </div>
 
                     <div class="location-group">
                         <div class="location-title">📿 Październikowe (Różańcowe)</div>
-                        <p>Dla dzieci i dorosłych po Mszy Św. wieczornej (17:00)</p>
+                        <p>Kazuń: godz. <strong>17:30</strong><br>Małocice: godz. <strong>16:00</strong></p>
                     </div>
 
                     <div class="location-group">
-                        <div class="location-title">✝️ Wielki Post</div>
-                        <p><strong>Droga Krzyżowa:</strong> Piątki o 16:30</p>
-                        <p><strong>Gorzkie Żale:</strong> Niedziele po Mszy o 10:00</p>
+                        <div class="location-title">📜 Wypominki</div>
+                        <p>W każdą <strong>3. sobotę miesiąca</strong> podczas Mszy Św. o godz. 18:00</p>
                     </div>
                 </div>
 
                 <div>
                     <div class="location-group">
-                        <div class="location-title">❤️ Pierwsze Piątki Miesiąca</div>
-                        <p>Nabożeństwo do Najświętszego Serca Pana Jezusa i spowiedź od godz. 16:30</p>
+                        <div class="location-title">✝️ Wielki Post</div>
+                        <p><strong>Droga Krzyżowa:</strong> w każdy piątek</p>
+                        <p><strong>Gorzkie Żale:</strong> w niedziele po Sumie</p>
                     </div>
 
                     <div class="location-group">
-                        <div class="location-title">🙏 Spowiedź Święta</div>
-                        <p>Codziennie 15 minut przed każdą Mszą Świętą</p>
+                        <div class="location-title">🕯️ Adwent (Roraty)</div>
+                        <p>Wtorek, Czwartek i Sobota o godz. <strong>6:45</strong></p>
                     </div>
                 </div>
-
             </div>
         </section>
 
