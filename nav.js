@@ -30,7 +30,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p>✉️ <a href="mailto:parafia.kazun@gmail.com">parafia.kazun@gmail.com</a></p>
             </div>
 
-           
+            <!-- Kolumna 2: Godziny Kancelarii -->
+            <div class="footer-col">
+                <h3>Kancelaria Parafialna</h3>
+                <p><strong>Środa:</strong> 15:00 – 17:00</p>
+                <p><strong>Sobota:</strong> 10:00 – 12:00</p>
+                <p><em>(Pogrzeb: o każdej porze)</em></p>
+            </div>
+
+            <!-- Kolumna 3: Szybkie Linki -->
+            <div class="footer-col">
+                <h3>Szybki Kontakt</h3>
+                <p><a href="kancelaria.html">Sprawy sakramentalne</a></p>
+                <p><a href="kancelaria.html#mapa">Mapa i dojazd</a></p>
+            </div>
+        </div>
+
         <div class="footer-bottom">
             <p>&copy; Parafia Rzymskokatolicka Matki Bożej Szkaplerznej w Kazuniu Bielanach</p>
         </div>
