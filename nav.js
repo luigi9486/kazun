@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // 1. Szablon Nagłówka
     const headerHTML = `
         <nav>
-        
+            <a href="index.html" class="logo">Strona Główna</a>
             
             <ul class="nav-links">
-                <li><a href=ogloszenia.html">Ogłoszenia</a></li>
-                <li><a href=intencje.html">Intencje</a></li>
+                <li><a href="ogloszenia.html">Ogłoszenia</a></li>
+                <li><a href="intencje.html">Intencje</a></li>
                 <li><a href="msze.html">Msze Święte</a></li>
                 <li><a href="historia.html">Historia</a></li>
                 <li><a href="kancelaria.html">Kancelaria i kontakt</a></li>
@@ -59,14 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Inicjalizacja motywu
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-        applyTheme(true);
-    }
+    applyTheme(savedTheme === "dark");
 });
 
 /* Logika przełączania motywu */
 function toggleTheme() {
-    const isDark = document.body.classList.toggle("dark-mode");
+    const isDark = !document.body.classList.contains("dark-mode");
     localStorage.setItem("theme", isDark ? "dark" : "light");
     applyTheme(isDark);
 }
