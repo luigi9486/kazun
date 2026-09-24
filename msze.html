@@ -77,7 +77,7 @@
             flex-shrink: 0;
         }
 
-        /* Osobny styl dla wyróżnionej karty Spowiedzi */
+        /* Karta Spowiedzi w czystej, oryginalnej formie */
         .confession-card {
             background: var(--card-bg);
             border-top: 4px solid var(--accent-gold);
@@ -87,22 +87,14 @@
             box-shadow: var(--shadow);
         }
 
-        .confession-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+        .confession-content {
             margin-top: 1rem;
-        }
-
-        .confession-item {
-            background: rgba(214, 158, 46, 0.05);
-            border: 1px solid rgba(214, 158, 46, 0.2);
-            border-radius: 8px;
-            padding: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
         }
 
         @media (max-width: 768px) {
-            .services-grid, .confession-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -117,11 +109,10 @@
         
         <!-- Tytuł podstrony -->
         <div class="page-title">
-            <h1>Msze Święte i Nabożeństwa</h1>
-            <p>Porządek nabożeństw w Kościele Parafialnym w Kazuniu oraz Kaplicy w Małocicach</p>
+            <h1>HARMONOGRAM MSZY ŚWIĘTYCH</h1>
         </div>
 
-        <!-- ETAP 1A: Podstawowy Harmonogram Mszy Świętych -->
+        <!-- ETAP 1A: Harmonogram Mszy Świętych -->
         <div class="services-grid">
             
             <!-- Kościół w Kazuniu -->
@@ -130,19 +121,19 @@
                 <h2>Kościół Parafialny w Kazuniu</h2>
                 
                 <div class="location-group">
-                    <div class="location-title">Niedziele i Święta</div>
+                    <div class="location-title">ŚWIĘTO I NIEDZIELA</div>
                     <ul class="schedule-list">
-                        <li><span>Msza św. (z udziałem chóru)</span> <span class="time-badge">7:30</span></li>
-                        <li><span>Msza św. (z udziałem dzieci)</span> <span class="time-badge">11:00</span></li>
-                        <li><span>Msza św. (w intencji Parafian)</span> <span class="time-badge">12:30</span></li>
-                        <li><span>Msza św. (z udziałem młodzieży)</span> <span class="time-badge">18:00</span></li>
+                        <li><span>Msza św. w Kazuniu (z udziałem chóru)</span> <span class="time-badge">7:30</span></li>
+                        <li><span>Msza św. w Kazuniu (z udziałem dzieci)</span> <span class="time-badge">11:00</span></li>
+                        <li><span>Msza św. w Kazuniu (w intencji parafian)</span> <span class="time-badge">12:30</span></li>
+                        <li><span>Msza św. w Kazuniu (z udziałem młodzieży)</span> <span class="time-badge">18:00</span></li>
                     </ul>
                 </div>
 
                 <div class="location-group" style="margin-top: 1.5rem;">
-                    <div class="location-title">Dni Powszednie</div>
+                    <div class="location-title">DZIEŃ POWSZEDNI</div>
                     <ul class="schedule-list">
-                        <li><span>Msza Święta wieczorna</span> <span class="time-badge">18:00</span></li>
+                        <li><span>Msza św. w Kazuniu</span> <span class="time-badge">18:00</span></li>
                     </ul>
                 </div>
             </div>
@@ -153,44 +144,30 @@
                 <h2>Kaplica w Małocicach</h2>
                 
                 <div class="location-group">
-                    <div class="location-title">Niedziele i Święta</div>
+                    <div class="location-title">ŚWIĘTO I NIEDZIELA</div>
                     <ul class="schedule-list">
-                        <li><span>Msza Święta</span> <span class="time-badge">9:30</span></li>
+                        <li><span>Msza św. w Małocicach</span> <span class="time-badge">9:30</span></li>
                     </ul>
                 </div>
             </div>
 
         </div>
 
-        <!-- ETAP 1B: Dedykowana Sekcja Sakramentu Pokuty i Pojednania -->
+        <!-- ETAP 1B: Sakrament Pokuty i Pojednania (oryginalna treść) -->
         <section class="confession-card">
             <div style="display: flex; align-items: center; gap: 0.6rem;">
                 <span style="font-size: 1.8rem;">🕯️</span>
-                <h2 style="margin: 0; font-family: 'Georgia', serif; color: var(--accent-gold);">Sakrament Pokuty i Pojednania</h2>
+                <h2 style="margin: 0; font-family: 'Georgia', serif; color: var(--accent-gold);">Sakrament pokuty i pojednania</h2>
             </div>
 
-            <div class="confession-grid">
-                <div class="confession-item">
-                    <div class="location-title">📅 Dni Powszednie oraz Niedziele</div>
-                    <p style="margin-top: 0.5rem; font-size: 0.95rem; line-height: 1.4;">
-                        Możliwość spowiedzi <strong>15 minut przed każdą Mszą Świętą</strong> w Kazuniu i Małocicach.
-                    </p>
-                </div>
-
-                <div class="confession-item">
-                    <div class="location-title">🏥 Chorym i potrzebującym</div>
-                    <p style="margin-top: 0.5rem; font-size: 0.95rem; line-height: 1.4;">
-                        Spowiedź oraz Sakrament Chorych udzielane są <strong>na wezwanie o każdej porze</strong>.
-                    </p>
-                </div>
+            <div class="confession-content">
+                <p>W dni powszednie 15 minut przed Mszą świętą,</p>
+                <p>W niedziele i święta 15 minut przed Mszą świętą,</p>
+                <p><strong>NA WEZWANIE</strong></p>
             </div>
         </section>
 
-        <!-- Miejsce na kolejne etapy:
-             - Etap 2: Msze Wotywne (Środa i Sobota)
-             - Etap 3: Nabożeństwa I-szych Dni Miesiąca
-             - Etap 4: Inne Nabożeństwa i Okresowe
-        -->
+        <!-- MIEJSCE NA ETAP 2: Msze Święte Wotywne -->
 
     </main>
 
