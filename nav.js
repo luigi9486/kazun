@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. Definicja szablonu nagłówka i nawigacji
+    // 1. Szablon Nagłówka
     const headerHTML = `
         <nav>
             <a href="index.html" class="logo">Parafia Kazuń Bielany</a>
@@ -19,13 +19,51 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>
     `;
 
-    // 2. Wstawienie nagłówka w miejsce <header id="main-header">
+    // 2. Szablon Rozbudowanej Stopki
+    const footerHTML = `
+        <div class="footer-container">
+            <!-- Kolumna 1: Dane i Kontakt -->
+            <div class="footer-col">
+                <h3>Parafia Kazuń Bielany</h3>
+                <p>ul. Wojska Polskiego 1<br>05-152 Czosnów</p>
+                <p>📞 <a href="tel:+48227850021">+48 22 785 00 21</a></p>
+                <p>✉️ <a href="mailto:parafia.kazun@gmail.com">parafia.kazun@gmail.com</a></p>
+            </div>
+
+            <!-- Kolumna 2: Godziny Kancelarii -->
+            <div class="footer-col">
+                <h3>Kancelaria Parafialna</h3>
+                <p><strong>Środa:</strong> 15:00 – 17:00</p>
+                <p><strong>Sobota:</strong> 10:00 – 12:00</p>
+                <p><em>(Pogrzeb: o każdej porze)</em></p>
+            </div>
+
+            <!-- Kolumna 3: Szybkie Linki -->
+            <div class="footer-col">
+                <h3>Szybki Kontakt</h3>
+                <p><a href="kancelaria.html">Sprawy sakramentalne</a></p>
+                <p><a href="kancelaria.html#mapa">Mapa i dojazd</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; Parafia Rzymskokatolicka Matki Bożej Szkaplerznej w Kazuniu Bielanach</p>
+        </div>
+    `;
+
+    // Wstawienie nagłówka
     const headerElement = document.getElementById("main-header");
     if (headerElement) {
         headerElement.innerHTML = headerHTML;
     }
 
-    // 3. Automatyczne podświetlanie aktywnej podstrony w menu
+    // Wstawienie stopki
+    const footerElement = document.getElementById("main-footer");
+    if (footerElement) {
+        footerElement.innerHTML = footerHTML;
+    }
+
+    // Automatyczne podświetlanie aktywnej podstrony w menu
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -36,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 4. Inicjalizacja motywu (synchroniczne odczytanie stanu z localStorage)
+    // Inicjalizacja motywu
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
         applyTheme(true);
@@ -64,7 +102,6 @@ function applyTheme(isDark) {
         if (text) text.textContent = "Tryb Nocny";
     }
 
-    // Jeśli na stronie głównej jest slajder, podmienia obrazki dzień/noc
     const sliderImages = document.querySelectorAll(".slider-img");
     sliderImages.forEach(img => {
         const daySrc = img.getAttribute("data-day-src");
