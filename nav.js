@@ -1,3 +1,34 @@
+/**
+ * Sprawdza, czy w danym miesiącu panuje noc w okolicach Kazunia.
+ * Przybliżone godziny wschodu i zachodu dla środka każdego miesiąca.
+ */
+function isNightTime() {
+    const now = new Date();
+    const month = now.getMonth(); // 0 = Styczeń, 11 = Grudzień
+    const currentHour = now.getHours() + (now.getMinutes() / 60);
+
+    // Tabela: [wschód słońca, zachód słońca] w godzinach (np. 16.5 = 16:30)
+    const sunSchedule = [
+        [7.75, 16.0],  // Styczeń     (07:45 - 16:00)
+        [7.0,  17.0],  // Luty        (07:00 - 17:00)
+        [6.0,  18.0],  // Marzec      (06:00 - 18:00)
+        [5.5,  19.75], // Kwiecień    (05:30 - 19:45)
+        [4.75, 20.5],  // Maj         (04:45 - 20:30)
+        [4.25, 21.0],  // Czerwiec    (04:15 - 21:00)
+        [4.5,  20.75], // Lipiec      (04:30 - 20:45)
+        [5.25, 20.0],  // Sierpień    (05:15 - 20:00)
+        [6.0,  19.0],  // Wrzesień    (06:00 - 19:00)
+        [6.75, 17.75], // Październik (06:45 - 17:45)
+        [7.0,  15.75], // Listopad    (07:00 - 15:45)
+        [7.75, 15.5]   // Grudzień    (07:45 - 15:30)
+    ];
+
+    const [sunrise, sunset] = sunSchedule[month];
+
+    // Noc trwa od zachodu do wschodu słońca
+    return currentHour < sunrise || currentHour >= sunset;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     // 1. Szablon Nagłówka z nowymi pozycjami w menu
     const headerHTML = `
@@ -46,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cookieHTML = `
         <div id="cookie-banner" class="cookie-banner">
             <div class="cookie-content">
-                <p>Ta strona używa plików cookies w celu zapewnienia prawidłowego działania oraz wygody przeglądania. Korzystając ze strony, wyrażasz zgodę na ich używanie.</p>
+                <p>Ta strona używa plików cookies w celu zapewnienia prawidłowego działania oraz wygody przeglądania. Korzystając ze strony, wyrażasz zgode na ich używanie.</p>
                 <button onclick="acceptCookies()" class="cookie-btn">Akceptuję</button>
             </div>
         </div>
@@ -80,12 +111,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Inicjalizacja motywu
-    const savedTheme = localStorage.getItem("theme");
-    applyTheme(savedTheme === "dark");
+    // Inicjalizacja motywu dla aktualnej sesji
+    const savedTheme = sessionStorage.getItem("theme");
+    let isDark = false;
+
+    if (savedTheme !== null) {
+        // Jeśli w trakcie TEJ SESJI użytkownik sam kliknął przycisk, zachowujemy jego wybór
+        isDark = (savedTheme === "dark");
+    } else {
+        // Przy nowej wizycie (nowej sesji) zawsze decyduje tabela godzin wschodu/zachodu
+        isDark = isNightTime();
+    }
+
+    applyTheme(isDark);
 });
 
-/* Obsługa akceptacji ciasteczek */
+/* Obsługa akceptacji ciasteczek (zostaje w localStorage na stałe) */
 function acceptCookies() {
     localStorage.setItem("cookiesAccepted", "true");
     const banner = document.getElementById("cookie-banner");
@@ -95,10 +136,10 @@ function acceptCookies() {
     }
 }
 
-/* Logika przełączania motywu */
+/* Logika przełączania motywu dla obecnej sesji */
 function toggleTheme() {
     const isDark = !document.body.classList.contains("dark-mode");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    sessionStorage.setItem("theme", isDark ? "dark" : "light");
     applyTheme(isDark);
 }
 
