@@ -3,7 +3,36 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    
+    /* JASNY BRĄZ / CIEPŁY BEŻ W TRYBIE DZIENNYM */
+    --nav-bg: rgba(235, 222, 208, 0.94); 
+    --nav-text: #3d2b1f; /* Ciemny brąz dla czcionek menu */
+    
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --accent-gold: #b47814; /* Głębokie złoto */
+    --gold-gradient: linear-gradient(135deg, #b7791f 0%, #f6e05e 40%, #d69e2e 70%, #975a16 100%);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
+body.dark-mode {
+    --bg-color: #0f1115;
+    --text-color: #e0e0e0;
+    --card-bg: #181a20;
+    
+    /* CIEMNY GRANAT W TRYBIE NOCNYM (pozostaje bez zmian dla czytelności po zmroku) */
+    --nav-bg: rgba(15, 23, 42, 0.96); 
+    --nav-text: #f8fafc;
+    --accent-gold: #d69e2e;
+    --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+/*
 :root {
     --bg-color: #f8f9fa;
     --text-color: #212529;
@@ -39,6 +68,7 @@ body {
     transition: var(--transition);
     line-height: 1.6;
 }
+*/
 
 .no-image {
     width: 100%;
