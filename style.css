@@ -9,7 +9,7 @@
     --text-color: #212529;
     --card-bg: #ffffff;
     
-    /* GŁĘBOKI, CIEMNY BRÁZ / CZEKOLADA W TRYBIE DZIENNYM */
+    /* GŁĘBOKI, CIEMNY BRĄZ / CZEKOLADA W TRYBIE DZIENNYM */
     --nav-bg: rgba(74, 55, 40, 0.95); 
     --nav-text: #fdfbf7; /* Jasny, kremowy kolor dla czcionek menu */
     
@@ -32,8 +32,6 @@ body.dark-mode {
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-
-
 /*
 :root {
     --bg-color: #f8f9fa;
@@ -55,15 +53,15 @@ body.dark-mode {
     --text-color: #e0e0e0;
     --card-bg: #181a20;
     
-    /* CIEMNY GRANAT W TRYBIE NOCNYM (pozostaje bez zmian dla czytelności po zmroku) */
+    /* CIEMNY GRANAT W TRYBIE NOCNYM */
     --nav-bg: rgba(15, 23, 42, 0.96); 
     --nav-text: #f8fafc;
     --accent-gold: #d69e2e;
     --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
-
 */
+
 /*
 :root {
     --bg-color: #f8f9fa;
@@ -92,6 +90,7 @@ body.dark-mode {
     --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
+*/
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -100,7 +99,6 @@ body {
     transition: var(--transition);
     line-height: 1.6;
 }
-*/
 
 .no-image {
     width: 100%;
@@ -139,7 +137,7 @@ nav {
     padding: 0.8rem 1.5rem;
 }
 
-/* ZŁOTE LOGO Z CIENIEM POPRAWIAJĄCYM CZYTELNOŚĆ NA BŁĘKICIE */
+/* ZŁOTE LOGO Z CIENIEM POPRAWIAJĄCYM CZYTELNOŚĆ */
 .logo {
     font-weight: 800;
     font-size: 1.15rem;
@@ -183,7 +181,7 @@ nav {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #744210; /* Ciemno-złoty odcień zapewniający ostrość po najechaniu */
+    color: #fcf6ba; /* Czysty, rozświetlony kolor po najechaniu na ciemny brąz */
 }
 
 body.dark-mode .nav-links a:hover,
@@ -506,12 +504,76 @@ footer {
         gap: 1.5rem;
     }
 }
+
 /* Odstęp od góry dla całej zawartości strony pod przyklejonym menu */
 main {
     margin-top: 1rem;
 }
 
-/* Zapas miejsca na górzak przy przewijaniu do konkretnych sekcji */
+/* Zapas miejsca na górze przy przewijaniu do konkretnych sekcji */
 .card, section {
     scroll-margin-top: 120px;
+}
+
+/* --- ELEGANCKIE, PŁYWAJĄCE OKIENKO COOKIES (RODO) --- */
+.cookie-banner,
+#cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 650px;
+    background: var(--card-bg, #ffffff);
+    color: var(--text-color, #212529);
+    border: 1px solid var(--accent-gold, #d69e2e);
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    backdrop-filter: blur(8px);
+}
+
+.cookie-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.cookie-btn,
+#accept-cookies-btn {
+    background: var(--accent-gold, #d69e2e);
+    color: #ffffff;
+    border: none;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition, all 0.3s ease);
+}
+
+.cookie-btn:hover,
+#accept-cookies-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+    .cookie-banner,
+    #cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        bottom: 10px;
+        padding: 14px;
+    }
+    
+    .cookie-btn,
+    #accept-cookies-btn {
+        width: 100%;
+    }
 }
