@@ -6,19 +6,21 @@
     <title>Grupy Parafialne - Parafia Kazuń Bielany</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .groups-container {
+        /* Nadpisanie dwukolumnowego układu z main w style.css */
+        main.groups-container {
+            display: block; /* Wyłącza dwukolumnowy grid z style.css */
             max-width: 900px;
-            margin: 2rem auto;
+            margin: 2rem auto 3rem;
             padding: 0 1rem;
         }
 
         .group-card {
             background: var(--card-bg, #ffffff);
             border: 1px solid var(--border-color, #e0e0e0);
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 1.5rem;
             padding: 1.5rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow, 0 2px 8px rgba(0,0,0,0.05));
         }
 
         .group-header {
@@ -43,16 +45,22 @@
 
         .group-details {
             line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .group-details p {
+            margin: 0 0 0.8rem 0;
         }
 
         .meeting-info {
-            background: var(--header-bg, #f8f9fa);
+            background: var(--header-bg, rgba(197, 160, 89, 0.1));
             padding: 0.6rem 1rem;
             border-radius: 6px;
-            margin-top: 0.8rem;
+            margin-top: 0.4rem;
             font-weight: 500;
             font-size: 0.95rem;
             display: inline-block;
+            color: var(--text-color);
         }
     </style>
 </head>
