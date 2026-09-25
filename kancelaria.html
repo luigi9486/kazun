@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Dedykowane style dla podstrony Kancelarii */
-        .page-container {
+        /* Nadpisanie dwukolumnowego układu z main w style.css */
+        main.page-container {
+            display: block; /* Wyłącza układ dwukolumnowy z style.css */
             max-width: 1000px;
-            margin: 1.5rem auto;
+            margin: 1.5rem auto 3rem;
             padding: 0 1rem;
         }
 
@@ -246,7 +247,7 @@
             <details>
                 <summary>Odwiedziny Chorych</summary>
                 <div class="details-content">
-                    <blockquote>
+                    blockquote>
                         „Choruje ktoś wśród was? Niech sprowadzi kapłanów Kościoła, by się modlili nad nim i namaścili go olejem w imię Pana. A modlitwa pełna wiary będzie dla chorego ratunkiem i Pan go podźwignie, a jeśliby popełnił grzechy, będą mu odpuszczone.” <br><small>(Jk 5,14-15)</small>
                     </blockquote>
                     <ul>
@@ -289,38 +290,34 @@
         </section>
         
         <!-- Sekcja Dane Kontaktowe i Mapa -->
-        <section class="card" style="margin-bottom: 2rem;">
+        <section class="hero-box" style="margin-top: 2.5rem; border-left-color: var(--accent-gold);">
             <h2>📍 Kontakt i Lokalizacja</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
                 
                 <!-- Dane adresowe -->
                 <div>
-                    <div class="location-group">
-                        <div class="location-title">🏛️ Adres Parafii</div>
-                        <p>Parafia Rzymskokatolicka Matki Bożej Szkaplerznej<br>
+                    <div style="margin-bottom: 1rem;">
+                        <strong style="color: var(--accent-gold);">🏛️ Adres Parafii</strong>
+                        <p style="margin-top: 0.3rem;">Parafia Rzymskokatolicka Matki Bożej Szkaplerznej<br>
                         Kazuń-Bielany, ul. Wojska Polskiego 1<br>
                         05-152 Czosnów</p>
                     </div>
 
-                    <div class="location-group">
-                        <div class="location-title">📞 Telefon</div>
-                        <p><a href="tel:+48..." style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">+48...</a></p>
+                    <div style="margin-bottom: 1rem;">
+                        <strong style="color: var(--accent-gold);">✉️ E-mail</strong>
+                        <p style="margin-top: 0.3rem;"><a href="mailto:parafia.kazun@gmail.com" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">parafia.kazun@gmail.com</a></p>
                     </div>
 
-                    <div class="location-group">
-                        <div class="location-title">✉️ E-mail</div>
-                        <p><a href="mailto:parafia.kazun@gmail.com" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">parafia.kazun@gmail.com</a></p>
-                    </div>
-
-                    <div class="location-group">
-                        <div class="location-title">🚗 Dojazd</div>
-                        <p>Parafia znajduje się przy trasie DK7 (Gdańsk – Warszawa) w bliskim sąsiedztwie Nowego Dworu Mazowieckiego.</p>
+                    <div>
+                        <strong style="color: var(--accent-gold);">🚗 Dojazd</strong>
+                        <p style="margin-top: 0.3rem;">Parafia znajduje się przy trasie DK7 (Gdańsk – Warszawa) w bliskim sąsiedztwie Nowego Dworu Mazowieckiego.</p>
                     </div>
                 </div>
 
                 <!-- Mapa Google -->
                 <div style="width: 100%; height: 100%; min-height: 250px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(214, 158, 46, 0.3);">
                     <iframe 
+                        title="Mapa dojazdu do Parafii Kazuń Bielany"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.2273111453265!2d20.6972!3d52.4038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471e355883a48e71%3A0x6b8dbf9f25bf63a0!2sParafia%20Matki%20Bo%C5%BCej%20Szkaplerznej%20w%20Kazuniu%20Bielanach!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" 
                         width="100%" 
                         height="100%" 
@@ -337,9 +334,8 @@
     </main>
 
     <!-- Stopka -->
-   <footer id="main-footer"></footer>
+    <footer id="main-footer"></footer>
 
-    
     <!-- Wczytanie zewnętrznej nawigacji oraz wspólnego trybu nocnego -->
     <script src="nav.js"></script>
 </body>
