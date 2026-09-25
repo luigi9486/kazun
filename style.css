@@ -1,26 +1,26 @@
-/* =================================================================ato
+/* =================================================================
    ZMIENNE KOLORYSTYCZNE I MOTYWY (Tryb Dzienny / Nocny)
    ================================================================ */
 :root {
     /* Tryb Dzienny (Jasny) */
-    --bg-color: #fcfbf9;            /* Ciepłe, eleganckie ecru zamiast czystej bieli */
-    --card-bg: #ffffff;             /* Czysta biel kart */
-    --text-color: #2c3e50;          /* Głęboki grafit (przyjazny dla oczu) */
-    --accent-gold: #c5a059;         /* Eleganckie kościelne złoto / mosiądz */
-    --border-color: #e6e0d4;        /* Subtelne, ciepłe obramowanie */
-    --header-bg: #f5f2eb;           /* Tło elementów pomocniczych */
-    --shadow-color: rgba(0, 0, 0, 0.04);
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --accent-gold: #c5a059;
+    --border-color: #e0e0e0;
+    --header-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.05);
 }
 
 body.dark-mode {
     /* Tryb Nocny (Ciemny) */
-    --bg-color: #121212;            /* Głęboki antracyt */
-    --card-bg: #1e1e1e;             /* Ciemny grafit dla kart */
-    --text-color: #e0e0e0;          /* Jasny szary tekst */
-    --accent-gold: #d4af37;         /* Jaśniejsze złoto widoczne w nocy */
-    --border-color: #333333;        /* Ciemne obramowania */
-    --header-bg: #252525;           /* Tło elementów pomocniczych w nocy */
-    --shadow-color: rgba(0, 0, 0, 0.4);
+    --bg-color: #18191a;
+    --card-bg: #242526;
+    --text-color: #e4e6eb;
+    --accent-gold: #d4af37;
+    --border-color: #393a3b;
+    --header-bg: #242526;
+    --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
 /* =================================================================
@@ -55,7 +55,7 @@ main {
    NAGŁÓWEK I NAWIGACJA (nav.js)
    ================================================================ */
 header {
-    background-color: var(--card-bg);
+    background-color: var(--header-bg);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
@@ -276,7 +276,7 @@ nav {
    STOPKA I BANNER CIASTECZEK
    ================================================================ */
 footer {
-    background-color: var(--card-bg);
+    background-color: var(--header-bg);
     border-top: 1px solid var(--border-color);
     margin-top: 3rem;
     color: var(--text-color);
