@@ -7,6 +7,144 @@
     
     <!-- Główny plik stylów -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Nadpisanie dwukolumnowego układu z main w style.css */
+        main.intentions-container {
+            display: block; /* Wyłącza dwukolumnowy grid z style.css */
+            max-width: 950px;
+            margin: 20px auto 40px;
+            padding: 0 15px;
+        }
+
+        /* Styling kart i sekcji intencji */
+        .announcement-card {
+            background: var(--card-bg, #ffffff);
+            border-radius: 12px;
+            box-shadow: var(--shadow, 0 4px 12px rgba(0,0,0,0.05));
+            border-left: 4px solid var(--accent-gold, #d69e2e);
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .announcement-card summary {
+            padding: 15px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(214, 158, 46, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .announcement-body {
+            padding: 20px;
+        }
+
+        .section-subheading {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-gold, #d69e2e);
+            margin: 25px 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid rgba(214, 158, 46, 0.2);
+        }
+
+        .section-subheading:first-child {
+            margin-top: 0;
+        }
+
+        /* Tabela Intencji */
+        .intentions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .intentions-table th, 
+        .intentions-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .intentions-table th {
+            background: rgba(0, 0, 0, 0.03);
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .col-day {
+            font-weight: bold;
+            background: rgba(214, 158, 46, 0.04);
+            color: var(--text-color);
+        }
+
+        .col-time {
+            font-weight: 700;
+            color: var(--accent-gold, #d69e2e);
+            white-space: nowrap;
+        }
+
+        .col-details {
+            color: var(--text-color);
+        }
+
+        .mass-list {
+            margin: 8px 0 0 18px;
+            padding: 0;
+        }
+
+        .mass-list li {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        /* Dedykowany układ dla ekranu telefonu */
+        @media (max-width: 650px) {
+            .intentions-table, 
+            .intentions-table tbody, 
+            .intentions-table tr, 
+            .intentions-table td {
+                display: block;
+                width: 100% !important;
+            }
+
+            .intentions-table thead {
+                display: none; /* Ukrycie nagłówków tabeli na małych ekranach */
+            }
+
+            .intentions-table tr {
+                margin-bottom: 15px;
+                border: 1px solid rgba(214, 158, 46, 0.2);
+                border-radius: 8px;
+                padding: 10px;
+                background: var(--card-bg, #ffffff);
+            }
+
+            .intentions-table td {
+                border: none;
+                padding: 4px 6px;
+            }
+
+            .col-day {
+                border-bottom: 1px dashed rgba(214, 158, 46, 0.3) !important;
+                margin-bottom: 8px;
+                padding-bottom: 8px !important;
+                font-size: 1.05rem;
+                background: transparent;
+            }
+
+            .announcement-card summary {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
 </head>
 <body>
 
