@@ -589,18 +589,17 @@ footer::before {
     }
 }
 
-.card, section {
-    scroll-margin-top: 120px;
-}
-
-/*przewijanie naglowka pod menu*
+/* PRZEWIJANIE NAGŁÓWKÓW I KOTWIC (#ID) POD PRZYKLEJONE MENU NAWIGACJI */
 html {
     scroll-padding-top: 190px;
     scroll-behavior: smooth;
 }
 
+[id], .card, section {
+    scroll-margin-top: 190px;
+}
 
-/*wygląd ramki dla info o źródle strony*/
+/* WYGLĄD RAMKI INFORMACYJNEJ O ŹRÓDLE TEKSTÓW */
 .source-box {
     background: rgba(214, 158, 46, 0.08);
     border-left: 4px solid var(--accent-gold);
@@ -611,5 +610,3 @@ html {
     color: var(--text-color);
     line-height: 1.6;
 }
-
-
