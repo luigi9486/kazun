@@ -592,3 +592,10 @@ footer::before {
 .card, section {
     scroll-margin-top: 120px;
 }
+
+/*przewijanie naglowka pod menu*
+html {
+    scroll-padding-top: 190px;
+    scroll-behavior: smooth;
+}
+
