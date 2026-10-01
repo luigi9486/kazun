@@ -14,22 +14,52 @@
             padding: 0 1rem;
         }
 
-        .group-card {
+        /* Stylowanie rozwijanych kart (details / summary) */
+        details.group-card {
             background: var(--card-bg, #ffffff);
             border: 1px solid var(--border-color, #e0e0e0);
             border-radius: 12px;
-            margin-bottom: 1.5rem;
-            padding: 1.5rem;
+            margin-bottom: 1.2rem;
             box-shadow: var(--shadow, 0 2px 8px rgba(0,0,0,0.05));
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .group-header {
+        details.group-card[open] {
+            border-color: var(--accent-gold, #c5a059);
+        }
+
+        summary.group-header {
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            margin-bottom: 0.8rem;
-            border-bottom: 2px solid var(--accent-gold, #c5a059);
-            padding-bottom: 0.4rem;
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            background: rgba(197, 160, 89, 0.05);
+            transition: background-color 0.2s ease;
+        }
+
+        summary.group-header:hover {
+            background: rgba(197, 160, 89, 0.12);
+        }
+
+        summary.group-header::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Strzałka rozwijania */
+        summary.group-header::after {
+            content: '▼';
+            margin-left: auto;
+            font-size: 0.8rem;
+            color: var(--accent-gold, #c5a059);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary.group-header::after {
+            transform: rotate(180deg);
         }
 
         .group-icon {
@@ -44,6 +74,8 @@
         }
 
         .group-details {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
             line-height: 1.6;
             color: var(--text-color);
         }
@@ -73,63 +105,76 @@
         <h1 style="text-align: center; font-family: 'Georgia', serif; margin-bottom: 2rem; color: var(--accent-gold, #c5a059);">Grupy i Wspólnoty Parafialne</h1>
 
         <!-- SCHOLA DZIECIĘCA -->
-        <div class="group-card">
-            <div class="group-header">
+        <details class="group-card">
+            <summary class="group-header">
                 <span class="group-icon">🎵</span>
                 <h2 class="group-title">Schola Dziecięca</h2>
-            </div>
+            </summary>
             <div class="group-details">
                 <p>Schola ubogaca oprawę muzyczną Niedzielnej Mszy Świętej o godz. 11:00. Zapraszamy wszystkie dzieci chcące chwalić Pana Boga śpiewem i grą na instrumentach.</p>
                 <div class="meeting-info">🕒 Próby: Soboty, godz. 17:00 (Salka parafialna)</div>
             </div>
-        </div>
+        </details>
 
         <!-- CHÓR PARAFIALNY -->
-        <div class="group-card">
-            <div class="group-header">
+        <details class="group-card">
+            <summary class="group-header">
                 <span class="group-icon">🎼</span>
                 <h2 class="group-title">Chór Parafialny</h2>
-            </div>
+            </summary>
             <div class="group-details">
                 <p>Chór zrzesza młodzież i dorosłych. Przygotowuje oprawę wokalną na największe uroczystości parafialne i świąteczne.</p>
                 <div class="meeting-info">🕒 Próby: Piątki, godz. 19:00</div>
             </div>
-        </div>
+        </details>
+
+        <!-- GRUPA ADORACJI NAJŚWIETSZEGO SAKRAMENTU -->
+        <details class="group-card">
+            <summary class="group-header">
+                <span class="group-icon">🕯️</span>
+                <h2 class="group-title">Grupa Adoracji Najświętszego Sakramentu</h2>
+            </summary>
+            <div class="group-details">
+                <p>Wspólnota skupiająca osoby pragnące trwać na modlitwie przed Panem Jezusem ukrytym w Najświętszym Sakramencie. Członkowie grupy podejmują regularne dyżury w godzinach adoracji oraz podczas całonocnego czuwania w I Piątki miesiąca.</p>
+                <p><strong>Osoba prowadząca:</strong> [Imię i Nazwisko / kontakt]</p>
+                <div class="meeting-info">🕒 Dyżury adoracyjne: Niedziela – Piątek (16:00 – 21:00) | I Piątek miesiąca: Adoracja całonocna</div>
+            </div>
+        </details>
 
         <!-- ŻYWY RÓŻANIEC -->
-        <div class="group-card">
-            <div class="group-header">
+        <details class="group-card">
+            <summary class="group-header">
                 <span class="group-icon">📿</span>
                 <h2 class="group-title">Żywy Różaniec / Kółka Różańcowe</h2>
-            </div>
+            </summary>
             <div class="group-details">
                 <p>Członkowie Kółek Różańcowych codziennie modlą się w intencjach Kościoła, Parafii i Ojczyzny. Zmiana tajemnic różańcowych odbywa się w każdą I Niedzielę miesiąca po Mszy Świętej.</p>
                 <div class="meeting-info">🕒 Spotkania: I Niedziela miesiąca</div>
             </div>
-        </div>
+        </details>
 
         <!-- MINISTRANCI -->
-        <div class="group-card">
-            <div class="group-header">
+        <details class="group-card">
+            <summary class="group-header">
                 <span class="group-icon">✝️</span>
                 <h2 class="group-title">Liturgiczna Służba Ołtarza (Ministranci i Lektorzy)</h2>
-            </div>
+            </summary>
             <div class="group-details">
                 <p>Służba ołtarza to chłopięca i młodzieżowa wspólnota dbająca o piękno sprawowanej liturgii. Zapraszamy chłopców po I Komunii Świętej oraz starszą młodzież.</p>
                 <div class="meeting-info">🕒 Zbiórki: Zgodnie z harmonogramem księdza opiekuna</div>
             </div>
-        </div>
+        </details>
 
         <!-- BIELANKI I ASYSTA -->
-        <div class="group-card">
-            <div class="group-header">
+        <details class="group-card">
+            <summary class="group-header">
                 <span class="group-icon">🌸</span>
                 <h2 class="group-title">Bielanki oraz Asysta Procesyjna (Chorągiew)</h2>
-            </div>
+            </summary>
             <div class="group-details">
                 <p>Dziewczęta (Bielanki) oraz dorośli tworzący asystę procesyjną dbają o oprawę procesji odpustowych, fatimskich i eucharystycznych.</p>
             </div>
-        </div>
+        </details>
 
     </main>
 
