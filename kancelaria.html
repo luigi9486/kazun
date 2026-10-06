@@ -154,6 +154,35 @@
             font-size: 0.95rem;
         }
 
+        /* Stylizacja numeru konta i podlinkowanych numerów telefonów */
+        .contact-list li {
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .contact-list a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-list a:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        .bank-account {
+            font-family: monospace;
+            font-size: 0.95rem;
+            background: rgba(214, 158, 46, 0.1);
+            border: 1px solid rgba(214, 158, 46, 0.2);
+            padding: 0.5rem 0.7rem;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 0.3rem;
+            word-break: break-all;
+        }
+
         @media (max-width: 600px) {
             .page-title h1 { font-size: 1.8rem; }
             .hero-box { padding: 1.2rem; }
@@ -289,23 +318,39 @@
 
         </section>
         
-        <!-- Sekcja Dane Kontaktowe i Mapa -->
+        <!-- Sekcja Dane Kontaktowe, Duszpasterze i Mapa -->
         <section class="hero-box" style="margin-top: 2.5rem; border-left-color: var(--accent-gold);">
             <h2>📍 Kontakt i Lokalizacja</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
                 
-                <!-- Dane adresowe -->
+                <!-- Dane adresowe i kontaktowe -->
                 <div>
-                    <div style="margin-bottom: 1rem;">
+                    <div style="margin-bottom: 1.2rem;">
                         <strong style="color: var(--accent-gold);">🏛️ Adres Parafii</strong>
                         <p style="margin-top: 0.3rem;">Parafia Rzymskokatolicka Matki Bożej Szkaplerznej<br>
                         Kazuń-Bielany, ul. Wojska Polskiego 1<br>
                         05-152 Czosnów</p>
                     </div>
 
-                    <div style="margin-bottom: 1rem;">
+                    <div style="margin-bottom: 1.2rem;">
+                        <strong style="color: var(--accent-gold);">📞 Duszpasterze i Osoby Kontaktowe</strong>
+                        <ul class="contact-list" style="padding-left: 0; margin-top: 0.4rem; list-style: none;">
+                            <li><strong>ks. Adam Wyszyński:</strong> <a href="tel:+48503163823">503 163 823</a></li>
+                            <li><strong>ks. Jerzy Zychla:</strong> <a href="tel:+48603592841">603 592 841</a></li>
+                            <li><strong>Organistka Katarzyna:</strong> <a href="tel:+48796073170">796 073 170</a></li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 1.2rem;">
                         <strong style="color: var(--accent-gold);">✉️ E-mail</strong>
-                        <p style="margin-top: 0.3rem;"><a href="mailto:parafia.kazun@..." style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">parafia.kazun@gmail.com</a></p>
+                        <p style="margin-top: 0.3rem;">
+                            <a href="mailto:parafiakazun@parafiakazun.pl" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">parafiakazun@parafiakazun.pl</a>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.2rem;">
+                        <strong style="color: var(--accent-gold);">💳 Konto Parafialne</strong><br>
+                        <span class="bank-account">27 8009 1046 0017 4600 2002 0001</span>
                     </div>
 
                     <div>
@@ -315,29 +360,12 @@
                 </div>
 
                 <!-- Mapa Google -->
-                <div style="width: 100%; height: 100%; min-height: 250px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(214, 158, 46, 0.3);">
+                <div style="width: 100%; height: 100%; min-height: 280px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(214, 158, 46, 0.3);">
                     <iframe 
                         title="Mapa dojazdu do Parafii Kazuń Bielany"
-                        src="https://maps.app.goo.gl/WUtyBRqaCoMCGTPi6?g_st=ac"
-                       <!-- src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.2273111453265!2d20.6972!3d52.4038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471e355883a48e71%3A0x6b8dbf9f25bf63a0!2sParafia%20Matki%20Bo%C5%BCej%20Szkaplerznej%20w%20Kazuniu%20Bielanach!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" -->
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.2273111453265!2d20.6972!3d52.4038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471e355883a48e71%3A0x6b8dbf9f25bf63a0!2sParafia%20Matki%20Bo%C5%BCej%20Szkaplerznej%20w%20Kazuniu%20Bielanach!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" 
                         width="100%" 
                         height="100%" 
-                        style="border:0; min-height: 250px;" 
+                        style="border:0; min-height: 280px;" 
                         allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Stopka -->
-    <footer id="main-footer"></footer>
-
-    <!-- Wczytanie zewnętrznej nawigacji oraz wspólnego trybu nocnego -->
-    <script src="nav.js"></script>
-</body>
-</html>
+                        loading="lazy
