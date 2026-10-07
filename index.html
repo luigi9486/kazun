@@ -273,11 +273,9 @@
             const wrapperWidth = sliderWrapper.offsetWidth;
             const gap = 15;
 
-            // Precyzyjne wyliczenie wyśrodkowania dla każdego ekranu (PC i Mobile)
             const centerOffset = (wrapperWidth - slideWidth) / 2;
             const offset = (currentSlide * (slideWidth + gap)) - centerOffset;
 
-            // Przesunięcie slajdera
             sliderContainer.style.transform = `translateX(${-offset}px)`;
         }
 
@@ -308,84 +306,104 @@
         });
 
         window.addEventListener('resize', updateSlider);
-        setTimeout(updateSlider, 100); // Inicjalne przeliczenie
+        setTimeout(updateSlider, 100);
 
-        /* SKRYPT POBIERAJĄCY SKRÓTY Z PODSTRON (OGŁOSZENIA I INTENCJE) */
+        /* POBIERANIE SKRÓTÓW BEZPOŚREDNIO Z GOOGLE SHEETS */
+        const SPREADSHEET_ID = '1K_-KbC3fgJ7_MKPBn920MTatdV2u8bQviCN7riFcX8U';
+
         document.addEventListener("DOMContentLoaded", function () {
-            // 1. Pobieranie skrótu Ogłoszeń
-            fetch("ogloszenia.html")
-                .then(res => res.text())
-                .then(html => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, "text/html");
-                    const firstCard = doc.querySelector("details.announcement-card");
-
-                    if (firstCard) {
-                        const title = firstCard.querySelector(".header-title")?.textContent || "";
-                        const date = firstCard.querySelector(".header-date")?.textContent || "";
-                        const bodyText = firstCard.querySelector(".announcement-body")?.innerText || "";
-
-                        const maxLen = 220;
-                        let textSnippet = bodyText.trim().replace(/\s+/g, ' ');
-                        if (textSnippet.length > maxLen) {
-                            textSnippet = textSnippet.substring(0, maxLen) + "...";
-                        }
-
-                        document.getElementById("ogloszenia-preview").innerHTML = `
-                            <p style="font-weight: bold; color: var(--accent-gold); margin-bottom: 0.4rem;">
-                                ${title} <span style="font-size: 0.85rem; font-weight: normal; opacity: 0.8;">(${date})</span>
-                            </p>
-                            <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
-                        `;
-                    }
-                })
-                .catch(() => {
-                    document.getElementById("ogloszenia-preview").innerHTML = `<p>Zapraszamy do zapoznania się z aktualnymi ogłoszeniami.</p>`;
-                });
-
-            // 2. Pobieranie skrótu Intencji
-            fetch("intencje.html")
-                .then(res => res.text())
-                .then(html => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, "text/html");
-                    const firstCard = doc.querySelector("details.announcement-card");
-
-                    if (firstCard) {
-                        const title = firstCard.querySelector(".header-title")?.textContent || "";
-                        const rows = firstCard.querySelectorAll(".intentions-table tbody tr");
-                        
-                        let previewHTML = `<p style="font-weight: bold; color: var(--accent-gold); margin-bottom: 0.6rem;">${title}</p>`;
-                        
-                        // Wyświetlamy pierwsze 3 wpisy z tabeli intencji
-                        let count = 0;
-                        rows.forEach(row => {
-                            if (count < 3) {
-                                const day = row.querySelector(".col-day")?.innerText.split('\n')[0] || "";
-                                const time = row.querySelector(".col-time")?.innerText || "";
-                                const details = row.querySelector(".col-details")?.innerText || "";
-
-                                if (time && details) {
-                                    previewHTML += `
-                                        <p style="font-size: 0.9rem; margin-bottom: 0.4rem; line-height: 1.4;">
-                                            <strong>${day ? day + ' ' : ''}(${time}):</strong> ${details.substring(0, 70)}${details.length > 70 ? '...' : ''}
-                                        </p>
-                                    `;
-                                    count++;
-                                }
-                            }
-                        });
-
-                        document.getElementById("intencje-preview").innerHTML = previewHTML;
-                    }
-                })
-                .catch(() => {
-                    document.getElementById("intencje-preview").innerHTML = `<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>`;
-                });
+            ladujSkrotOgloszen();
+            ladujSkrotIntencji();
         });
+
+        async function ladujSkrotOgloszen() {
+            const preview = document.getElementById("ogloszenia-preview");
+            if (!preview) return;
+
+            try {
+                const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent('Ogloszenia')}`;
+                const response = await fetch(url);
+                const text = await response.text();
+                const jsonText = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
+                const data = JSON.parse(jsonText);
+
+                const rows = data.table.rows;
+                if (!rows || rows.length <= 1) {
+                    preview.innerHTML = "<p>Brak aktualnych ogłoszeń.</p>";
+                    return;
+                }
+
+                const wiersze = rows.slice(1).map(r => ({
+                    data: r.c[0] ? (r.c[0].f || r.c[0].v) : '',
+                    tytul: r.c[1] ? r.c[1].v : '',
+                    tresc: r.c[2] ? r.c[2].v : ''
+                })).filter(item => item.tytul || item.tresc);
+
+                const najnowsze = wiersze[wiersze.length - 1];
+
+                const maxLen = 220;
+                let textSnippet = najnowsze.tresc.trim().replace(/\s+/g, ' ');
+                if (textSnippet.length > maxLen) {
+                    textSnippet = textSnippet.substring(0, maxLen) + "...";
+                }
+
+                preview.innerHTML = `
+                    <p style="font-weight: bold; color: var(--accent-gold); margin-bottom: 0.4rem;">
+                        ${najnowsze.tytul} <span style="font-size: 0.85rem; font-weight: normal; opacity: 0.8;">(${najnowsze.data})</span>
+                    </p>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
+                `;
+            } catch (error) {
+                console.error("Błąd pobierania skrótu ogłoszeń:", error);
+                preview.innerHTML = `<p>Zapraszamy do zapoznania się z aktualnymi ogłoszeniami.</p>`;
+            }
+        }
+
+        async function ladujSkrotIntencji() {
+            const preview = document.getElementById("intencje-preview");
+            if (!preview) return;
+
+            try {
+                const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent('Intencje')}`;
+                const response = await fetch(url);
+                const text = await response.text();
+                const jsonText = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
+                const data = JSON.parse(jsonText);
+
+                const rows = data.table.rows;
+                if (!rows || rows.length <= 1) {
+                    preview.innerHTML = "<p>Brak aktualnych intencji.</p>";
+                    return;
+                }
+
+                const wiersze = rows.slice(1).map(r => ({
+                    data: r.c[0] ? (r.c[0].f || r.c[0].v) : '',
+                    tytul: r.c[1] ? r.c[1].v : '',
+                    tresc: r.c[2] ? r.c[2].v : ''
+                })).filter(item => item.tytul || item.tresc);
+
+                const najnowsze = wiersze[wiersze.length - 1];
+
+                const maxLen = 220;
+                let textSnippet = najnowsze.tresc.trim().replace(/\s+/g, ' ');
+                if (textSnippet.length > maxLen) {
+                    textSnippet = textSnippet.substring(0, maxLen) + "...";
+                }
+
+                preview.innerHTML = `
+                    <p style="font-weight: bold; color: var(--accent-gold); margin-bottom: 0.4rem;">
+                        ${najnowsze.tytul} <span style="font-size: 0.85rem; font-weight: normal; opacity: 0.8;">(${najnowsze.data})</span>
+                    </p>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
+                `;
+            } catch (error) {
+                console.error("Błąd pobierania skrótu intencji:", error);
+                preview.innerHTML = `<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>`;
+            }
+        }
     </script>
 
-<script src="nav.js"></script>
+    <script src="nav.js"></script>
 	
 </body>
 </html>
