@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intencje Mszalne - Parafia Kazuń</title>
+    <title>Intencje Mszalne - Parafia Kazuń Bielany</title>
     
     <!-- Główny plik stylów -->
     <link rel="stylesheet" href="style.css">
@@ -15,133 +15,66 @@
             max-width: 950px;
             margin: 20px auto 40px;
             padding: 0 15px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
-        /* Styling kart i sekcji intencji */
-        .announcement-card {
+        /* Stylizacja rozwijanych kart w archiwum intencji */
+        details {
             background: var(--card-bg, #ffffff);
             border-radius: 12px;
             box-shadow: var(--shadow, 0 4px 12px rgba(0,0,0,0.05));
-            border-left: 4px solid var(--accent-gold, #d69e2e);
-            margin-bottom: 25px;
+            border: 1px solid rgba(214, 158, 46, 0.2);
+            margin-bottom: 1.2rem;
             overflow: hidden;
+            padding: 1rem 1.2rem;
+            transition: border-color 0.3s;
         }
 
-        .announcement-card summary {
-            padding: 15px 20px;
-            font-weight: bold;
+        details[open] {
+            border-color: var(--accent-gold, #d69e2e);
+        }
+
+        summary {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-color);
             cursor: pointer;
-            background: rgba(214, 158, 46, 0.08);
+            list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 1.1rem;
-            color: var(--text-color);
+            user-select: none;
         }
 
-        .announcement-body {
-            padding: 20px;
+        summary::-webkit-details-marker {
+            display: none;
         }
 
-        .section-subheading {
-            font-size: 1.1rem;
-            font-weight: 700;
+        summary::after {
+            content: '▼';
+            font-size: 0.8rem;
             color: var(--accent-gold, #d69e2e);
-            margin: 25px 0 12px 0;
-            padding-bottom: 6px;
-            border-bottom: 2px solid rgba(214, 158, 46, 0.2);
+            transition: transform 0.3s ease;
+            margin-left: 0.5rem;
         }
 
-        .section-subheading:first-child {
-            margin-top: 0;
+        details[open] summary::after {
+            transform: rotate(180deg);
         }
 
-        /* Tabela Intencji */
-        .intentions-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+        .details-content {
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(214, 158, 46, 0.25);
+            margin-top: 0.8rem;
         }
 
-        .intentions-table th, 
-        .intentions-table td {
-            padding: 12px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            text-align: left;
-            vertical-align: top;
-        }
-
-        .intentions-table th {
-            background: rgba(0, 0, 0, 0.03);
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        .col-day {
-            font-weight: bold;
-            background: rgba(214, 158, 46, 0.04);
-            color: var(--text-color);
-        }
-
-        .col-time {
-            font-weight: 700;
-            color: var(--accent-gold, #d69e2e);
-            white-space: nowrap;
-        }
-
-        .col-details {
-            color: var(--text-color);
-        }
-
-        .mass-list {
-            margin: 8px 0 0 18px;
-            padding: 0;
-        }
-
-        .mass-list li {
-            margin-bottom: 6px;
-            line-height: 1.5;
-        }
-
-        /* Dedykowany układ dla ekranu telefonu */
         @media (max-width: 650px) {
-            .intentions-table, 
-            .intentions-table tbody, 
-            .intentions-table tr, 
-            .intentions-table td {
-                display: block;
-                width: 100% !important;
+            main.intentions-container {
+                padding: 0 10px;
             }
-
-            .intentions-table thead {
-                display: none;
-            }
-
-            .intentions-table tr {
-                margin-bottom: 15px;
-                border: 1px solid rgba(214, 158, 46, 0.2);
-                border-radius: 8px;
-                padding: 10px;
-                background: var(--card-bg, #ffffff);
-            }
-
-            .intentions-table td {
-                border: none;
-                padding: 4px 6px;
-            }
-
-            .col-day {
-                border-bottom: 1px dashed rgba(214, 158, 46, 0.3) !important;
-                margin-bottom: 8px;
-                padding-bottom: 8px !important;
-                font-size: 1.05rem;
-                background: transparent;
-            }
-
-            .announcement-card summary {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
+            details {
+                padding: 0.8rem 1rem;
             }
         }
     </style>
@@ -152,202 +85,23 @@
     <header id="main-header"></header>
 
     <main class="intentions-container">
-        <h1 style="text-align: center; font-family: 'Georgia', serif; margin-bottom: 2rem; color: var(--accent-gold);">Intencje Mszalne</h1>
+        
+        <h1 style="text-align: center; font-family: 'Georgia', serif; margin-bottom: 2rem; color: var(--accent-gold);">
+            Intencje Mszalne
+        </h1>
 
-        <!-- NAJNOWSZE INTENCJE: XXV NIEDZIELA ZWYKŁA (20.09.2026) -->
-        <details class="announcement-card" open>
-            <summary>
-                <span class="header-title">XXV Niedziela Zwykła – 20.09.2026 r.</span>
-                <span class="header-date">Dodano: 20-09-2026</span>
-            </summary>
-            <div class="announcement-body">
-                
-                <div class="section-subheading">LITURGIA PARAFIALNA (20 września 2026 r.)</div>
-                <table class="intentions-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 20%;">Godz.</th>
-                            <th style="width: 80%;">Intencja Mszalna</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="col-time">7.30</td>
-                            <td class="col-details">w int. † Barbary (20 r. śm.) i Edmunda Wyszyńskich</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">9.30</td>
-                            <td class="col-details"><em>Msza św. w Małocicach:</em> w int. † Renalda Andrzejewskiego (6 r. śm.) i Krzysztofa Sarneckiego</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">11.00</td>
-                            <td class="col-details">w int. † Stefana Godlewskiego – Msza św. greg. 22.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">12.30</td>
-                            <td class="col-details">
-                                <strong>Msza św. w intencji Parafian (zbiorowa):</strong>
-                                <ol class="mass-list">
-                                    <li>Dziękczynna z okazji 50 rocz. urodzin Joli i w intencji Henryka z prośbą o błog. Boże i opiekę MB Szkaplerznej</li>
-                                    <li>w int. † Tadeusza Kowalskiego</li>
-                                    <li>w int. † Barbary Kowalskiej</li>
-                                    <li>w int. † Krystyny Hetmanowskiej – 5 r. śm.</li>
-                                    <li>w int. † Jacka Parzydło</li>
-                                    <li>w int. † Agnieszki Kowalskiej</li>
-                                    <li>w int. † Edmunda Czesaka</li>
-                                    <li>w int. † Marii, Bogdana Walaszek i Marka Gnysia</li>
-                                    <li>w int. † Czesława Ostrowskiego (urodzinowa)</li>
-                                    <li>w int. † Kazimierza, Edwarda, Roberta, Kazimierza Kozłowskich, Zbigniewa Świątkowskiego i Zbigniewa Majerskiego</li>
-                                    <li>w int. † Stanisławy, Andrzeja, Edmunda Czesak, Feliksy Bartoś, Barbary i Włodzimierza Kręźlewicz</li>
-                                </ol>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">18.00</td>
-                            <td class="col-details">w int. † Marka, Jadwigi, Bronisława, Mieczysława Zielskich, Adama Kitowskiego, Janiny, Floriana Łęczyckich oraz cioci Kasi</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-        </details>
-
-        <!-- ARCHIWUM: 14 - 19.09.2026 -->
-        <details class="announcement-card">
-            <summary>
-                <span class="header-title">Intencje 14–19.09.2026 r.</span>
-                <span class="header-date">Dodano: 13-09-2026</span>
-            </summary>
-            <div class="announcement-body">
-                
-                <div class="section-subheading">LITURGIA PARAFIALNA (14–16.09.2026) – Renowacja Misji Świętych</div>
-                <table class="intentions-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Dzień</th>
-                            <th style="width: 15%;">Godz.</th>
-                            <th style="width: 60%;">Intencja</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- PONIEDZIAŁEK -->
-                        <tr>
-                            <td class="col-day" rowspan="4">Poniedziałek 14 września<br><small style="font-weight: normal; opacity: 0.8;">Święto Podwyższenia Krzyża Świętego</small></td>
-                            <td class="col-time">9.30</td>
-                            <td class="col-details">w int. † Aleksandry, Antoniego, Kazimierza, Władysławy Wieczorek, Reginy Tworus, Zofii i Adama Wojtczak</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">11.30</td>
-                            <td class="col-details"><em>w Małocicach:</em> Msza św. w int. † zm. z rodz. Rokojżo; Stanisławy, Antoniego, Urszuli oraz dziadków Bolesława i Marii</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">18.00</td>
-                            <td class="col-details">w int. † Stefana Godlewskiego – Msza św. greg. 16.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">20.00</td>
-                            <td class="col-details">Nabożeństwo ze św. Michałem Archaniołem</td>
-                        </tr>
-
-                        <!-- WTOREK -->
-                        <tr>
-                            <td class="col-day" rowspan="4">Wtorek 15 września<br><small style="font-weight: normal; opacity: 0.8;">Wspomnienie MB Bolesnej</small></td>
-                            <td class="col-time">9.30</td>
-                            <td class="col-details">w int. † Zofii, Ryszarda, Kazimierza Marzęckich, siostry Aliny Sobczyk, Honoraty, Feliksa Trzpioła, Barbary i Mirosława Kaczyńskich</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">11.30</td>
-                            <td class="col-details"><em>w Małocicach:</em> Msza św.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">18.00</td>
-                            <td class="col-details">w int. † Stefana Godlewskiego – Msza św. greg. 17.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">20.00</td>
-                            <td class="col-details">Nabożeństwo ze św. Michałem Archaniołem</td>
-                        </tr>
-
-                        <!-- ŚRODA -->
-                        <tr>
-                            <td class="col-day" rowspan="4">Środa 16 września<br><small style="font-weight: normal; opacity: 0.8;">Wspomnienie męczenników Korneliusza i Cypriana</small></td>
-                            <td class="col-time">9.30</td>
-                            <td class="col-details">w int. † Jana, Cecylii, Stanisława, Kazimierza Trojanowskich i zm. z rodz.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">11.30</td>
-                            <td class="col-details"><em>w Małocicach:</em> Msza św. dziękczynnobłagalna w 20 rocz. ślubu Anny i Przemysława o dary Ducha Świętego i opiekę MB Szkaplerznej</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">18.00</td>
-                            <td class="col-details">w int. † Stefana Godlewskiego – Msza św. greg. 18.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">20.00</td>
-                            <td class="col-details">Nabożeństwo ze św. Michałem Archaniołem</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="section-subheading">LITURGIA PARAFIALNA (17–19.09.2026)</div>
-                <table class="intentions-table">
-                    <tbody>
-                        <!-- CZWARTEK -->
-                        <tr>
-                            <td class="col-day" rowspan="4">Czwartek 17 września<br><small style="font-weight: normal; opacity: 0.8;">Wspomnienie św. Zygmunta Szczęsnego Felińskiego</small></td>
-                            <td class="col-time">9.30</td>
-                            <td class="col-details">w int. † z rodz. Sochów oraz Józefa, Pawła, Władysław i Janiny oraz Janiny Pełeńskiej</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">11.30</td>
-                            <td class="col-details"><em>w Małocicach:</em> Msza św.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">18.00</td>
-                            <td class="col-details">w int. † Stefana Godlewskiego – greg. 19.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">20.00</td>
-                            <td class="col-details">Nabożeństwo ze św. Michałem Archaniołem</td>
-                        </tr>
-
-                        <!-- PIĄTEK -->
-                        <tr>
-                            <td class="col-day" rowspan="2">Piątek 18 września<br><small style="font-weight: normal; opacity: 0.8;">Święto św. Stanisława Kostki</small></td>
-                            <td class="col-time">18.00</td>
-                            <td class="col-details">w int. † Gabrieli – 5 rocz. śm., Apolinarego, Feliksy, Stanisława Dąbrowskich, Reginy i Józefa Ostrowskich</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">18.30</td>
-                            <td class="col-details">w int. † Stefana Godlewskiego – greg. 20.</td>
-                        </tr>
-
-                        <!-- SOBOTA -->
-                        <tr>
-                            <td class="col-day" rowspan="3">Sobota 19 września<br><small style="font-weight: normal; opacity: 0.8;">Wspomnienie Najświętszego Imienia Maryi Panny</small></td>
-                            <td class="col-time">17.10</td>
-                            <td class="col-details">Wypominki roczne</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">18.00</td>
-                            <td class="col-details">w int. † zmarłych z wypominek</td>
-                        </tr>
-                        <tr>
-                            <td class="col-time">18.30</td>
-                            <td class="col-details">w int. † Stefana Godlewskiego – greg. 21.</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-        </details>
+        <!-- Kontener ładowany dynamicznie z Google Sheets przez intencje.js -->
+        <div id="intencje-container">
+            <p style="text-align: center; padding: 2rem;">Ładowanie intencji mszalnych...</p>
+        </div>
 
     </main>
 
     <!-- Dynamiczna stopka ładowana przez nav.js -->
     <footer id="main-footer"></footer>
 
-    <!-- Wczytanie zewnętrznej nawigacji, stopki oraz wspólnego trybu nocnego -->
+    <!-- Skrypty nawigacji, stopki oraz automatycznego pobierania intencji -->
     <script src="nav.js"></script>
+    <script src="intencje.js"></script>
 </body>
 </html>
