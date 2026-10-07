@@ -30,7 +30,7 @@ function isNightTime() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. Szablon Nagłówka z nowymi pozycjami w menu
+    // 1. Szablon Nagłówka z pozycjami w menu
     const headerHTML = `
         <nav>
             <a href="index.html" class="logo">Parafia Kazuń Bielany</a>
@@ -52,15 +52,18 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>
     `;
 
-    // 2. Stopka z danymi kontaktowymi i poprawnie podpiętymi Standardami Ochrony Małoletnich
+    // 2. Stopka z pełnymi danymi kontaktowymi, dojazdem i informacją o administratorze
     const footerHTML = `
         <div class="footer-container" style="justify-content: center; text-align: center; display: block; padding: 1.5rem 1rem;">
-            <div class="footer-col" style="max-width: 600px; margin: 0 auto;">
+            <div class="footer-col" style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
                 <h3>Parafia Kazuń Bielany</h3>
                 <p>ul. Wojska Polskiego 1, 05-152 Czosnów</p>
-                <p>📞 <a href="tel:+48...">+48...</a> &nbsp;|&nbsp; ✉️ <a href="mailto:parafia.kazun@gmail.com">parafia.kazun@gmail.com</a></p>
+                <p>📞 <strong>Proboszcz ks. Adam Wyszyński:</strong> <a href="tel:+48503163823" style="color: inherit; text-decoration: underline;">503 163 823</a></p>
+                <p>✉️ E-mail: <a href="mailto:parafiakazun@parafiakazun.pl" style="color: inherit; text-decoration: underline;">parafiakazun@parafiakazun.pl</a></p>
+                <p>💳 Nr konta: <span style="font-family: monospace; font-weight: bold;">27 8009 1046 0017 4600 2002 0001</span></p>
+                <p style="font-size: 0.9rem; opacity: 0.85; margin-top: 0.6rem;">💻 Administrator strony: <a href="mailto:adminparafiakazun@gmail.com" style="color: inherit; text-decoration: underline;">adminparafiakazun@gmail.com</a></p>
                 
-                <p style="margin-top: 1rem;">
+                <p style="margin-top: 1.2rem;">
                     <a href="standardy.html" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
                         🛡️ Standardy Ochrony Małoletnich
                     </a>
@@ -77,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cookieHTML = `
         <div id="cookie-banner" class="cookie-banner">
             <div class="cookie-content">
-                <p>Ta strona używa plików cookies w celu zapewnienia prawidłowego działania oraz wygody przeglądania. Korzystając ze strony, wyrażasz zgode na ich używanie.</p>
+                <p>Ta strona używa plików cookies w celu zapewnienia prawidłowego działania oraz wygody przeglądania. Korzystając ze strony, wyrażasz zgodę na ich używanie.</p>
                 <button onclick="acceptCookies()" class="cookie-btn">Akceptuję</button>
             </div>
         </div>
