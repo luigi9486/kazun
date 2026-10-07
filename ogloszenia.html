@@ -36,13 +36,13 @@
             opacity: 0.85;
         }
 
-        /* Sekcja Akordeonu / Rozwijanych Ogłoszeń */
+        /* Sekcja Ogłoszeń */
         .announcements-section {
             margin-top: 1rem;
         }
 
-        /* Stylowanie karty ogłoszeń (details/summary) */
-        details.announcement-card {
+        /* Stylowanie rozwijanych kart w archiwum */
+        details {
             background: var(--card-bg);
             border-radius: 12px;
             margin-bottom: 1.2rem;
@@ -50,28 +50,30 @@
             border: 1px solid rgba(214, 158, 46, 0.2);
             overflow: hidden;
             transition: border-color 0.3s;
+            padding: 1rem 1.2rem;
         }
 
-        details.announcement-card[open] {
+        details[open] {
             border-color: var(--accent-gold);
         }
 
-        summary.announcement-header {
-            padding: 1.2rem 1.5rem;
+        summary {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-color);
             cursor: pointer;
             list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
             user-select: none;
-            background: rgba(214, 158, 46, 0.04);
         }
 
-        summary.announcement-header::-webkit-details-marker {
+        summary::-webkit-details-marker {
             display: none;
         }
 
-        summary.announcement-header::after {
+        summary::after {
             content: '▼';
             font-size: 0.8rem;
             color: var(--accent-gold);
@@ -79,93 +81,22 @@
             margin-left: 0.5rem;
         }
 
-        details[open] summary.announcement-header::after {
+        details[open] summary::after {
             transform: rotate(180deg);
         }
 
-        .header-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-        }
-
-        .header-title {
-            font-family: 'Georgia', serif;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--accent-gold);
-        }
-
-        .header-date {
-            font-size: 0.85rem;
-            opacity: 0.75;
-        }
-
-        .announcement-body {
-            padding: 1.5rem;
-            border-top: 1px solid rgba(214, 158, 46, 0.15);
-            line-height: 1.7;
-            font-size: 0.98rem;
-        }
-
-        .announcement-body p {
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-
-        .announcement-body p:last-child {
-            margin-bottom: 0;
-        }
-
-        .announcement-body ul {
-            margin: 0.5rem 0 1rem 1.2rem;
-            padding: 0;
-        }
-
-        .announcement-body li {
-            margin-bottom: 0.4rem;
-        }
-
-        /* Tabela intencji / liturgii */
-        .intentions-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            font-size: 0.95rem;
-        }
-
-        .intentions-table th, 
-        .intentions-table td {
-            padding: 0.6rem 0.8rem;
-            text-align: left;
-            border-bottom: 1px dashed rgba(214, 158, 46, 0.25);
-        }
-
-        .intentions-table th {
-            color: var(--accent-gold);
-            font-family: 'Georgia', serif;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-
-        /* Wyróżnienie istotnych ogłoszeń */
-        .highlight-box {
-            background: rgba(214, 158, 46, 0.08);
-            border-left: 3px solid var(--accent-gold);
-            padding: 0.8rem 1rem;
-            margin: 1rem 0;
-            border-radius: 0 8px 8px 0;
+        .details-content {
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(214, 158, 46, 0.25);
+            margin-top: 0.8rem;
         }
 
         @media (max-width: 600px) {
-            summary.announcement-header {
-                padding: 1rem;
+            .page-title h1 {
+                font-size: 1.8rem;
             }
-            .announcement-body {
-                padding: 1rem;
-            }
-            .intentions-table th, 
-            .intentions-table td {
-                padding: 0.5rem 0.3rem;
+            details {
+                padding: 0.8rem 1rem;
             }
         }
     </style>
@@ -183,77 +114,9 @@
             <p>Słowo duszpasterzy i aktualne wydarzenia z życia parafii</p>
         </div>
 
-        <section class="announcements-section">
-
-            <!-- OGŁOSZENIE NAJNOWSZE: 20.09.2026 (OTWARTE) -->
-            <details class="announcement-card" open>
-                <summary class="announcement-header">
-                    <div class="header-info">
-                        <span class="header-title">XXV Niedziela Zwykła</span>
-                        <span class="header-date">📅 20 września 2026 r.</span>
-                    </div>
-                </summary>
-                <div class="accordion-body announcement-body">
-                    
-                    <div class="highlight-box">
-                        <strong>Nowenna do św. Michała Archanioła:</strong><br>
-                        Od dziś (20.09) rozpoczynamy Nowennę do św. Michała Archanioła przed liturgicznym świętem Archaniołów (29.09). Po Mszach św. ministranci rozprowadzają książeczki z tekstem Nowenny.
-                    </div>
-
-                    <p>Dziś w niedzielę 20.09 rozpoczynamy <strong>Nowennę do św. Michała Archanioła</strong> przed 29.09, kiedy przypada święto świętych Archaniołów Michała, Gabriela i Rafała. W czwartek zakończyliśmy rekolekcje Renowację misji świętych i oddaliśmy naszą parafię i rodziny opiece św. Michała Archanioła. Dlatego chcemy poprzez Nowennę przygotować się do uroczystości związanej z Jego liturgicznym świętem. Po Mszy św. ministranci rozprowadzają książeczkę z tekstem Nowenny, która ma zadanie przygotować nas duchowo do tego wydarzenia.</p>
-
-                    <p>W piątek (25.09) o godz. 18:45 odbędzie się pierwsze spotkanie rozpoczynające przygotowanie do <strong>Sakramentu Bierzmowania</strong>. Zapraszamy na to spotkanie młodzież oraz rodziców.</p>
-
-                    <p>W przyszłą niedzielę (27.09) po Mszy św. wieczornej o godz. 19:00 zapraszamy na <strong>Wieczór Adoracji Pana Jezusa w Najświętszym Sakramencie</strong>. Osoby, które mogą napisać anonimowo świadectwo dotyczące owoców uczestnictwa w Adoracji, proszone są o złożenie go do odczytania w białej skrzyneczce na stole pod chórem.</p>
-
-                    <p>Składamy serdeczne "Bóg zapłać" paniom Katarzynie, Justynie i Hannie za piękne ustrojenie naszej świątyni.</p>
-
-                    <p>Zachęcamy do włączenia się w <strong>zbiórkę elektroodpadów</strong>. Prosimy o składowanie ich przed Kościołem przy ogrodzeniu boiska.</p>
-
-                    <p><i>Życzymy wszystkim pięknego wypoczynku, a parafianom oraz gościom udanej niedzieli i spokojnego tygodnia.</i></p>
-                </div>
-            </details>
-
-            <!-- OGŁOSZENIE 2: 13.09.2026 -->
-            <details class="announcement-card">
-                <summary class="announcement-header">
-                    <div class="header-info">
-                        <span class="header-title">XXIV Niedziela Zwykła</span>
-                        <span class="header-date">📅 13 września 2026 r.</span>
-                    </div>
-                </summary>
-                <div class="accordion-body announcement-body">
-                    <div class="highlight-box">
-                        <strong>Renowacja Misji Świętych ze św. Michałem Archaniołem:</strong><br>
-                        <ul>
-                            <li><strong>Niedziela (13.09):</strong> Nauki podczas każdej Mszy św.</li>
-                            <li><strong>Poniedziałek – Czwartek (14–17.09):</strong> Nauki w Kazuniu rano o g. 9:30 i wieczorem o g. 18:00, a w Małocicach o g. 11:30.</li>
-                            <li>Codziennie wieczorne Nabożeństwo ze św. Michałem Archaniołem o g. 20:00 połączone z Adoracją Najświętszego Sakramentu i konferencją.</li>
-                            <li><strong>Spowiedź:</strong> We wtorek i w środę przed Mszą św.</li>
-                            <li><strong>Czwartek (zakończenie):</strong> Obrzęd zawierzenia parafii i naszych rodzin opiece św. Michała Archanioła. Prosimy o modlitwę w intencji owoców rekolekcji.</li>
-                        </ul>
-                    </div>
-
-                    <p>Dziś w niedzielę 13.09 po Mszy św. wieczornej odbędzie się <strong>Procesja Fatimska</strong>. Zapraszamy.</p>
-
-                    <p><strong>Wspomnienia liturgiczne i święta w tygodniu:</strong></p>
-                    <ul>
-                        <li>Poniedziałek (14.09) – Święto Podwyższenia Krzyża Świętego.</li>
-                        <li>Wtorek (15.09) – Wspomnienie Matki Bożej Bolesnej.</li>
-                        <li>Czwartek (17.09) – Wspomnienie św. Zygmunta Szczęsnego Felińskiego, biskupa.</li>
-                        <li>Piątek (18.09) – Wspomnienie św. Stanisława Kostki, patrona Polski, Archidiecezji Warszawskiej i ministrantów.</li>
-                    </ul>
-
-                    <p>W tę sobotę (3. miesiąca) podczas Mszy św. będą czytane <strong>wypominki roczne</strong>.</p>
-
-                    <p>Zapraszamy dziewczynki na próby <strong>scholii</strong> w soboty o godz. 17:00 oraz dorosłych na próby <strong>chóru</strong> w piątki o godz. 19:00.</p>
-
-                    <p>Zachęcamy do włączenia się w <strong>zbiórkę elektroodpadów</strong>. Prosimy o składowanie ich na parkingu przed Kościołem przy ogrodzeniu boiska.</p>
-
-                    <p><i>Życzymy wszystkim pięknego wypoczynku, a parafianom oraz gościom udanej niedzieli i spokojnego tygodnia.</i></p>
-                </div>
-            </details>
-
+        <!-- Kontener ładowany dynamicznie z Google Sheets przez ogloszenia.js -->
+        <section class="announcements-section" id="ogloszenia-container">
+            <p style="text-align: center; padding: 2rem;">Ładowanie ogłoszeń...</p>
         </section>
 
     </main>
@@ -261,7 +124,8 @@
     <!-- Dynamiczna stopka ładowana przez nav.js -->
     <footer id="main-footer"></footer>
 
-    <!-- Skrypt nawigacji, stopki oraz trybu nocnego -->
+    <!-- Skrypty nawigacji, stopki oraz automatycznego pobierania ogłoszeń -->
     <script src="nav.js"></script>
+    <script src="ogloszenia.js"></script>
 </body>
 </html>
