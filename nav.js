@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p>📞 <strong>Wikariusz ks. Jerzy Zychla:</strong> <a href="tel:+48603592841" style="color: inherit; text-decoration: underline;">603 592 841</a></p>
                 <p>✉️ E-mail: <a href="mailto:parafiakazun@parafiakazun.pl" style="color: inherit; text-decoration: underline;">parafiakazun@parafiakazun.pl</a></p>
                 <p>💳 Nr konta: <span style="font-family: monospace; font-weight: bold;">27 8009 1046 0017 4600 2002 0001</span></p>
-                <p style="font-size: 0.9rem; opacity: 0.85; margin-top: 0.6rem;">💻 Administrator strony: <a href="mailto:parafiakazunbielany@gmail.com" style="color: inherit; text-decoration: underline;">adminparafiakazun@gmail.com</a></p>
+                <p style="font-size: 0.9rem; opacity: 0.85; margin-top: 0.6rem;">💻 Administrator strony: <a href="mailto:parafiakazunbielany@gmail.com" style="color: inherit; text-decoration: underline;">parafiakazunbielany@gmail.com</a></p>
                 
                 <p style="margin-top: 1.2rem;">
                     <a href="standardy.html" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
