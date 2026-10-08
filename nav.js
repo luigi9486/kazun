@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-container" style="justify-content: center; text-align: center; display: block; padding: 1.5rem 1rem;">
             <div class="footer-col" style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
                 <h3>Parafia Kazuń Bielany</h3>
-                <p>ul. Wojska Polskiego 1, 05-152 Czosnów</p>
+                <p>ul. Kościelna 1, 05-152 Czosnów</p>
                 <p>📞 <strong>Proboszcz ks. Adam Wyszyński:</strong> <a href="tel:+48503163823" style="color: inherit; text-decoration: underline;">503 163 823</a></p>
                 <p>📞 <strong>Wikariusz ks. Jerzy Zychla:</strong> <a href="tel:+48603592841" style="color: inherit; text-decoration: underline;">603 592 841</a></p>
                 <p>✉️ E-mail: <a href="mailto:parafiakazun@parafiakazun.pl" style="color: inherit; text-decoration: underline;">parafiakazun@parafiakazun.pl</a></p>
