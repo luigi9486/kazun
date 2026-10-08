@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia Parafii - Parafia Kazuń Bielany</title>
+    <title>Duszpasterze i Historia Parafii - Parafia Kazuń Bielany</title>
     
     <!-- Podpięcie głównego pliku stylów -->
     <link rel="stylesheet" href="style.css">
@@ -26,8 +26,8 @@
 
         .history-header {
             text-align: center;
-            padding: 20px 15px;
-            margin: 15px 0 25px;
+            padding: 20px 15px 10px;
+            margin-bottom: 25px;
         }
 
         .history-header h1 {
@@ -41,6 +41,15 @@
             font-style: italic;
             opacity: 0.85;
             font-size: 1.05rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.1rem;
+            color: var(--accent-gold, #d69e2e);
+            margin: 40px 0 20px;
+            position: relative;
         }
 
         .history-card {
@@ -190,7 +199,13 @@
     <!-- Treść Główna Podstrony -->
     <main class="history-container">
         
-        <!-- Sekcja: Obecni Duszpasterze -->
+        <!-- Główny Nagłówek Podstrony -->
+        <div class="history-header">
+            <h1>Duszpasterze i Historia Parafii</h1>
+            <div class="subtitle">Poznaj naszych duszpasterzy oraz dzieje wspólnoty na przestrzeni wieków</div>
+        </div>
+
+        <!-- Sekcja 1: Obecni Duszpasterze -->
         <article class="history-card">
             <h2>Duszpasterze Parafii</h2>
             <div class="clergy-grid">
@@ -214,12 +229,9 @@
         </article>
 
         <!-- Nagłówek Sekcji Historycznej -->
-        <div class="history-header">
-            <h1>Z Kart Historii Parafii Kazuń</h1>
-            <div class="subtitle">Poznaj dzieje naszej wspólnoty duszpasterskiej na przestrzeni wieków</div>
-        </div>
+        <h2 class="section-title">Z Kart Historii Parafii Kazuń</h2>
 
-        <!-- Karta 1 -->
+        <!-- Karta 1: Początki -->
         <article class="history-card">
             <h2>Początki Dziejowe i Średniowiecze</h2>
             <p class="dropcap">
@@ -233,7 +245,7 @@
             </p>
         </article>
 
-        <!-- Karta 2 -->
+        <!-- Karta 2: Świątynie -->
         <article class="history-card">
             <h2>Kolejne Świątynie i Budowa Obecnego Kościoła</h2>
             <p>
@@ -257,7 +269,7 @@
 
         <div class="divider">✦ ✦ ✦</div>
 
-        <!-- Karta 4 -->
+        <!-- Karta 4: Teren i Wioski -->
         <article class="history-card">
             <h2>Teren Parafii i Wioski</h2>
             <p>
@@ -289,7 +301,7 @@
                 </li>
                 <li>
                     <strong>Ks. Leon Dobrowolski</strong> (1914 – 1916)
-                    <p class="priest-note">Posługiwal w parafii na początku I wojny światowej.</p>
+                    <p class="priest-note">Posługiwał w parafii na początku I wojny światowej.</p>
                 </li>
                 <li>
                     <strong>Ks. Władysław Wieczorek</strong> (1916 – 1919)
@@ -321,4 +333,36 @@
                 </li>
                 <li>
                     <strong>Ks. Tadeusz Kaźmierski</strong> (1945 – 1962)
-                    <p class="priest
+                    <p class="priest-note">Duszpasterz powojennej odbudowy. W latach 1949–1956 przeprowadził gruntowną przebudowę i renowację uszkodzonego kościoła.</p>
+                </li>
+                <li>
+                    <strong>Ks. Jan Jerzy Półkośnik</strong> (1962 – 1980)
+                    <p class="priest-note">Długoletni proboszcz posługujący w okresie powojennym i posoborowym.</p>
+                </li>
+                <li>
+                    <strong>Ks. Ryszard Rzewnicki</strong> (1980 – 1988)
+                    <p class="priest-note">Kierował parafią w trudnych latach stanu wojennego i przemian społecznych.</p>
+                </li>
+                <li>
+                    <strong>Ks. Mirosław Konopka</strong> (1988 – 1990)
+                    <p class="priest-note">Posługiwał w okresie przełomu ustrojowego w Polsce.</p>
+                </li>
+                <li>
+                    <strong>Ks. Jan Kozicki</strong> (1990 – 2009)
+                    <p class="priest-note">Inicjator powstania w 2001 r. kaplicy filialnej pw. Podwyższenia Krzyża Świętego w Małocicach.</p>
+                </li>
+            </ul>
+        </article>
+
+        <p class="source-note">
+            Na podstawie opracowania ks. Grzegorza Kalwarczyka – <em>Dekanat Kampinoski w archidiecezji warszawskiej</em> (2000 r.).
+        </p>
+
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <!-- Wczytanie zewnętrznej nawigacji oraz wspólnego trybu nocnego -->
+    <script src="nav.js"></script>
+</body>
+</html>
