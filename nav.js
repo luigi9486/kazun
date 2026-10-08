@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; Parafia Rzymskokatolicka Matki Bożej Szkaplerznej w Kazuniu Bielanach</p>
+            <p>&copy; Parafia Rzymskokatolicka Matki Bożej Szkaplerznej w Kazuniu Bielany</p>
         </div>
     `;
 
