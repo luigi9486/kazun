@@ -105,7 +105,6 @@
                     </div>
                 </div>
 
-
 				<!-- Slajd 7 -->
                 <div class="slide">
                     <img class="slider-img" 
@@ -130,6 +129,12 @@
     <main>
         <!-- SEKCJA GŁÓWNA (LEWA KOLUMNA) -->
         <div class="main-content">
+
+            <!-- KARTA: DYNAMICZNY KOMUNIKAT / JUBILEUSZ (Ukryty domyślnie, ukazuje się po pobraniu danych) -->
+            <div class="card" id="jubileusz" style="display: none; border-left: 4px solid var(--accent-gold); background: rgba(214, 158, 46, 0.08);">
+                <!-- Zawartość ładuje się dynamicznie z arkusza 'Komunikaty' -->
+            </div>
+
             <!-- KARTA: OGŁOSZENIA PARAFIALNE -->
             <div class="card" id="ogloszenia">
                 <div class="card-icon">📰</div>
@@ -323,13 +328,58 @@
         window.addEventListener('resize', updateSlider);
         setTimeout(updateSlider, 100);
 
-        /* POBIERANIE SKRÓTÓW BEZPOŚREDNIO Z GOOGLE SHEETS */
+        /* POBIERANIE SKRÓTÓW I KOMUNIKATÓW Z GOOGLE SHEETS */
         const SPREADSHEET_ID = '1K_-KbC3fgJ7_MKPBn920MTatdV2u8bQviCN7riFcX8U';
 
         document.addEventListener("DOMContentLoaded", function () {
+            ladujKomunikat();
             ladujSkrotOgloszen();
             ladujSkrotIntencji();
         });
+
+        async function ladujKomunikat() {
+            const container = document.getElementById("jubileusz");
+            if (!container) return;
+
+            try {
+                const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent('Komunikaty')}`;
+                const response = await fetch(url);
+                const text = await response.text();
+                const jsonText = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
+                const data = JSON.parse(jsonText);
+
+                const rows = data.table.rows;
+                if (!rows || rows.length <= 1) {
+                    container.style.display = "none";
+                    return;
+                }
+
+                const wiersze = rows.slice(1).map(r => ({
+                    tytul: r.c[0] ? r.c[0].v : '',
+                    tresc: r.c[1] ? r.c[1].v : '',
+                    ikona: r.c[2] ? r.c[2].v : '📜'
+                })).filter(item => item.tytul || item.tresc);
+
+                if (wiersze.length === 0) {
+                    container.style.display = "none";
+                    return;
+                }
+
+                const najnowszy = wiersze[wiersze.length - 1];
+
+                container.innerHTML = `
+                    <div class="card-icon">${najnowszy.ikona || '📜'}</div>
+                    <h2>${najnowszy.tytul}</h2>
+                    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0;">
+                        ${najnowszy.tresc}
+                    </p>
+                `;
+                container.style.display = "block";
+            } catch (error) {
+                console.error("Błąd pobierania komunikatu:", error);
+                container.style.display = "none";
+            }
+        }
 
         async function ladujSkrotOgloszen() {
             const preview = document.getElementById("ogloszenia-preview");
