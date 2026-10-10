@@ -31,9 +31,23 @@
             margin-bottom: 0.5rem;
         }
 
-        .page-title p {
-            font-size: 1.05rem;
-            opacity: 0.85;
+        /* Sekcja Odpustów */
+        .indulgences-box {
+            background: rgba(214, 158, 46, 0.08);
+            border: 1px solid rgba(214, 158, 46, 0.3);
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .indulgences-title {
+            font-weight: bold;
+            color: var(--accent-gold);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Elastyczny układ kart dla Mszy Świętych */
@@ -206,7 +220,7 @@
                 <h2>Kościół Parafialny w Kazuniu</h2>
                 
                 <div class="location-group">
-                    <div class="location-title">ŚWIĘTO I NIEDZIELA</div>
+                    <div class="location-title">NIEDZIELE I ŚWIĘTA</div>
                     <ul class="schedule-list">
                         <li><span>Msza św. w Kazuniu</span> <span class="time-badge">7:30</span></li>
                         <li><span>Msza św. w Kazuniu (z udziałem dzieci)</span> <span class="time-badge">11:00</span></li>
@@ -221,6 +235,13 @@
                         <li><span>Msza św. w Kazuniu</span> <span class="time-badge">18:00</span></li>
                     </ul>
                 </div>
+
+                <!-- Odpust Parafialny w Kazuniu -->
+                <div class="indulgences-box">
+                    <div class="indulgences-title">🎉 Odpust Parafialny</div>
+                    <p style="margin: 0;">• <strong>19 marca</strong> – św. Józefa</p>
+                    <p style="margin: 0.2rem 0 0 0;">• <strong>16 lipca</strong> – MB Szkaplerznej</p>
+                </div>
             </div>
 
             <!-- Kaplica w Małocicach -->
@@ -229,10 +250,23 @@
                 <h2>Kaplica w Małocicach</h2>
                 
                 <div class="location-group">
-                    <div class="location-title">ŚWIĘTO I NIEDZIELA</div>
+                    <div class="location-title">NIEDZIELE I ŚWIĘTA</div>
                     <ul class="schedule-list">
                         <li><span>Msza św. w Małocicach</span> <span class="time-badge">9:30</span></li>
                     </ul>
+                </div>
+
+                <div class="location-group" style="margin-top: 1.5rem;">
+                    <div class="location-title">DNI POWSZEDNIE</div>
+                    <p style="font-size: 0.9rem; line-height: 1.5; margin-top: 0.5rem; opacity: 0.9;">
+                        Msze św. w dni powszednie odbywają się, gdy wypada święto lub uroczystość. Godziny zgodnie z ogłoszeniami.
+                    </p>
+                </div>
+
+                <!-- Odpust w Małocicach -->
+                <div class="indulgences-box">
+                    <div class="indulgences-title">🎉 Święto Patronalne</div>
+                    <p style="margin: 0;">• <strong>14 września</strong> – Święto Podwyższenia Krzyża Świętego</p>
                 </div>
             </div>
 
@@ -242,13 +276,13 @@
         <section class="confession-card">
             <div style="display: flex; align-items: center; gap: 0.6rem;">
                 <span style="font-size: 1.8rem;">✝️</span>
-                <h2 style="margin: 0; font-family: 'Georgia', serif; color: var(--accent-gold);">Sakrament pokuty i pojednania</h2>
+                <h2 style="margin: 0; font-family: 'Georgia', serif; color: var(--accent-gold);">Sakrament Pokuty i Pojednania</h2>
             </div>
 
             <div class="confession-content">
                 <p>• W dni powszednie 15 minut przed Mszą świętą,</p>
                 <p>• W niedziele i święta 15 minut przed Mszą świętą,</p>
-                <p>• W I piątek miesiąca (Kazuń od 17:30, Małocice od 16:00),</p>
+                <p>• W I piątek miesiąca (Kazuń od 17:30; Małocice od 15:30, a od listopada do lutego od 14:30),</p>
                 <p>• Zgodnie z ogłoszeniami parafialnymi,</p>
                 <p>• Na wezwanie.</p>
             </div>
@@ -263,7 +297,7 @@
 
             <div class="confession-content">
                 <p>• <strong>Niedziela – Piątek:</strong> 16:00 – 21:00</p>
-                <p>• <strong>W I piątek miesiąca:</strong> Adoracja całonocna</p>
+                <p>• <strong>W I piątek miesiąca:</strong> Adoracja całonocna od piątku godz. 16:00 do soboty godz. 8:00</p>
             </div>
         </section>
 
@@ -298,7 +332,7 @@
                 </summary>
                 <div class="accordion-body">
                     <p style="line-height: 1.6; margin-top: 0;">
-                        Gdy nie wypada święta lub uroczystości, w każdą środę o godz. 18:00 odprawia się msza św. wotywna według jednego z tych formularzy mszalnych:
+                        Gdy nie wypada święto lub uroczystość, w <strong>II środę miesiąca</strong> o godz. 18:00 odprawia się msza św. wotywna według jednego z tych formularzy mszalnych:
                     </p>
 
                     <div class="votive-links">
@@ -348,7 +382,7 @@
                         <div class="location-title">📍 Kościół Parafialny w Kazuniu</div>
                         <ul class="schedule-list">
                             <li>
-                                <span>Sakrament spowiedzi w Kazuniu</span>
+                                <span>Sakrament Pokuty i Pojednania w Kazuniu</span>
                                 <span class="time-badge">17:30</span>
                             </li>
                             <li>
@@ -362,7 +396,6 @@
                         </ul>
                     </div>
 
-
                     <div style="margin-top: 1.2rem; padding-top: 0.8rem; border-top: 1px dashed rgba(214, 158, 46, 0.25); font-size: 0.95rem; line-height: 1.6;">
                         <p style="margin: 0;">
                             W I piątek miesiąca są odprawiane 
@@ -371,7 +404,7 @@
                             <a href="http://ordo.pallotyni.pl/index.php/naboestwa-i-modlitwy/litanie-do-publicznego/351-litania-do-najswietszego-serca-pana-jezusa" target="_blank" rel="noopener" class="votive-link-btn" style="display: inline-block; margin: 0 0.2rem;">litania do Najświętszego Serca Pana Jezusa</a>.
                         </p>
                         <p style="margin-top: 0.6rem; margin-bottom: 0;">
-                            Po nabożeństwie całonocna adoracja Najświętszego Sakramentu.
+                            Po nabożeństwie całonocna adoracja Najświętszego Sakramentu (od piątku 16:00 do soboty 8:00).
                         </p>
                     </div>
 
@@ -379,120 +412,4 @@
                         <div class="location-title">📍 Kaplica w Małocicach</div>
                         <ul class="schedule-list">
                             <li>
-                                <span>Sakrament spowiedzi w Małocicach</span>
-                                <span class="time-badge">16:00</span>
-                            </li>
-                            <li>
-                                <span>Msza św. w Małocicach</span>
-                                <span class="time-badge">16:30</span>
-                            </li>
-                            <li>
-                                <span>Nabożeństwo I piątku w Małocicach</span>
-                                <span class="time-badge">17:00</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    
-                </div>
-            </details>
-
-            <!-- KARTA: I SOBOTA MIESIĄCA -->
-            <details class="accordion-card">
-                <summary class="accordion-header">
-                    <span>🌹 I SOBOTA MIESIĄCA</span>
-                </summary>
-                <div class="accordion-body">
-                    <ul class="schedule-list" style="margin-top: 0;">
-                        <li>
-                            <span>Msza św. wotywna do Niepokalanego Serca Najświętszej Maryi Panny</span>
-                            <span class="time-badge">18:00</span>
-                        </li>
-                        <li>
-                            <span>
-                                Nabożeństwo fatimskie (Różaniec)
-                                <a href="https://fatima.pl/objawienia/nabozenstwa/" target="_blank" rel="noopener" class="votive-link-btn" style="margin-left: 0.5rem; font-size: 0.85rem;">[szczegóły]</a>
-                            </span>
-                            <span class="time-badge">18:30</span>
-                        </li>
-                    </ul>
-                </div>
-            </details>
-
-            <!-- KARTA: I NIEDZIELA MIESIĄCA -->
-            <details class="accordion-card">
-                <summary class="accordion-header">
-                    <span>👑 I NIEDZIELA MIESIĄCA</span>
-                </summary>
-                <div class="accordion-body">
-                    <ul class="schedule-list" style="margin-top: 0;">
-                        <li>
-                            <span>Msza św. I niedzieli miesiąca z udziałem chóru parafialnego</span>
-                            <span class="time-badge">12:30</span>
-                        </li>
-                        <li>
-                            <span>Adoracja i Procesja Eucharystyczna</span>
-                            <span class="time-badge">13:30</span>
-                        </li>
-                    </ul>
-
-                    <div style="margin-top: 1.2rem; padding-top: 0.8rem; border-top: 1px dashed rgba(214, 158, 46, 0.25); font-size: 0.95rem; line-height: 1.6;">
-                        <p style="margin: 0;">
-                            Zapoznaj się ze 
-                            <a href="https://www.niedziela.pl/download/spiewnik.pdf" target="_blank" rel="noopener" class="votive-link-btn" style="display: inline-block; margin: 0 0.2rem;">śpiewami procesyjnymi (PDF)</a> 
-                            by lepiej uczcić Przenajświętszy Sakrament podczas nabożeństwa 1 niedzieli miesiąca.
-                        </p>
-                    </div>
-                </div>
-            </details>
-
-            <!-- KARTA: INNE NABOŻEŃSTWA -->
-            <details class="accordion-card">
-                <summary class="accordion-header">
-                    <span>📅 INNE NABOŻEŃSTWA</span>
-                </summary>
-                <div class="accordion-body">
-                    <ul class="schedule-list" style="margin-top: 0;">
-                        <li>
-                            <span>Różaniec w październiku (Kazuń 17:30 / Małocice 16:00)</span>
-                            <span class="time-badge">17:30 / 16:00</span>
-                        </li>
-                        <li>
-                            <span>Nabożeństwo Majowe</span>
-                            <span class="time-badge">17:30</span>
-                        </li>
-                        <li>
-                            <span>Nabożeństwo Czerwcowe</span>
-                            <span class="time-badge">17:30</span>
-                        </li>
-                        <li>
-                            <span>Wypominki (w 3 sobotę miesiąca podczas Mszy św.)</span>
-                            <span class="time-badge">18:00</span>
-                        </li>
-                        <li>
-                            <span>Droga Krzyżowa (w każdy piątek Wielkiego Postu)</span>
-                            <span class="time-badge">Wielki Post</span>
-                        </li>
-                        <li>
-                            <span>Gorzkie Żale (po Sumie w Wielkim Poście)</span>
-                            <span class="time-badge">Wielki Post</span>
-                        </li>
-                        <li>
-                            <span>Roraty (wtorek, czwartek i sobota w Adwencie)</span>
-                            <span class="time-badge">6:45</span>
-                        </li>
-                    </ul>
-                </div>
-            </details>
-
-        </section>
-
-    </main>
-
-    <!-- Dynamiczna stopka ładowana przez nav.js -->
-    <footer id="main-footer"></footer>
-
-    <!-- Wczytanie zewnętrznej nawigacji, stopki oraz wspólnego trybu nocnego -->
-    <script src="nav.js"></script>
-</body>
-</html>
+                                <span>Sakrament Pokuty i Pojednania w Małoc
