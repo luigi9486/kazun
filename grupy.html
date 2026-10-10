@@ -1,186 +1,327 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupy Parafialne - Parafia Kazuń Bielany</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Nadpisanie dwukolumnowego układu z main w style.css */
-        main.groups-container {
-            display: block; /* Wyłącza dwukolumnowy grid z style.css */
-            max-width: 900px;
-            margin: 2rem auto 3rem;
-            padding: 0 1rem;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grupy Parafialne - Parafia Kazuń Bielany</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Nadpisanie dwukolumnowego układu z main w style.css */
+main.groups-container {
+    display: block;
+    max-width: 900px;
+    margin: 2rem auto 3rem;
+    padding: 0 1rem;
+} 
 
-        /* Stylowanie rozwijanych kart (details / summary) */
-        details.group-card {
-            background: var(--card-bg, #ffffff);
-            border: 1px solid var(--border-color, #e0e0e0);
-            border-radius: 12px;
-            margin-bottom: 1.2rem;
-            box-shadow: var(--shadow, 0 2px 8px rgba(0,0,0,0.05));
-            overflow: hidden;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+/* Stylowanie rozwijanych kart (details / summary) */
+details.group-card {
+    background: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 12px;
+    margin-bottom: 1.2rem;
+    box-shadow: var(--shadow, 0 2px 8px rgba(0,0,0,0.05));
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+} 
 
-        details.group-card[open] {
-            border-color: var(--accent-gold, #c5a059);
-        }
+details.group-card[open] {
+    border-color: var(--accent-gold, #c5a059);
+} 
 
-        summary.group-header {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 1.5rem;
-            cursor: pointer;
-            list-style: none;
-            user-select: none;
-            background: rgba(197, 160, 89, 0.05);
-            transition: background-color 0.2s ease;
-        }
+summary.group-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    background: rgba(197, 160, 89, 0.05);
+    transition: background-color 0.2s ease;
+} 
 
-        summary.group-header:hover {
-            background: rgba(197, 160, 89, 0.12);
-        }
+summary.group-header:hover {
+    background: rgba(197, 160, 89, 0.12);
+} 
 
-        summary.group-header::-webkit-details-marker {
-            display: none;
-        }
+summary.group-header::-webkit-details-marker {
+    display: none;
+} 
 
-        /* Strzałka rozwijania */
-        summary.group-header::after {
-            content: '▼';
-            margin-left: auto;
-            font-size: 0.8rem;
-            color: var(--accent-gold, #c5a059);
-            transition: transform 0.3s ease;
-        }
+/* Strzałka rozwijania */
+summary.group-header::after {
+    content: '▼';
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: var(--accent-gold, #c5a059);
+    transition: transform 0.3s ease;
+} 
 
-        details[open] summary.group-header::after {
-            transform: rotate(180deg);
-        }
+details[open] summary.group-header::after {
+    transform: rotate(180deg);
+} 
 
-        .group-icon {
-            font-size: 1.5rem;
-        }
+.group-icon {
+    font-size: 1.5rem;
+} 
 
-        .group-title {
-            font-family: 'Georgia', serif;
-            color: var(--accent-gold, #c5a059);
-            margin: 0;
-            font-size: 1.3rem;
-        }
+.group-title {
+    font-family: 'Georgia', serif;
+    color: var(--accent-gold, #c5a059);
+    margin: 0;
+    font-size: 1.3rem;
+} 
 
-        .group-details {
-            padding: 1.5rem;
-            border-top: 1px solid rgba(197, 160, 89, 0.2);
-            line-height: 1.6;
-            color: var(--text-color);
-        }
+.group-details {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+    line-height: 1.6;
+    color: var(--text-color);
+} 
 
-        .group-details p {
-            margin: 0 0 0.8rem 0;
-        }
+.group-details p {
+    margin: 0 0 0.8rem 0;
+} 
 
-        .meeting-info {
-            background: var(--header-bg, rgba(197, 160, 89, 0.1));
-            padding: 0.6rem 1rem;
-            border-radius: 6px;
-            margin-top: 0.4rem;
-            font-weight: 500;
-            font-size: 0.95rem;
-            display: inline-block;
-            color: var(--text-color);
-        }
-    </style>
+.meeting-info {
+    background: var(--header-bg, rgba(197, 160, 89, 0.1));
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    margin-top: 0.4rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: inline-block;
+    color: var(--text-color);
+}
+
+/* Podkarty dla zespołów / podgrup (np. w Żywym Różańcu) */
+details.subgroup-card {
+    background: rgba(197, 160, 89, 0.03);
+    border: 1px dashed rgba(197, 160, 89, 0.3);
+    border-radius: 8px;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+}
+
+details.subgroup-card[open] {
+    border-style: solid;
+    border-color: var(--accent-gold, #c5a059);
+}
+
+summary.subgroup-header {
+    padding: 0.8rem 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--accent-gold, #c5a059);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+summary.subgroup-header::-webkit-details-marker {
+    display: none;
+}
+
+summary.subgroup-header::after {
+    content: '▼';
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+details[open] summary.subgroup-header::after {
+    transform: rotate(180deg);
+}
+
+.subgroup-body {
+    padding: 1rem 1.2rem;
+    border-top: 1px dashed rgba(197, 160, 89, 0.2);
+}
+
+.contact-link {
+    color: var(--accent-gold, #c5a059);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+</style>
 </head>
-<body>
+<body> 
 
-    <!-- Dynamiczny nagłówek ładowany przez nav.js -->
-    <header id="main-header"></header>
+<!-- Dynamiczny nagłówek ładowany przez nav.js -->
+<header id="main-header"></header> 
 
-    <main class="groups-container">
-        <h1 style="text-align: center; font-family: 'Georgia', serif; margin-bottom: 2rem; color: var(--accent-gold, #c5a059);">Grupy i Wspólnoty Parafialne</h1>
+<main class="groups-container">
+<h1 style="text-align: center; font-family: 'Georgia', serif; margin-bottom: 2rem; color: var(--accent-gold, #c5a059);">Grupy i Wspólnoty Parafialne</h1> 
 
-        <!-- SCHOLA DZIECIĘCA -->
-        <details class="group-card">
-            <summary class="group-header">
-                <span class="group-icon">🎵</span>
-                <h2 class="group-title">Schola Dziecięca</h2>
-            </summary>
-            <div class="group-details">
-                <p>Schola ubogaca oprawę muzyczną Niedzielnej Mszy Świętej o godz. 11:00. Zapraszamy wszystkie dzieci chcące chwalić Pana Boga śpiewem i grą na instrumentach.</p>
-                <div class="meeting-info">🕒 Próby: Soboty, godz. 17:00 (Salka parafialna)</div>
-            </div>
-        </details>
+<!-- RADA PARAFIALNA -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">🏛️</span>
+<h2 class="group-title">Rada Parafialna</h2>
+</summary>
+<div class="group-details">
+<p>Organ wspomagający i doradczy proboszcza w zarządzaniu parafią.</p>
+</div>
+</details>
 
-        <!-- CHÓR PARAFIALNY -->
-        <details class="group-card">
-            <summary class="group-header">
-                <span class="group-icon">🎼</span>
-                <h2 class="group-title">Chór Parafialny</h2>
-            </summary>
-            <div class="group-details">
-                <p>Chór zrzesza młodzież i dorosłych. Przygotowuje oprawę wokalną na największe uroczystości parafialne i świąteczne.</p>
-                <div class="meeting-info">🕒 Próby: Piątki, godz. 19:00</div>
-            </div>
-        </details>
+<!-- SCHOLA DZIECIĘCA -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">🎵</span>
+<h2 class="group-title">Schola Dziecięca</h2>
+</summary>
+<div class="group-details">
+<p>Schola ubogaca oprawę muzyczną Niedzielnej Mszy Świętej o godz. 11:00. Zapraszamy wszystkie dzieci chcące chwalić Pana Boga śpiewem i grą na instrumentach.</p>
+<div class="meeting-info">🕒 Próby: Soboty, godz. 17:00 (Salka parafialna)</div>
+</div>
+</details> 
 
-        <!-- GRUPA ADORACJI NAJŚWIETSZEGO SAKRAMENTU -->
-        <details class="group-card">
-            <summary class="group-header">
-                <span class="group-icon">🕯️</span>
-                <h2 class="group-title">Grupa Adoracji Najświętszego Sakramentu</h2>
-            </summary>
-            <div class="group-details">
-                <p>Wspólnota skupiająca osoby pragnące trwać na modlitwie przed Panem Jezusem ukrytym w Najświętszym Sakramencie. Członkowie grupy podejmują regularne dyżury w godzinach adoracji oraz podczas całonocnego czuwania w I Piątki miesiąca.</p>
-                <p><strong>Osoba prowadząca:</strong> [Imię i Nazwisko / kontakt]</p>
-                <div class="meeting-info">🕒 Dyżury adoracyjne: Niedziela – Piątek (16:00 – 21:00) | I Piątek miesiąca: Adoracja całonocna</div>
-            </div>
-        </details>
+<!-- CHÓR PARAFIALNY -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">🎼</span>
+<h2 class="group-title">Chór Parafialny</h2>
+</summary>
+<div class="group-details">
+<p>Chór zrzesza młodzież i dorosłych. Przygotowuje oprawę wokalną na największe uroczystości parafialne i świąteczne.</p>
+<div class="meeting-info">🕒 Próby: Piątki, godz. 19:00</div>
+</div>
+</details> 
 
-        <!-- ŻYWY RÓŻANIEC -->
-        <details class="group-card">
-            <summary class="group-header">
-                <span class="group-icon">📿</span>
-                <h2 class="group-title">Żywy Różaniec / Kółka Różańcowe</h2>
-            </summary>
-            <div class="group-details">
-                <p>Członkowie Kółek Różańcowych codziennie modlą się w intencjach Kościoła, Parafii i Ojczyzny. Zmiana tajemnic różańcowych odbywa się w każdą I Niedzielę miesiąca po Mszy Świętej.</p>
-                <div class="meeting-info">🕒 Spotkania: I Niedziela miesiąca</div>
-            </div>
-        </details>
+<!-- GRUPA ADORACJI NAJŚWIETSZEGO SAKRAMENTU - ARMIA GEDEONA -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">🕯️</span>
+<h2 class="group-title">Grupa Adoracji Najświętszego Sakramentu „Armia Gedeona”</h2>
+</summary>
+<div class="group-details">
+<p>Wspólnota skupiająca osoby pragnące trwać na modlitwie przed Panem Jezusem ukrytym w Najświętszym Sakramencie. Członkowie grupy podejmują regularne dyżury w godzinach adoracji oraz podczas całonocnego czuwania w I Piątki miesiąca.</p>
+<p><strong>Osoba prowadząca:</strong> Klaudia (<a href="tel:539056909" class="contact-link">539 056 909</a>)</p>
+<div class="meeting-info">🕒 Dyżury adoracyjne: Niedziela – Piątek (16:00 – 21:00) | I Piątek miesiąca: Adoracja całonocna</div>
+</div>
+</details> 
 
-        <!-- MINISTRANCI -->
-        <details class="group-card">
-            <summary class="group-header">
-                <span class="group-icon">✝️</span>
-                <h2 class="group-title">Liturgiczna Służba Ołtarza (Ministranci i Lektorzy)</h2>
-            </summary>
-            <div class="group-details">
-                <p>Służba ołtarza to chłopięca i młodzieżowa wspólnota dbająca o piękno sprawowanej liturgii. Zapraszamy chłopców po I Komunii Świętej oraz starszą młodzież.</p>
-                <div class="meeting-info">🕒 Zbiórki: Zgodnie z harmonogramem księdza opiekuna</div>
-            </div>
-        </details>
+<!-- ŻYWY RÓŻANIEC -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">📿</span>
+<h2 class="group-title">Żywy Różaniec / Kółka Różańcowe</h2>
+</summary>
+<div class="group-details">
 
-        <!-- BIELANKI I ASYSTA -->
-        <details class="group-card">
-            <summary class="group-header">
-                <span class="group-icon">🌸</span>
-                <h2 class="group-title">Bielanki oraz Asysta Procesyjna (Chorągiew)</h2>
-            </summary>
-            <div class="group-details">
-                <p>Dziewczęta (Bielanki) oraz dorośli tworzący asystę procesyjną dbają o oprawę procesji odpustowych, fatimskich i eucharystycznych.</p>
-            </div>
-        </details>
+    <!-- PODKARTA 1: Róża Różańcowa -->
+    <details class="subgroup-card">
+        <summary class="subgroup-header">
+            <span>🌹 Róża Różańcowa</span>
+        </summary>
+        <div class="subgroup-body">
+            <p>Członkowie Kółek Różańcowych codziennie modlą się w intencjach Kościoła, Parafii i Ojczyzny. Zmiana tajemnic różańcowych odbywa się w każdą I Niedzielę miesiąca po Mszy Świętej.</p>
+            <p style="margin-bottom: 0;"><strong>Kontakt:</strong> Regina (<a href="tel:662317317" class="contact-link">662 317 317</a>)</p>
+        </div>
+    </details>
 
-    </main>
+    <!-- PODKARTA 2: Róża Różańcowa Rodziców za Dzieci -->
+    <details class="subgroup-card">
+        <summary class="subgroup-header">
+            <span>👨‍👩‍👧‍👦 Róża Różańcowa Rodziców za Dzieci</span>
+        </summary>
+        <div class="subgroup-body">
+            <p>Wspólnota zrzesza rodziców modlących się za dzieci. Członkowie zobowiązani są raz w roku odebrać grafik modlitwy na całe 12 miesięcy. Zapraszamy wszystkich chętnych!</p>
+            <p style="margin-bottom: 0;">
+                <strong>Kontakt:</strong><br>
+                Kasia T. (<a href="tel:505767172" class="contact-link">505 767 172</a>)<br>
+                Kasia D. (<a href="tel:698521549" class="contact-link">698 521 549</a>)
+            </p>
+        </div>
+    </details>
 
-    <!-- Dynamiczna stopka ładowana przez nav.js -->
-    <footer id="main-footer"></footer>
+<div class="meeting-info">🕒 Spotkania: I Niedziela miesiąca</div>
+</div>
+</details> 
 
-    <script src="nav.js"></script>
+<!-- DOMOWY KOŚCIÓŁ -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">🏡</span>
+<h2 class="group-title">Domowy Kościół (gałąź Ruchu Światło-Życie)</h2>
+</summary>
+<div class="group-details">
+<p>Spotkania służą pogłębieniu duchowości małżeństw sakramentalnych.</p>
+<p>Więcej o Domowym Kościele przeczytasz na oficjalnej stronie ruchu.</p>
+<div class="meeting-info">🕒 Spotkania: Raz w miesiącu</div>
+</div>
+</details>
+
+<!-- BRACTWO ŚW. JÓZEFA -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">🛡️</span>
+<h2 class="group-title">Bractwo św. Józefa</h2>
+</summary>
+<div class="group-details">
+<p>Spotkania służą pogłębieniu duchowości mężczyzn w naśladowaniu życia św. Józefa (patrona mężczyzn, rodzin i Kościoła).</p>
+<div class="meeting-info">🕒 Spotkania: Raz w miesiącu</div>
+</div>
+</details>
+
+<!-- WIECZORY ZE SŁOWEM BOŻYM -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">📖</span>
+<h2 class="group-title">Wieczory ze Słowem Bożym</h2>
+</summary>
+<div class="group-details">
+<p>Spotkania poświęcone wspólnej rozważaniu i pochylaniu się nad Pismem Świętym.</p>
+<div class="meeting-info">🕒 Czwartki co dwa tygodnie o godz. 19:00 (Salka św. Józefa)</div>
+</div>
+</details>
+
+<!-- WIECZORY UWIELBIENIA -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">🙌</span>
+<h2 class="group-title">Wieczory Uwielbienia Pana Jezusa w Najświętszym Sakramencie</h2>
+</summary>
+<div class="group-details">
+<p>Wspólna modlitwa uwielbienia połączona ze śpiewem i adoracją Przenajświętszego Sakramentu.</p>
+<div class="meeting-info">🕒 III Niedziela miesiąca o godz. 19:00 (po Mszy Świętej Wieczornej)</div>
+</div>
+</details>
+
+<!-- MINISTRANCI -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">✝️</span>
+<h2 class="group-title">Liturgiczna Służba Ołtarza (Ministranci i Lektorzy)</h2>
+</summary>
+<div class="group-details">
+<p>Służba ołtarza to chłopięca i młodzieżowa wspólnota dbająca o piękno sprawowanej liturgii. Zapraszamy chłopców po I Komunii Świętej oraz starszą młodzież.</p>
+<div class="meeting-info">🕒 Zbiórki: Zgodnie z harmonogramem podawanym przez ks. Jerzego</div>
+</div>
+</details> 
+
+<!-- BIELANKI -->
+<details class="group-card">
+<summary class="group-header">
+<span class="group-icon">🌸</span>
+<h2 class="group-title">Bielanki</h2>
+</summary>
+<div class="group-details">
+<p>Dziewczęta (Bielanki) dbają o oprawę procesji Eucharystycznych, Fatimskich i Odpustowych.</p>
+</div>
+</details> 
+
+</main> 
+
+<!-- Dynamiczna stopka ładowana przez nav.js -->
+<footer id="main-footer"></footer> 
+
+<script src="nav.js"></script>
 </body>
 </html>
