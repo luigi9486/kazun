@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="historia.html">O Parafii</a></li>
                 <li><a href="kancelaria.html">Kancelaria i kontakt</a></li>
                 <li><a href="cmentarz.html">Cmentarz</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
             </ul>
 
             <button class="theme-toggle" onclick="toggleTheme()">
