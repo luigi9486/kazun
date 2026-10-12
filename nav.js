@@ -53,12 +53,23 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>
     `;
 
-    // 2. Stopka z pełnymi danymi kontaktowymi, dojazdem i informacją o administratorze
+    // 2. Stopka z mediami społecznościowymi, danymi kontaktowymi i informacją o administratorze
     const footerHTML = `
         <div class="footer-container" style="justify-content: center; text-align: center; display: block; padding: 1.5rem 1rem;">
             <div class="footer-col" style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
                 <h3>Parafia Kazuń Bielany</h3>
                 <p>ul. Kościelna 1, 05-152 Czosnów</p>
+                
+                <!-- Linki do mediów społecznościowych -->
+                <p style="margin: 0.8rem 0; font-size: 1rem;">
+                    <a href="https://www.facebook.com/profile.php?id=61595422286482" target="_blank" rel="noopener" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline; margin-right: 15px;">
+                        Facebook Parafii
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCl-gnQzXj_2EBS38i8b2vxQ" target="_blank" rel="noopener" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
+                        Kanał YouTube
+                    </a>
+                </p>
+
                 <p>📞 <strong>Proboszcz ks. Adam Wyszyński:</strong> <a href="tel:+48503163823" style="color: inherit; text-decoration: underline;">503 163 823</a></p>
                 <p>📞 <strong>Wikariusz ks. Jerzy Zychla:</strong> <a href="tel:+48603592841" style="color: inherit; text-decoration: underline;">603 592 841</a></p>
                 <p>✉️ E-mail: <a href="mailto:parafiakazun@parafiakazun.pl" style="color: inherit; text-decoration: underline;">parafiakazun@parafiakazun.pl</a></p>
@@ -78,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
 
-    // 3. Szablon Paska Ciasteczek
+    // 3. Szablon paska ciasteczek
     const cookieHTML = `
         <div id="cookie-banner" class="cookie-banner">
             <div class="cookie-content">
@@ -100,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
         footerElement.innerHTML = footerHTML;
     }
 
-    // Wyświetlenie banneru ciasteczek (jeśli nie zostały wcześniej zaakceptowane)
+    // Wyświetlenie banneru ciasteczek, jeśli nie zostały wcześniej zaakceptowane
     if (!localStorage.getItem("cookiesAccepted")) {
         document.body.insertAdjacentHTML("beforeend", cookieHTML);
     }
@@ -121,17 +132,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let isDark = false;
 
     if (savedTheme !== null) {
-        // Jeśli w trakcie TEJ SESJI użytkownik sam kliknął przycisk, zachowujemy jego wybór
+        // Używamy wyboru użytkownika z tej sesji
         isDark = (savedTheme === "dark");
     } else {
-        // Przy nowej wizycie (nowej sesji) zawsze decyduje tabela godzin wschodu/zachodu
+        // Przy nowej wizycie decyduje harmonogram wschodu/zachodu słońca
         isDark = isNightTime();
     }
 
     applyTheme(isDark);
 });
 
-/* Obsługa akceptacji ciasteczek (zostaje w localStorage na stałe) */
+/* Obsługa akceptacji ciasteczek */
 function acceptCookies() {
     localStorage.setItem("cookiesAccepted", "true");
     const banner = document.getElementById("cookie-banner");
@@ -141,7 +152,7 @@ function acceptCookies() {
     }
 }
 
-/* Logika przełączania motywu dla obecnej sesji */
+/* Logika przełączania motywu */
 function toggleTheme() {
     const isDark = !document.body.classList.contains("dark-mode");
     sessionStorage.setItem("theme", isDark ? "dark" : "light");
