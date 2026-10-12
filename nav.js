@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>
     `;
 
-    // 2. Stopka z danymi kontaktowymi, okrągłymi ikonami mediów społecznościowych i administratorem
+    // 2. Stopka z danymi kontaktowymi, kolorowymi ikonami mediów społecznościowych i administratorem
     const footerHTML = `
         <div class="footer-container" style="justify-content: center; text-align: center; display: block; padding: 1.5rem 1rem;">
             <div class="footer-col" style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
@@ -64,12 +64,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p>✉️ E-mail: <a href="mailto:parafiakazun@parafiakazun.pl" style="color: inherit; text-decoration: underline;">parafiakazun@parafiakazun.pl</a></p>
                 <p>💳 Nr konta: <span style="font-family: monospace; font-weight: bold;">27 8009 1046 0017 4600 2002 0001</span></p>
                 
-                <!-- Okrągłe ikonki mediów społecznościowych pod numerem konta -->
-                <div style="margin: 1rem 0; display: flex; justify-content: center; gap: 1rem;">
-                    <a href="https://www.facebook.com/profile.php?id=61595422286482" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(197, 160, 89, 0.15); color: var(--accent-gold, #c5a059); border-radius: 50%; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: background 0.3s, color 0.3s, transform 0.2s;" title="Facebook Parafii" onmouseover="this.style.background='var(--accent-gold)'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(197, 160, 89, 0.15)'; this.style.color='var(--accent-gold, #c5a059)'; this.style.transform='translateY(0)'">
+                <!-- Wyraziste, kolorowe ikony Facebooka i YouTube pod numerem konta -->
+                <div style="margin: 1.2rem 0; display: flex; justify-content: center; gap: 1.2rem;">
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/profile.php?id=61595422286482" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #1877F2; color: #ffffff; border-radius: 50%; text-decoration: none; font-weight: bold; font-size: 1.3rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Facebook Parafii" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                         f
                     </a>
-                    <a href="https://www.youtube.com/channel/UCl-gnQzXj_2EBS38i8b2vxQ" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(197, 160, 89, 0.15); color: var(--accent-gold, #c5a059); border-radius: 50%; text-decoration: none; font-size: 1rem; transition: background 0.3s, color 0.3s, transform 0.2s;" title="Kanał YouTube" onmouseover="this.style.background='var(--accent-gold)'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(197, 160, 89, 0.15)'; this.style.color='var(--accent-gold, #c5a059)'; this.style.transform='translateY(0)'">
+                    <!-- YouTube -->
+                    <a href="https://www.youtube.com/channel/UCl-gnQzXj_2EBS38i8b2vxQ" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #FF0000; color: #ffffff; border-radius: 50%; text-decoration: none; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Kanał YouTube" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                         ▶
                     </a>
                 </div>
