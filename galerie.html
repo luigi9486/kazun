@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie Zdjęć - Parafia Kazuń Bielany</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Kontener główny galerii */
+main.gallery-container {
+    display: block;
+    max-width: 1000px;
+    margin: 2rem auto 3rem;
+    padding: 0 1rem;
+}
+
+/* Układ siatki kafelków */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Karta pojedynczej galerii */
+.gallery-card {
+    background: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow, 0 2px 8px rgba(0,0,0,0.05));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-gold, #c5a059);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.gallery-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-title {
+    font-family: 'Georgia', serif;
+    color: var(--accent-gold, #c5a059);
+    font-size: 1.25rem;
+    margin: 0 0 0.4rem 0;
+}
+
+.gallery-date {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.gallery-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-color, #333);
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+}
+
+/* Przycisk przejścia do albumu Google Photos */
+.gallery-btn {
+    display: inline-block;
+    text-align: center;
+    background-color: var(--accent-gold, #c5a059);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.gallery-btn:hover {
+    background-color: #a88442;
+    color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+<!-- Dynamiczny nagłówek ładowany przez nav.js -->
+<header id="main-header"></header>
+
+<main class="gallery-container">
+    <h1 style="text-align: center; font-family: 'Georgia', serif; margin-bottom: 0.5rem; color: var(--accent-gold, #c5a059);">
+        Galerie Zdjęć
+    </h1>
+    <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto 2rem auto;">
+        Zapraszamy do obejrzenia fotorelacji z uroczystości i życia naszej parafii. Kliknij przycisk przy wybranym albumie, aby otworzyć pełną galerię zdjęć.
+    </p>
+
+    <div class="gallery-grid">
+
+        <!-- GALERIA 1 -->
+        <div class="gallery-card">
+            <div>
+                <div class="gallery-icon">📸</div>
+                <h2 class="gallery-title">Uroczystości Parafialne</h2>
+                <div class="gallery-date">📅 Album zdjęć</div>
+                <p>Fotorelacja z wydarzeń i uroczystości liturgicznych w naszej wspólnocie.</p>
+            </div>
+            <a href="https://photos.app.goo.gl/roKviJ5vZRZdJfNi9" target="_blank" class="gallery-btn">Zobacz galerię</a>
+        </div>
+
+        <!-- GALERIA 2 -->
+        <div class="gallery-card">
+            <div>
+                <div class="gallery-icon">🖼️</div>
+                <h2 class="gallery-title">Wydarzenia i Spotkania</h2>
+                <div class="gallery-date">📅 Album zdjęć</div>
+                <p>Zdjęcia ze spotkań i życia naszej parafii.</p>
+            </div>
+            <a href="https://photos.app.goo.gl/HXZ4BKtXYp7gp3VF8" target="_blank" class="gallery-btn">Zobacz galerię</a>
+        </div>
+
+    </div>
+</main>
+
+<!-- Dynamiczna stopka ładowana przez nav.js -->
+<footer id="main-footer"></footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
