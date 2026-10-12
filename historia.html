@@ -128,34 +128,26 @@
             font-weight: bold;
         }
 
-        /* Uporządkowana lista proboszczów z notatkami */
+        /* Uporządkowana lista proboszczów */
         .priests-list {
             list-style: none;
             padding: 0;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 20px;
+            gap: 8px;
+            margin-top: 15px;
         }
 
         .priests-list li {
             background: rgba(214, 158, 46, 0.08);
-            padding: 12px 18px;
+            padding: 10px 16px;
             border-radius: 8px;
             border-left: 3px solid var(--accent-gold, #d69e2e);
+            font-size: 1.05rem;
         }
 
         .priests-list li strong {
             color: var(--accent-gold, #d69e2e);
-            font-size: 1.05rem;
-        }
-
-        .priests-list li .priest-note {
-            margin-top: 4px !important;
-            margin-bottom: 0 !important;
-            font-size: 0.92rem;
-            opacity: 0.88;
-            line-height: 1.45;
         }
 
         .villages-list {
@@ -291,66 +283,21 @@
         <article class="history-card">
             <h2>Poczet Dawnych Proboszczów</h2>
             <ul class="priests-list">
-                <li>
-                    <strong>Ks. Józef Puczkowski</strong> (1813)
-                    <p class="priest-note">Wznoś nowy drewniany kościół pw. MB Szkaplerznej po katastrofie budowlanej z 1810 roku, zapoczątkowując kult pod tym wezwaniem w Kazuniu.</p>
-                </li>
-                <li>
-                    <strong>Ks. Julian Kazimierz Budziszewski</strong> (1913)
-                    <p class="priest-note">Zorganizował tymczasową kaplicę przy dzwonnicy po tragicznym pożarze drewnianego kościoła w 1913 roku.</p>
-                </li>
-                <li>
-                    <strong>Ks. Leon Dobrowolski</strong> (1914 – 1916)
-                    <p class="priest-note">Posługiwał w parafii na początku I wojny światowej.</p>
-                </li>
-                <li>
-                    <strong>Ks. Władysław Wieczorek</strong> (1916 – 1919)
-                    <p class="priest-note">Prowadził parafię pod koniec wojny oraz w okresie odzyskiwania niepodległości przez Polskę.</p>
-                </li>
-                <li>
-                    <strong>Ks. Antoni Montak</strong> (1919 – 1921)
-                    <p class="priest-note">Duszpasterz w trudnym okresie wojny polsko-bolszewickiej.</p>
-                </li>
-                <li>
-                    <strong>Ks. Feliks Kozak</strong> (1921 – 1928)
-                    <p class="priest-note">Duszpasterz w latach stabilizacji II Rzeczypospolitej.</p>
-                </li>
-                <li>
-                    <strong>Ks. Władysław Kulesza</strong> (1928 – 1933)
-                    <p class="priest-note">Przygotowywał grunt pod budowę nowej, murowanej świątyni parafialnej.</p>
-                </li>
-                <li>
-                    <strong>Ks. Tadeusz Majchrzak</strong> (1933 – 1939)
-                    <p class="priest-note">Główny budowniczy obecnego murowanego kościoła. Doprowadził do wmurowania kamienia węgielnego (1935) oraz konsekracji świątyni (1939).</p>
-                </li>
-                <li>
-                    <strong>Ks. Tomasz Grzanka</strong> (1939 – 1943)
-                    <p class="priest-note">Posługiwał na początku niemieckiej okupacji, dbając o parafian w najtrudniejszych momentach wojny.</p>
-                </li>
-                <li>
-                    <strong>Ks. Henryk Jóźwik</strong> (1943 – 1945)
-                    <p class="priest-note">Prowadził duszpasterstwo w czasie dewastacji kościoła przez wojska niemieckie i zamiany świątyni na stajnię.</p>
-                </li>
-                <li>
-                    <strong>Ks. Tadeusz Kaźmierski</strong> (1945 – 1962)
-                    <p class="priest-note">Duszpasterz powojennej odbudowy. W latach 1949–1956 przeprowadził gruntowną przebudowę i renowację uszkodzonego kościoła.</p>
-                </li>
-                <li>
-                    <strong>Ks. Jan Jerzy Półkośnik</strong> (1962 – 1980)
-                    <p class="priest-note">Długoletni proboszcz posługujący w okresie powojennym i posoborowym.</p>
-                </li>
-                <li>
-                    <strong>Ks. Ryszard Rzewnicki</strong> (1980 – 1988)
-                    <p class="priest-note">Kierował parafią w trudnych latach stanu wojennego i przemian społecznych.</p>
-                </li>
-                <li>
-                    <strong>Ks. Mirosław Konopka</strong> (1988 – 1990)
-                    <p class="priest-note">Posługiwał w okresie przełomu ustrojowego w Polsce.</p>
-                </li>
-                <li>
-                    <strong>Ks. Jan Kozicki</strong> (1990 – 2009)
-                    <p class="priest-note">Inicjator powstania w 2001 r. kaplicy filialnej pw. Podwyższenia Krzyża Świętego w Małocicach.</p>
-                </li>
+                <li><strong>Ks. Józef Puczkowski</strong> (1813)</li>
+                <li><strong>Ks. Julian Kazimierz Budziszewski</strong> (1913)</li>
+                <li><strong>Ks. Leon Dobrowolski</strong> (1914 – 1916)</li>
+                <li><strong>Ks. Władysław Wieczorek</strong> (1916 – 1919)</li>
+                <li><strong>Ks. Antoni Montak</strong> (1919 – 1921)</li>
+                <li><strong>Ks. Feliks Kozak</strong> (1921 – 1928)</li>
+                <li><strong>Ks. Władysław Kulesza</strong> (1928 – 1933)</li>
+                <li><strong>Ks. Tadeusz Majchrzak</strong> (1933 – 1939)</li>
+                <li><strong>Ks. Tomasz Grzanka</strong> (1939 – 1943)</li>
+                <li><strong>Ks. Henryk Jóźwik</strong> (1943 – 1945)</li>
+                <li><strong>Ks. Tadeusz Kaźmierski</strong> (1945 – 1962)</li>
+                <li><strong>Ks. Jan Jerzy Półkośnik</strong> (1962 – 1980)</li>
+                <li><strong>Ks. Ryszard Rzewnicki</strong> (1980 – 1988)</li>
+                <li><strong>Ks. Mirosław Konopka</strong> (1988 – 1990)</li>
+                <li><strong>Ks. Jan Kozicki</strong> (1990 – 2009)</li>
             </ul>
         </article>
 
