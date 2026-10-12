@@ -53,27 +53,27 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>
     `;
 
-    // 2. Stopka z mediami społecznościowymi, danymi kontaktowymi i informacją o administratorze
+    // 2. Stopka z danymi kontaktowymi, okrągłymi ikonami mediów społecznościowych i administratorem
     const footerHTML = `
         <div class="footer-container" style="justify-content: center; text-align: center; display: block; padding: 1.5rem 1rem;">
             <div class="footer-col" style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
                 <h3>Parafia Kazuń Bielany</h3>
                 <p>ul. Kościelna 1, 05-152 Czosnów</p>
-                
-                <!-- Linki do mediów społecznościowych -->
-                <p style="margin: 0.8rem 0; font-size: 1rem;">
-                    <a href="https://www.facebook.com/profile.php?id=61595422286482" target="_blank" rel="noopener" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline; margin-right: 15px;">
-                        Facebook Parafii
-                    </a>
-                    <a href="https://www.youtube.com/channel/UCl-gnQzXj_2EBS38i8b2vxQ" target="_blank" rel="noopener" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
-                        Kanał YouTube
-                    </a>
-                </p>
-
                 <p>📞 <strong>Proboszcz ks. Adam Wyszyński:</strong> <a href="tel:+48503163823" style="color: inherit; text-decoration: underline;">503 163 823</a></p>
                 <p>📞 <strong>Wikariusz ks. Jerzy Zychla:</strong> <a href="tel:+48603592841" style="color: inherit; text-decoration: underline;">603 592 841</a></p>
                 <p>✉️ E-mail: <a href="mailto:parafiakazun@parafiakazun.pl" style="color: inherit; text-decoration: underline;">parafiakazun@parafiakazun.pl</a></p>
                 <p>💳 Nr konta: <span style="font-family: monospace; font-weight: bold;">27 8009 1046 0017 4600 2002 0001</span></p>
+                
+                <!-- Okrągłe ikonki mediów społecznościowych pod numerem konta -->
+                <div style="margin: 1rem 0; display: flex; justify-content: center; gap: 1rem;">
+                    <a href="https://www.facebook.com/profile.php?id=61595422286482" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(197, 160, 89, 0.15); color: var(--accent-gold, #c5a059); border-radius: 50%; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: background 0.3s, color 0.3s, transform 0.2s;" title="Facebook Parafii" onmouseover="this.style.background='var(--accent-gold)'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(197, 160, 89, 0.15)'; this.style.color='var(--accent-gold, #c5a059)'; this.style.transform='translateY(0)'">
+                        f
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCl-gnQzXj_2EBS38i8b2vxQ" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(197, 160, 89, 0.15); color: var(--accent-gold, #c5a059); border-radius: 50%; text-decoration: none; font-size: 1rem; transition: background 0.3s, color 0.3s, transform 0.2s;" title="Kanał YouTube" onmouseover="this.style.background='var(--accent-gold)'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(197, 160, 89, 0.15)'; this.style.color='var(--accent-gold, #c5a059)'; this.style.transform='translateY(0)'">
+                        ▶
+                    </a>
+                </div>
+
                 <p style="font-size: 0.9rem; opacity: 0.85; margin-top: 0.6rem;">💻 Administrator strony: <a href="mailto:parafiakazunbielany@gmail.com" style="color: inherit; text-decoration: underline;">parafiakazunbielany@gmail.com</a></p>
                 
                 <p style="margin-top: 1.2rem;">
