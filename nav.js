@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             <ul class="nav-links">
                 <li><a href="ogloszenia.html">Ogłoszenia</a></li>
-                <li><a href="intencje.html">Intencje</a></li>
+                <li><a href="intencje.html">Intencje mszalne</a></li>
                 <li><a href="msze.html">Msze Święte i Nabożeństwa</a></li>
                 <li><a href="grupy.html">Grupy</a></li>
                 <li><a href="historia.html">O Parafii</a></li>
