@@ -157,13 +157,20 @@
         /* Stylizacja numeru konta i podlinkowanych numerów telefonów */
         .contact-list li {
             font-size: 1rem;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px dashed rgba(214, 158, 46, 0.15);
+            padding-bottom: 0.3rem;
         }
 
         .contact-list a {
             color: inherit;
             text-decoration: none;
             font-weight: 600;
+            white-space: nowrap; /* Zapobiega łamaniu numeru na 2 linie */
         }
 
         .contact-list a:hover {
@@ -187,6 +194,12 @@
             .page-title h1 { font-size: 1.8rem; }
             .hero-box { padding: 1.2rem; }
             details { padding: 0.8rem 1rem; }
+            
+            .contact-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.2rem;
+            }
         }
     </style>
 </head>
@@ -335,10 +348,10 @@
                     <div style="margin-bottom: 1.2rem;">
                         <strong style="color: var(--accent-gold);">📞 Duszpasterze i Osoby Kontaktowe</strong>
                         <ul class="contact-list" style="padding-left: 0; margin-top: 0.4rem; list-style: none;">
-                            <li><strong>ks. Adam Wyszyński:</strong> <a href="tel:+48503163823">503 163 823</a></li>
-                            <li><strong>ks. Jerzy Zychla:</strong> <a href="tel:+48603592841">603 592 841</a></li>
-                            <li><strong>Organistka Katarzyna:</strong> <a href="tel:+48796073170">796 073 170</a></li>
-                            <li><strong>Grabarz Adam Grzybowski:</strong> <a href="tel:+48604950180">604 950 180</a></li>
+                            <li><span>ks. Adam Wyszyński:</span> <a href="tel:+48503163823">503&nbsp;163&nbsp;823</a></li>
+                            <li><span>ks. Jerzy Zychla:</span> <a href="tel:+48603592841">603&nbsp;592&nbsp;841</a></li>
+                            <li><span>Organistka Katarzyna:</span> <a href="tel:+48796073170">796&nbsp;073&nbsp;170</a></li>
+                            <li><span>Grabarz Adam:</span> <a href="tel:+48604950180">604&nbsp;950&nbsp;180</a></li>
                         </ul>
                     </div>
 
