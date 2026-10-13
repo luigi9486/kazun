@@ -30,20 +30,20 @@ function isNightTime() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. Szablon Nagłówka z pozycjami w menu
+    // 1. Szablon Nagłówka z pozycjami w menu (z owiniętymi tekstami w <span> dla animacji kafelków)
     const headerHTML = `
         <nav>
             <a href="index.html" class="logo">Parafia Kazuń Bielany</a>
             
             <ul class="nav-links">
-                <li><a href="ogloszenia.html">Ogłoszenia</a></li>
-                <li><a href="intencje.html">Intencje mszalne</a></li>
-                <li><a href="msze.html">Msze Święte i Nabożeństwa</a></li>
-                <li><a href="grupy.html">Grupy</a></li>
-                <li><a href="historia.html">O Parafii</a></li>
-                <li><a href="kancelaria.html">Kancelaria i kontakt</a></li>
-                <li><a href="cmentarz.html">Cmentarz</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="ogloszenia.html"><span>Ogłoszenia</span></a></li>
+                <li><a href="intencje.html"><span>Intencje mszalne</span></a></li>
+                <li><a href="msze.html"><span>Msze Święte i Nabożeństwa</span></a></li>
+                <li><a href="grupy.html"><span>Grupy</span></a></li>
+                <li><a href="historia.html"><span>O Parafii</span></a></li>
+                <li><a href="kancelaria.html"><span>Kancelaria i kontakt</span></a></li>
+                <li><a href="cmentarz.html"><span>Cmentarz</span></a></li>
+                <li><a href="galerie.html"><span>Galerie</span></a></li>
             </ul>
 
             <button class="theme-toggle" onclick="toggleTheme()">
