@@ -19,36 +19,37 @@
 
         .page-title {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .page-title h1 {
             font-family: 'Georgia', serif;
             color: var(--accent-gold);
-            font-size: 2.2rem;
-            margin-bottom: 0.4rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
         }
 
         .page-title p {
             opacity: 0.85;
-            font-size: 1rem;
+            font-size: 0.92rem;
         }
 
         .hero-box {
             background: var(--card-bg);
             border: 1px solid rgba(214, 158, 46, 0.2);
             border-left: 5px solid var(--accent-gold);
-            padding: 1.8rem;
+            padding: 1.5rem;
             border-radius: 14px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             box-shadow: var(--shadow);
         }
 
         .hero-box h2 {
             color: var(--accent-gold);
             font-family: 'Georgia', serif;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -57,31 +58,32 @@
         .hero-box ul {
             list-style: none;
             padding-left: 0;
-            margin: 1rem 0;
+            margin: 0.8rem 0;
         }
 
         .hero-box li {
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
         .urgent-info {
-            margin-top: 1.2rem;
-            padding-top: 1rem;
+            margin-top: 1rem;
+            padding-top: 0.8rem;
             border-top: 1px dashed rgba(214, 158, 46, 0.3);
             font-style: italic;
             opacity: 0.9;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .section-title {
             color: var(--accent-gold);
             font-family: 'Georgia', serif;
-            font-size: 1.5rem;
-            margin: 2rem 0 1rem;
+            font-size: 1.3rem;
+            margin: 1.8rem 0 1rem;
+            letter-spacing: 0.5px;
         }
 
         /* Akordeony dla Sakramentów */
@@ -89,8 +91,8 @@
             background: var(--card-bg);
             border: 1px solid rgba(214, 158, 46, 0.2);
             border-radius: 12px;
-            margin-bottom: 1rem;
-            padding: 1rem 1.2rem;
+            margin-bottom: 0.8rem;
+            padding: 0.9rem 1.2rem;
             box-shadow: var(--shadow);
             transition: var(--transition);
         }
@@ -101,7 +103,7 @@
 
         summary {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 0.98rem;
             color: var(--text-color);
             cursor: pointer;
             list-style: none;
@@ -117,7 +119,7 @@
         summary::after {
             content: '＋';
             color: var(--accent-gold);
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: bold;
             transition: transform 0.3s ease;
         }
@@ -127,37 +129,37 @@
         }
 
         details[open] summary {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             border-bottom: 1px dashed rgba(214, 158, 46, 0.25);
-            padding-bottom: 0.8rem;
+            padding-bottom: 0.6rem;
             color: var(--accent-gold);
         }
 
         .details-content ul, 
         .details-content ol {
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
+            padding-left: 1.3rem;
+            margin-bottom: 0.8rem;
         }
 
         .details-content li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.92rem;
         }
 
         blockquote {
-            margin: 1rem 0;
-            padding: 0.8rem 1.2rem;
+            margin: 0.8rem 0;
+            padding: 0.7rem 1rem;
             border-left: 3px solid var(--accent-gold);
             background: rgba(214, 158, 46, 0.08);
             border-radius: 0 8px 8px 0;
             font-style: italic;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
         }
 
         /* Stylizacja numeru konta i podlinkowanych numerów telefonów */
         .contact-list li {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.92rem;
+            margin-bottom: 0.4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -180,10 +182,10 @@
 
         .bank-account {
             font-family: monospace;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             background: rgba(214, 158, 46, 0.1);
             border: 1px solid rgba(214, 158, 46, 0.2);
-            padding: 0.5rem 0.7rem;
+            padding: 0.4rem 0.6rem;
             border-radius: 6px;
             display: inline-block;
             margin-top: 0.3rem;
@@ -191,9 +193,15 @@
         }
 
         @media (max-width: 600px) {
-            .page-title h1 { font-size: 1.8rem; }
-            .hero-box { padding: 1.2rem; }
-            details { padding: 0.8rem 1rem; }
+            .page-title h1 { 
+                font-size: 1.25rem; 
+            }
+            .hero-box { 
+                padding: 1.1rem; 
+            }
+            details { 
+                padding: 0.8rem 1rem; 
+            }
             
             .contact-list li {
                 flex-direction: column;
@@ -332,7 +340,7 @@
         </section>
         
         <!-- Sekcja Dane Kontaktowe, Duszpasterze i Mapa -->
-        <section class="hero-box" style="margin-top: 2.5rem; border-left-color: var(--accent-gold);">
+        <section class="hero-box" style="margin-top: 2rem; border-left-color: var(--accent-gold);">
             <h2>📍 Kontakt i Lokalizacja</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
                 
