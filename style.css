@@ -583,12 +583,12 @@ footer::before {
         text-align: center;
     }
 
-    /* Równa siatka: 4 kolumny mieszczące się idealnie w szerokości ekranu, każdy kafelek ma tę samą szerokość */
+    /* Równa siatka: 4 kolumny w 2 rzędach, idealnie mieszczące się na szerokość ekranu */
     .nav-links { 
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, auto);
-        gap: 3px; 
+        gap: 4px; 
         width: 100%;
         padding: 0;
         margin: 0;
@@ -602,10 +602,10 @@ footer::before {
     }
 
     .nav-links a {
-        font-size: 0.65rem;
+        font-size: 0.68rem;
         padding: 0.35rem 0.1rem;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 5px;
         text-align: center;
         white-space: nowrap;
@@ -614,11 +614,15 @@ footer::before {
         display: block;
         width: 100%;
         box-sizing: border-box;
+        color: #ffffff !important;
+        text-decoration: none;
     }
 
-    /* Płynne przewijanie tekstu w pętli dla kafelków o stałej szerokości */
+    /* Wyraziste, białe napisy wewnątrz kafelków z animacją przewijania */
     .nav-links a span {
         display: inline-block;
+        color: #ffffff !important;
+        font-weight: 600;
         animation: ticker 8s linear infinite;
     }
 
@@ -722,8 +726,8 @@ html {
 
 /* GWARANCJA POPRAWNEGO WYŚWIETLANIA NUMERÓW TELEFONÓW (RWD) */
 a[href^="tel:"] {
-    white-space: nowrap; /* Zapobiega łamaniu numeru tel. na dwie linie */
-    color: inherit;      /* Zapobiega narzucaniu obcych kolorów przez systemy mobilne */
+    white-space: nowrap;
+    color: inherit;
     text-decoration: none;
     font-weight: 600;
 } 
