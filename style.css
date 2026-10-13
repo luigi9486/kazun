@@ -650,3 +650,34 @@ html {
         font-size: 0.85rem;
     }
 }
+
+/* GWARANCJA POPRAWNEGO WYŚWIETLANIA NUMERÓW TELEFONÓW (RWD) */
+a[href^="tel:"] {
+    white-space: nowrap; /* Zapobiega łamaniu numeru tel. na dwie linie */
+    color: inherit;      /* Zapobiega narzucaniu obcych kolorów przez systemy mobilne */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a[href^="tel:"]:hover {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+/* POMOCNICZA KLASA DLA LIST KONTAKTOWYCH */
+.contact-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+@media (max-width: 600px) {
+    .contact-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+}
