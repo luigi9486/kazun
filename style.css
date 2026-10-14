@@ -104,13 +104,13 @@ nav {
 } 
 
 .nav-links a {
-    color: var(--nav-text);
+    color: #ffffff !important; /* Czysta biel dla maksymalnej czytelności */
     text-decoration: none;
     font-weight: 600;
     font-size: 0.88rem;
     padding: 0.4rem 0.9rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.14); /* Wyraźniejsze tło kafelka */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Wyraźniejsza ramka */
     border-radius: 6px;
     transition: var(--transition);
     display: block;
@@ -134,7 +134,7 @@ nav {
 .theme-toggle {
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    color: var(--nav-text);
+    color: #ffffff;
     padding: 0.4rem 1rem;
     border-radius: 30px;
     cursor: pointer;
@@ -147,8 +147,9 @@ nav {
 } 
 
 .theme-toggle:hover {
-    background: var(--nav-text);
-    color: #121212;
+    background: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: #ffffff;
     transform: translateY(-2px);
 } 
 
