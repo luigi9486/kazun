@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 1. Szablon Nagłówka z pozycjami w menu (z owiniętymi tekstami w <span> dla animacji kafelków)
     const headerHTML = `
         <nav>
-            <a href="index.html" class="logo">Parafia MB Szkaplerznej w Kazuniu Bielany</a>
+            <a href="index.html" class="logo">Parafia Matki Bożej Szkaplerznej w Kazuniu Bielany</a>
             
             <ul class="nav-links">
                 <li><a href="ogloszenia.html"><span>Ogłoszenia</span></a></li>
