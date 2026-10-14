@@ -565,8 +565,8 @@ footer::before {
     .gold-text { font-size: 1.15rem; }
 } 
 
-/* MOBILNE MENU: PION ORAZ POZIOM (LANDSCAPE) */
-@media (max-width: 768px), (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+/* MOBILNE MENU: TYLKO DLA WĄSKICH EKRANÓW W PIONIE */
+@media (max-width: 768px) {
     nav { 
         flex-direction: column; 
         gap: 0.3rem; 
