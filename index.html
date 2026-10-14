@@ -429,4 +429,46 @@
             if (!preview) return;
 
             try {
-                const url = `
+                const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent('Intencje')}`;
+                const response = await fetch(url);
+                const text = await response.text();
+                const jsonText = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
+                const data = JSON.parse(jsonText);
+
+                const rows = data.table.rows;
+                if (!rows || rows.length <= 1) {
+                    preview.innerHTML = "<p>Brak aktualnych intencji.</p>";
+                    return;
+                }
+
+                const wiersze = rows.slice(1).map(r => ({
+                    data: r.c[0] ? (r.c[0].f || r.c[0].v) : '',
+                    tytul: r.c[1] ? r.c[1].v : '',
+                    tresc: r.c[2] ? r.c[2].v : ''
+                })).filter(item => item.tytul || item.tresc);
+
+                const najnowsze = wiersze[wiersze.length - 1];
+
+                const maxLen = 220;
+                let textSnippet = najnowsze.tresc.trim().replace(/\s+/g, ' ');
+                if (textSnippet.length > maxLen) {
+                    textSnippet = textSnippet.substring(0, maxLen) + "...";
+                }
+
+                preview.innerHTML = `
+                    <p style="font-weight: bold; color: var(--accent-gold); margin-bottom: 0.4rem;">
+                        ${najnowsze.tytul} <span style="font-size: 0.85rem; font-weight: normal; opacity: 0.8;">(${najnowsze.data})</span>
+                    </p>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
+                `;
+            } catch (error) {
+                console.error("Błąd pobierania skrótu intencji:", error);
+                preview.innerHTML = `<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>`;
+            }
+        }
+    </script>
+
+    <script src="nav.js"></script>
+    
+</body>
+</html>
