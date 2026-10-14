@@ -574,7 +574,7 @@ footer::before {
 } 
 
 /* MOBILNE MENU: TYLKO DLA WĄSKICH EKRANÓW W PIONIE */
-@media (max-width: 768px) {
+@media (max-width: 550px) {
     nav { 
         flex-direction: column; 
         gap: 0.3rem; 
