@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parafia MB Szkaplerznej w Kazuniu Bielany</title>
   
-	<link rel="stylesheet" href="style.css">
-	
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 
-	
+    
 <header id="main-header"></header>
-	
+    
 
     <!-- SLAJDER -->
     <section class="slider-section">
@@ -30,7 +30,7 @@
                          alt="Kościół w Kazuniu"
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1>
+                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle"></p>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                          alt=""
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1>
+                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle"></p>
                     </div>
                 </div>
@@ -58,12 +58,12 @@
                          alt="Św. Barbara"
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1>
+                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle">Św. Barbara</p>
                     </div>
                 </div>
 
-		        <!-- Slajd 4 -->
+                <!-- Slajd 4 -->
                 <div class="slide">
                     <img class="slider-img" 
                          src="d4.jpg" 
@@ -72,12 +72,12 @@
                          alt="Św. Michał Archanioł"
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1>
+                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle">Św. Michał Archanioł</p>
                     </div>
                 </div>
 
-		        <!-- Slajd 5 -->
+                <!-- Slajd 5 -->
                 <div class="slide">
                     <img class="slider-img" 
                          src="d5.jpg" 
@@ -86,12 +86,12 @@
                          alt="Św. Józef"
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1>
+                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle">Św. Józef Oblubieniec NMP</p>
                     </div>
                 </div>
 
-				<!-- Slajd 6 -->
+                <!-- Slajd 6 -->
                 <div class="slide">
                     <img class="slider-img" 
                          src="d6.jpg" 
@@ -100,12 +100,12 @@
                          alt=""
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1>
+                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle">Adoracja: niedziela - piątek; 15:00 - 21:00</p>
                     </div>
                 </div>
 
-				<!-- Slajd 7 -->
+                <!-- Slajd 7 -->
                 <div class="slide">
                     <img class="slider-img" 
                          src="d7.jpg" 
@@ -114,7 +114,7 @@
                          alt=""
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1>
+                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle">Kaplica p.w. Podwyższenia Krzyża Świętego</p>
                     </div>
                 </div>
@@ -429,46 +429,4 @@
             if (!preview) return;
 
             try {
-                const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent('Intencje')}`;
-                const response = await fetch(url);
-                const text = await response.text();
-                const jsonText = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
-                const data = JSON.parse(jsonText);
-
-                const rows = data.table.rows;
-                if (!rows || rows.length <= 1) {
-                    preview.innerHTML = "<p>Brak aktualnych intencji.</p>";
-                    return;
-                }
-
-                const wiersze = rows.slice(1).map(r => ({
-                    data: r.c[0] ? (r.c[0].f || r.c[0].v) : '',
-                    tytul: r.c[1] ? r.c[1].v : '',
-                    tresc: r.c[2] ? r.c[2].v : ''
-                })).filter(item => item.tytul || item.tresc);
-
-                const najnowsze = wiersze[wiersze.length - 1];
-
-                const maxLen = 220;
-                let textSnippet = najnowsze.tresc.trim().replace(/\s+/g, ' ');
-                if (textSnippet.length > maxLen) {
-                    textSnippet = textSnippet.substring(0, maxLen) + "...";
-                }
-
-                preview.innerHTML = `
-                    <p style="font-weight: bold; color: var(--accent-gold); margin-bottom: 0.4rem;">
-                        ${najnowsze.tytul} <span style="font-size: 0.85rem; font-weight: normal; opacity: 0.8;">(${najnowsze.data})</span>
-                    </p>
-                    <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
-                `;
-            } catch (error) {
-                console.error("Błąd pobierania skrótu intencji:", error);
-                preview.innerHTML = `<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>`;
-            }
-        }
-    </script>
-
-    <script src="nav.js"></script>
-	
-</body>
-</html>
+                const url = `
