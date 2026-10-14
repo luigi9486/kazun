@@ -1,4 +1,4 @@
-- {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -60,7 +60,7 @@ p, li, span, td, th {
     color: var(--text-color);
 } 
 
-/* NAWIGACJA Z MENU */
+/* NAWIGACJA Z MENU (NAPIS NA GÓRZE, KAFELKI W RZĘDZIE) */
 header {
     position: sticky;
     top: 0;
@@ -75,72 +75,67 @@ nav {
     max-width: 1300px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Napis wyśrodkowany na górze, kafelki pod spodem */
     align-items: center;
-    padding: 0.8rem 1.5rem;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
 } 
 
 .logo {
     font-weight: 800;
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     background: var(--gold-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.5px;
     text-decoration: none;
+    text-align: center;
     filter: drop-shadow(0px 1px 2px rgba(15, 23, 42, 0.4));
 } 
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 1.2rem;
+    gap: 0.5rem; /* Odstęp między kafelkami */
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Bezpieczeństwo na mniejszych ekranach */
 } 
 
 .nav-links a {
     color: var(--nav-text);
     text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.4rem 0.9rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 6px;
     transition: var(--transition);
-    padding: 0.4rem 0.2rem;
-    position: relative;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
 } 
 
+/* Usunięcie podkreślenia na rzecz efektu kafelka */
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: var(--accent-gold);
-    border-radius: 2px;
-    transition: var(--transition);
+    display: none;
 } 
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #fcf6ba;
-} 
-
-body.dark-mode .nav-links a:hover,
-body.dark-mode .nav-links a.active {
-    color: var(--accent-gold);
-} 
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
+    background: var(--accent-gold);
+    color: #ffffff !important;
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
 } 
 
 .theme-toggle {
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: var(--nav-text);
-    padding: 0.4rem 0.9rem;
+    padding: 0.4rem 1rem;
     border-radius: 30px;
     cursor: pointer;
     font-weight: 700;
@@ -665,12 +660,12 @@ footer::before {
 
 /* PRZEWIJANIE NAGŁÓWKÓW I KOTWIC (#ID) POD PRZYKLEJONE MENU NAWIGACJI */
 html {
-    scroll-padding-top: 190px;
+    scroll-padding-top: 150px;
     scroll-behavior: smooth;
 } 
 
 [id], .card, section {
-    scroll-margin-top: 190px;
+    scroll-margin-top: 150px;
 } 
 
 /* WYGLĄD RAMKI INFORMACYJNEJ O ŹRÓDLE TEKSTÓW */
