@@ -9,7 +9,9 @@
     --text-color: #212529;
     --card-bg: #ffffff;
     --footer-bg: #f1f3f5;
-    --border-color: rgba(214, 158, 46, 0.25); 
+
+    /* WYRAŹNIEJSZE ZŁOTE OBRAMOWANIA W TRYBIE DZIENNYM */
+    --border-color: rgba(214, 158, 46, 0.45); 
 
     /* GŁĘBOKI, CIEMNY BRĄZ / CZEKOLADA W TRYBIE DZIENNYM */
     --nav-bg: rgba(74, 55, 40, 0.95);
@@ -26,7 +28,9 @@ body.dark-mode {
     --text-color: #e0e0e0;
     --card-bg: #181a20;
     --footer-bg: #121418;
-    --border-color: rgba(214, 158, 46, 0.3); 
+
+    /* MOCNE, WYRAŹNE ZŁOTO W TRYBIE NOCNYM */
+    --border-color: rgba(214, 158, 46, 0.7); 
 
     /* CIEMNY GRANAT W TRYBIE NOCNYM */
     --nav-bg: rgba(15, 23, 42, 0.96);
@@ -335,7 +339,7 @@ details.announcement-card,
     padding: 1.8rem;
     border-radius: 14px;
     box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
+    border: 1.5px solid var(--border-color); /* Pogrubiona ramka kart */
     transition: var(--transition);
     position: relative;
     overflow: hidden;
@@ -411,7 +415,7 @@ table {
 
 th, td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1.5px solid var(--border-color); /* Pogrubiona linia pozioma */
     text-align: left;
 } 
 
@@ -443,7 +447,7 @@ summary {
 /* STOPKA GENEROWANA Z NAV.JS */
 footer {
     background: var(--footer-bg);
-    border-top: 1px solid var(--border-color);
+    border-top: 1.5px solid var(--border-color);
     margin-top: 2rem;
     padding: 2.5rem 1rem 1rem;
     font-size: 0.9rem;
@@ -512,7 +516,7 @@ footer::before {
     max-width: 650px;
     background: var(--card-bg);
     color: var(--text-color);
-    border: 1px solid var(--accent-gold);
+    border: 1.5px solid var(--accent-gold);
     border-radius: 12px;
     padding: 16px 20px;
     box-shadow: var(--shadow);
@@ -573,7 +577,7 @@ footer::before {
     .gold-text { font-size: 1.15rem; }
 } 
 
-/* MOBILNE MENU: TYLKO DLA WĄSKICH EKRANÓW W PIONIE */
+/* MOBILNE MENU: TYLKO DLA EKRANÓW WĄSKICH DO 550px */
 @media (max-width: 550px) {
     nav { 
         flex-direction: column; 
@@ -718,7 +722,7 @@ html {
     margin-top: 15px;
     font-size: 0.95rem;
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: 1.5px solid var(--border-color); /* Pogrubione zewnętrzne obramowanie tabeli */
     border-radius: 10px;
     overflow: hidden;
 } 
@@ -735,7 +739,7 @@ html {
 
 .intencje-table td {
     padding: 10px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1.5px solid var(--border-color); /* Wyraźne poziome kreski między dniami */
     color: var(--text-color);
     vertical-align: top;
 } 
