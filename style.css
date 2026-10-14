@@ -118,6 +118,11 @@ nav {
     white-space: nowrap;
 } 
 
+/* Wymuszenie białego koloru na tekście wewnątrz kafelków na komputerze */
+.nav-links a span {
+    color: #ffffff !important;
+}
+
 /* Usunięcie podkreślenia na rzecz efektu kafelka */
 .nav-links a::after {
     display: none;
