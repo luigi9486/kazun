@@ -588,14 +588,18 @@ footer::before {
     }
     
     /* PRZESUWAJĄCY SIĘ NAPIS LOGO NA TELEFONACH (EFEKT KAFELKOWY) */
+    /* === ZMIANA TUTAJ: Znacznie powiększone i wyraziste logo mobilne === */
     .logo {
         display: block;
         width: 100%;
         overflow: hidden;
         white-space: nowrap;
-        font-size: 1.50rem;
+        font-size: 1.35rem !important; /* Zwiększono z 1.50rem/0.85rem na czytelne, powiększone 1.35rem */
+        font-weight: 800;
         text-align: center;
         box-sizing: border-box;
+        padding: 0.15rem 0;
+        letter-spacing: 0.5px;
     }
 
     .logo span {
@@ -632,9 +636,11 @@ footer::before {
         min-width: 0;
     }
 
+    /* === ZMIANA TUTAJ: Zwiększona czcionka i dopasowany padding w kafelkach === */
     .nav-links a {
-        font-size: 0.68rem;
-        padding: 0.35rem 0.1rem;
+        font-size: 0.85rem !important; /* Zwiększono z 0.68rem na 0.85rem, aby wypowiedzi/słowa wypełniały kafelek */
+        font-weight: 700;
+        padding: 0.4rem 0.05rem !important; /* Zmniejszono boczne marginesy wewnętrzne, tworząc miejsce na większy tekst */
         background: rgba(255, 255, 255, 0.12);
         border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 5px;
@@ -649,11 +655,12 @@ footer::before {
         text-decoration: none;
     }
 
-    /* Wyraziste, białe napisy wewnątrz kafelków z animacją przewijania */
+    /* === ZMIANA TUTAJ: Wymuszone wyśrodkowanie i idealne wypełnienie tekstu === */
     .nav-links a span {
         display: inline-block;
         color: #ffffff !important;
-        font-weight: 600;
+        font-weight: 700; /* Pogrubiono tekst dla czytelności */
+        width: 100%; /* Rozciągnięcie na pełny kafelek */
         animation: ticker 8s linear infinite;
     }
 
