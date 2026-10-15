@@ -588,13 +588,12 @@ footer::before {
     }
     
     /* PRZESUWAJĄCY SIĘ NAPIS LOGO NA TELEFONACH (EFEKT KAFELKOWY) */
-    /* === ZMIANA TUTAJ: Znacznie powiększone i wyraziste logo mobilne === */
     .logo {
         display: block;
         width: 100%;
         overflow: hidden;
         white-space: nowrap;
-        font-size: 1.35rem !important; /* Zwiększono z 1.50rem/0.85rem na czytelne, powiększone 1.35rem */
+        font-size: 1.35rem !important;
         font-weight: 800;
         text-align: center;
         box-sizing: border-box;
@@ -636,11 +635,11 @@ footer::before {
         min-width: 0;
     }
 
-    /* === ZMIANA TUTAJ: Zwiększona czcionka i dopasowany padding w kafelkach === */
+    /* === ZMIANA TUTAJ: Zwiększona czcionka w kafelkach do 0.98rem bez zmiany wysokości/paddingu === */
     .nav-links a {
-        font-size: 0.85rem !important; /* Zwiększono z 0.68rem na 0.85rem, aby wypowiedzi/słowa wypełniały kafelek */
+        font-size: 0.98rem !important; /* Powiększony napis w kafelkach */
         font-weight: 700;
-        padding: 0.4rem 0.05rem !important; /* Zmniejszono boczne marginesy wewnętrzne, tworząc miejsce na większy tekst */
+        padding: 0.35rem 0.02rem !important; /* Zachowany oryginalny, niski padding (wysokość kafelka bez zmian) */
         background: rgba(255, 255, 255, 0.12);
         border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 5px;
@@ -655,12 +654,12 @@ footer::before {
         text-decoration: none;
     }
 
-    /* === ZMIANA TUTAJ: Wymuszone wyśrodkowanie i idealne wypełnienie tekstu === */
+    /* Wymuszone wyśrodkowanie i idealne wypełnienie tekstu */
     .nav-links a span {
         display: inline-block;
         color: #ffffff !important;
-        font-weight: 700; /* Pogrubiono tekst dla czytelności */
-        width: 100%; /* Rozciągnięcie na pełny kafelek */
+        font-weight: 700;
+        width: 100%;
         animation: ticker 8s linear infinite;
     }
 
