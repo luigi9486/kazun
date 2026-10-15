@@ -587,40 +587,34 @@ footer::before {
         box-sizing: border-box;
     }
     
-    /* PRZESUWAJĄCY SIĘ NAPIS LOGO NA TELEFONACH (EFEKT KAFELKOWY) */
+    /* GÓRNY NAPIS (LOGO) W DWÓCH RZĘDACH, WYŚRODKOWANY, NIERUCHOMY */
     .logo {
         display: block;
         width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-        font-size: 1.35rem !important;
+        white-space: normal !important; /* Pozwala na zawijanie wierszy w 2 rzędy */
+        font-size: 1.15rem !important; /* Optymalny rozmiar dla czytelności w 2 liniach */
         font-weight: 800;
-        text-align: center;
+        text-align: center !important;
         box-sizing: border-box;
-        padding: 0.15rem 0;
+        padding: 0.2rem 0.5rem;
         letter-spacing: 0.5px;
+        line-height: 1.25;
     }
 
     .logo span {
-        display: inline-block;
-        padding-left: 0;
-        animation: logo-ticker 12s linear infinite;
+        display: inline !important;
+        white-space: normal !important;
+        animation: none !important; /* Wyłączenie ruchu/animacji */
+        transform: none !important;
         background: var(--gold-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
-    @keyframes logo-ticker {
-        0% { transform: translateX(0); }
-        20% { transform: translateX(0); }
-        70% { transform: translateX(-50%); }
-        100% { transform: translateX(0); }
-    }
-
-    /* Układ 3 kolumn (3 kafelki w rzędzie) */
+    /* Układ 4 kolumn (4 kafelki w rzędzie x 2 rzędy = 8 kafelków) */
     .nav-links { 
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 4px; 
         width: 100%;
         padding: 0;
@@ -655,7 +649,7 @@ footer::before {
         line-height: 1.15;
     }
 
-    /* Wyłączenie animacji przewijania tekstu */
+    /* Wyłączenie animacji przewijania tekstu dla kafelków */
     .nav-links a span {
         display: block;
         color: #ffffff !important;
