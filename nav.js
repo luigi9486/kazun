@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <ul class="nav-links">
                 <li><a href="ogloszenia.html"><span>Ogłoszenia</span></a></li>
                 <li><a href="intencje.html"><span>Intencje mszalne</span></a></li>
-                <li><a href="msze.html"><span>Msze Święte i Nabożeństwa</span></a></li>
-                <li><a href="kancelaria.html"><span>Kancelaria i kontakt</span></a></li>
+                <li><a href="msze.html"><span>Msze Święte; Nabożeństwa</span></a></li>
+                <li><a href="kancelaria.html"><span>Kancelaria; kontakt</span></a></li>
                 <li><a href="grupy.html"><span>Grupy</span></a></li>
                 <li><a href="historia.html"><span>O Parafii</span></a></li>
                 <li><a href="cmentarz.html"><span>Cmentarz</span></a></li>
