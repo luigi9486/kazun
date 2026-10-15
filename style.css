@@ -593,7 +593,7 @@ footer::before {
         width: 100%;
         overflow: hidden;
         white-space: nowrap;
-        font-size: 1.10rem;
+        font-size: 1.50rem;
         text-align: center;
         box-sizing: border-box;
     }
