@@ -43,9 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="ogloszenia.html"><span>Ogłoszenia</span></a></li>
                 <li><a href="intencje.html"><span>Intencje mszalne</span></a></li>
                 <li><a href="msze.html"><span>Msze Święte i Nabożeństwa</span></a></li>
+                <li><a href="kancelaria.html"><span>Kancelaria i kontakt</span></a></li>
                 <li><a href="grupy.html"><span>Grupy</span></a></li>
                 <li><a href="historia.html"><span>O Parafii</span></a></li>
-                <li><a href="kancelaria.html"><span>Kancelaria i kontakt</span></a></li>
                 <li><a href="cmentarz.html"><span>Cmentarz</span></a></li>
                 <li><a href="galerie.html"><span>Galerie</span></a></li>
             </ul>
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </div>
 
-        <div class="footer-bottom">
+        <div class="foloter-bottom">
             <p>&copy; Parafia Rzymskokatolicka Matki Bożej Szkaplerznej w Kazuniu Bielany</p>
         </div>
     `;
