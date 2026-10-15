@@ -247,7 +247,7 @@
         </aside>
     </main>
 
-    <footer id="main-footer"></footer>
+    <footer id="main-header"></footer>
 
     <script>
         /* LOGIKA SLAJDERA */
@@ -385,10 +385,22 @@
                     return;
                 }
 
-                // Pobieramy wyłącznie Kolumnę C (r.c[2]) jako treść
-                const wiersze = rows.slice(1).map(r => ({
-                    tresc: r.c[2] ? r.c[2].v : ''
-                })).filter(item => item.tresc);
+                // Dynamicznie wyszukujemy kolumnę z treścią (pomijając datę)
+                const wiersze = rows.slice(1).map(r => {
+                    let trescVal = '';
+                    if (r.c) {
+                        for (let i = 1; i < r.c.length; i++) {
+                            if (r.c[i] && r.c[i].v !== null && r.c[i].v !== undefined) {
+                                let valStr = String(r.c[i].v);
+                                if (!valStr.startsWith('Date(')) {
+                                    trescVal = valStr;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    return { tresc: trescVal };
+                }).filter(item => item.tresc);
 
                 if (wiersze.length === 0) {
                     preview.innerHTML = "<p>Zapraszamy do zapoznania się z aktualnymi ogłoszeniami.</p>";
@@ -429,10 +441,22 @@
                     return;
                 }
 
-                // Pobieramy wyłącznie Kolumnę C (r.c[2]) jako treść
-                const wiersze = rows.slice(1).map(r => ({
-                    tresc: r.c[2] ? r.c[2].v : ''
-                })).filter(item => item.tresc);
+                // Dynamicznie wyszukujemy kolumnę z treścią (pomijając datę)
+                const wiersze = rows.slice(1).map(r => {
+                    let trescVal = '';
+                    if (r.c) {
+                        for (let i = 1; i < r.c.length; i++) {
+                            if (r.c[i] && r.c[i].v !== null && r.c[i].v !== undefined) {
+                                let valStr = String(r.c[i].v);
+                                if (!valStr.startsWith('Date(')) {
+                                    trescVal = valStr;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    return { tresc: trescVal };
+                }).filter(item => item.tresc);
 
                 if (wiersze.length === 0) {
                     preview.innerHTML = "<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>";
