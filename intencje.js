@@ -61,8 +61,7 @@ async function pobierzIntencje() {
         const najnowsze = wiersze[wiersze.length - 1];
         const archiwum = wiersze.slice(0, wiersze.length - 1).reverse();
 
-        // Bezpieczne wyświetlanie tygodnia/daty dla najnowszych intencji
-        const najnowszeDataHTML = najnowsze.data ? `<p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.2rem;">Tydzień: ${najnowsze.data}</p>` : '';
+        // Usunięto zmienną najnowszeDataHTML – data nie pojawia się już na górze
 
         let html = `
             <!-- NAJNOWSZE INTENCJE -->
@@ -70,7 +69,6 @@ async function pobierzIntencje() {
                 <h2 style="font-size: 1.6rem; color: var(--accent-gold); margin-bottom: 0.5rem;">
                     📖 ${najnowsze.tytul}
                 </h2>
-                ${najnowszeDataHTML}
                 <div style="white-space: pre-wrap; line-height: 1.7; font-size: 1.05rem;">${najnowsze.tresc}</div>
             </div>
         `;
