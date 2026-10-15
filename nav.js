@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>
     `;
 
-    // 2. Stopka z danymi kontaktowymi, kolorowymi ikonami mediów społecznościowych i administratorem
+    // 2. Stopka z danymi kontaktowymi, kolorowymi ikonami mediów społecznościowych i odnośnikami prawnymi
     const footerHTML = `
         <div class="footer-container" style="justify-content: center; text-align: center; display: block; padding: 1.5rem 1rem;">
             <div class="footer-col" style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
@@ -82,11 +82,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <p style="font-size: 0.9rem; opacity: 0.85; margin-top: 0.6rem;">💻 Administrator strony: <a href="mailto:parafiakazunbielany@gmail.com" style="color: inherit; text-decoration: underline;">parafiakazunbielany@gmail.com</a></p>
                 
-                <p style="margin-top: 1.2rem;">
-                    <a href="standardy.html" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
+                <div style="margin-top: 1.2rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="teksty.html#rodo" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
+                        ⚖️ Polityka Prywatności (RODO)
+                    </a>
+                    <a href="teksty.html#standardy" style="color: var(--accent-gold, #c5a059); font-weight: bold; text-decoration: underline;">
                         🛡️ Standardy Ochrony Małoletnich
                     </a>
-                </p>
+                </div>
             </div>
         </div>
 
