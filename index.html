@@ -386,8 +386,9 @@
                 }
 
                 const wiersze = rows.slice(1).map(r => ({
-                    tytul: r.c[0] ? r.c[0].v : '',
-                    tresc: r.c[1] ? r.c[1].v : (r.c[0] ? r.c[0].v : '')
+                    data: r.c[0] ? (r.c[0].f || r.c[0].v) : '',
+                    tytul: r.c[1] ? r.c[1].v : '',
+                    tresc: r.c[2] ? r.c[2].v : ''
                 })).filter(item => item.tytul || item.tresc);
 
                 if (wiersze.length === 0) {
@@ -431,8 +432,9 @@
                 }
 
                 const wiersze = rows.slice(1).map(r => ({
-                    tytul: r.c[0] ? r.c[0].v : '',
-                    tresc: r.c[1] ? r.c[1].v : (r.c[0] ? r.c[0].v : '')
+                    data: r.c[0] ? (r.c[0].f || r.c[0].v) : '',
+                    tytul: r.c[1] ? r.c[1].v : '',
+                    tresc: r.c[2] ? r.c[2].v : ''
                 })).filter(item => item.tytul || item.tresc);
 
                 if (wiersze.length === 0) {
