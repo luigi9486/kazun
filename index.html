@@ -6,13 +6,10 @@
     <title>Parafia Matki Bożej Szkaplerznej w Kazuniu Bielany</title>
   
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
 
-    
 <header id="main-header"></header>
-    
 
     <!-- SLAJDER -->
     <section class="slider-section">
@@ -30,7 +27,6 @@
                          alt="Kościół w Kazuniu"
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle"></p>
                     </div>
                 </div>
@@ -44,7 +40,6 @@
                          alt=""
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle"></p>
                     </div>
                 </div>
@@ -58,7 +53,6 @@
                          alt="Św. Barbara"
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle">Św. Barbara</p>
                     </div>
                 </div>
@@ -72,7 +66,6 @@
                          alt="Św. Michał Archanioł"
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle">Św. Michał Archanioł</p>
                     </div>
                 </div>
@@ -86,7 +79,6 @@
                          alt="Św. Józef"
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle">Św. Józef Oblubieniec NMP</p>
                     </div>
                 </div>
@@ -100,7 +92,6 @@
                          alt=""
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle">Adoracja: niedziela - piątek; 15:00 - 21:00</p>
                     </div>
                 </div>
@@ -114,7 +105,6 @@
                          alt=""
                          onerror="this.outerHTML='<div class=\'no-image\'>Brak obrazu</div>';">
                     <div class="hero-overlay">
-                        <!-- <h1 class="gold-text">Parafia MB Szkaplerznej w&nbsp;Kazuniu Bielany</h1> -->
                         <p class="hero-subtitle">Kaplica p.w. Podwyższenia Krzyża Świętego</p>
                     </div>
                 </div>
@@ -130,15 +120,13 @@
         <!-- SEKCJA GŁÓWNA (LEWA KOLUMNA) -->
         <div class="main-content">
 
-            <!-- KARTA: DYNAMICZNY KOMUNIKAT / JUBILEUSZ (Ukryty domyślnie, ukazuje się po pobraniu danych) -->
+            <!-- KARTA: DYNAMICZNY KOMUNIKAT / JUBILEUSZ -->
             <div class="card" id="jubileusz" style="display: none; border-left: 4px solid var(--accent-gold); background: rgba(214, 158, 46, 0.08);">
-                <!-- Zawartość ładuje się dynamicznie z arkusza 'Komunikaty' -->
             </div>
 
             <!-- KARTA: OGŁOSZENIA PARAFIALNE -->
             <div class="card" id="ogloszenia">
                 <div class="card-icon">📰</div>
-                <h2>Ogłoszenia Parafialne</h2>
                 
                 <div id="ogloszenia-preview">
                     <p style="opacity: 0.7;">Pobieranie najnowszych ogłoszeń...</p>
@@ -154,7 +142,6 @@
             <!-- KARTA: INTENCJE MSZALNE -->
             <div class="card" id="intencje">
                 <div class="card-icon">📖</div>
-                <h2>Intencje Mszalne</h2>
                 
                 <div id="intencje-preview">
                     <p style="opacity: 0.7;">Pobieranie intencji mszalnych...</p>
@@ -263,7 +250,7 @@
     <footer id="main-footer"></footer>
 
     <script>
-        /* POPOPRAWIONA LOGIKA POZYCJONOWANIA SLAJDERA */
+        /* LOGIKA SLAJDERA */
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const sliderContainer = document.getElementById('sliderContainer');
@@ -399,10 +386,14 @@
                 }
 
                 const wiersze = rows.slice(1).map(r => ({
-                    data: r.c[0] ? (r.c[0].f || r.c[0].v) : '',
-                    tytul: r.c[1] ? r.c[1].v : '',
-                    tresc: r.c[2] ? r.c[2].v : ''
+                    tytul: r.c[0] ? r.c[0].v : '',
+                    tresc: r.c[1] ? r.c[1].v : (r.c[0] ? r.c[0].v : '')
                 })).filter(item => item.tytul || item.tresc);
+
+                if (wiersze.length === 0) {
+                    preview.innerHTML = "<p>Zapraszamy do zapoznania się z aktualnymi ogłoszeniami.</p>";
+                    return;
+                }
 
                 const najnowsze = wiersze[wiersze.length - 1];
 
@@ -413,9 +404,7 @@
                 }
 
                 preview.innerHTML = `
-                    <p style="font-weight: bold; color: var(--accent-gold); margin-bottom: 0.4rem;">
-                        ${najnowsze.tytul} <span style="font-size: 0.85rem; font-weight: normal; opacity: 0.8;">(${najnowsze.data})</span>
-                    </p>
+                    ${najnowsze.tytul ? `<h2>${najnowsze.tytul}</h2>` : ''}
                     <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
                 `;
             } catch (error) {
@@ -442,10 +431,14 @@
                 }
 
                 const wiersze = rows.slice(1).map(r => ({
-                    data: r.c[0] ? (r.c[0].f || r.c[0].v) : '',
-                    tytul: r.c[1] ? r.c[1].v : '',
-                    tresc: r.c[2] ? r.c[2].v : ''
+                    tytul: r.c[0] ? r.c[0].v : '',
+                    tresc: r.c[1] ? r.c[1].v : (r.c[0] ? r.c[0].v : '')
                 })).filter(item => item.tytul || item.tresc);
+
+                if (wiersze.length === 0) {
+                    preview.innerHTML = "<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>";
+                    return;
+                }
 
                 const najnowsze = wiersze[wiersze.length - 1];
 
@@ -456,9 +449,7 @@
                 }
 
                 preview.innerHTML = `
-                    <p style="font-weight: bold; color: var(--accent-gold); margin-bottom: 0.4rem;">
-                        ${najnowsze.tytul} <span style="font-size: 0.85rem; font-weight: normal; opacity: 0.8;">(${najnowsze.data})</span>
-                    </p>
+                    ${najnowsze.tytul ? `<h2>${najnowsze.tytul}</h2>` : ''}
                     <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
                 `;
             } catch (error) {
