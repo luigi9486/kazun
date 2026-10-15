@@ -65,8 +65,7 @@ async function pobierzOgloszenia() {
         // Starsze wpisy w odwrotnej kolejności (od najnowszego do najstarszego)
         const archiwum = wiersze.slice(0, wiersze.length - 1).reverse();
 
-        // Bezpieczne wyświetlanie daty dla najnowszego ogłoszenia (jeśli brak daty, cały akapit z datą się ukrywa)
-        const najnowszeDataHTML = najnowsze.data ? `<p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.2rem;">Data publikacji: ${najnowsze.data}</p>` : '';
+        // Usunięto zmienną najnowszeDataHTML – data nie pojawia się już na górze w najnowszych ogłoszeniach
 
         let html = `
             <!-- NAJNOWSZE OGŁOSZENIE -->
@@ -74,7 +73,6 @@ async function pobierzOgloszenia() {
                 <h2 style="font-size: 1.6rem; color: var(--accent-gold); margin-bottom: 0.5rem;">
                     📢 ${najnowsze.tytul}
                 </h2>
-                ${najnowszeDataHTML}
                 <div style="white-space: pre-wrap; line-height: 1.7; font-size: 1.05rem;">${najnowsze.tresc}</div>
             </div>
         `;
