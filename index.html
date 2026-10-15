@@ -124,37 +124,7 @@
             <div class="card" id="jubileusz" style="display: none; border-left: 4px solid var(--accent-gold); background: rgba(214, 158, 46, 0.08);">
             </div>
 
-            <!-- KARTA: OGŁOSZENIA PARAFIALNE -->
-            <div class="card" id="ogloszenia">
-                <div class="card-icon">📰</div>
-                
-                <div id="ogloszenia-preview">
-                    <p style="opacity: 0.7;">Pobieranie najnowszych ogłoszeń...</p>
-                </div>
-
-                <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px dashed rgba(214, 158, 46, 0.25);">
-                    <a href="ogloszenia.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block;">
-                        Pełna treść ogłoszeń duszpasterskich &rarr;
-                    </a>
-                </div>
-            </div>
-
-            <!-- KARTA: INTENCJE MSZALNE -->
-            <div class="card" id="intencje">
-                <div class="card-icon">📖</div>
-                
-                <div id="intencje-preview">
-                    <p style="opacity: 0.7;">Pobieranie intencji mszalnych...</p>
-                </div>
-
-                <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px dashed rgba(214, 158, 46, 0.25);">
-                    <a href="intencje.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block;">
-                        Pełny intencjariusz tygodniowy &rarr;
-                    </a>
-                </div>
-            </div>
-
-            <!-- KARTA: KANCELARIA I KONTAKT -->
+            <!-- KARTA: KANCELARIA I KONTAKT (Zamieniona kolejnością - przeniesiona wyżej do lewej kolumny lub dostosowana) -->
             <div class="card" id="kancelaria">
                 <div class="card-icon">📋</div>
                 <h2>Kancelaria i Kontakt</h2>
@@ -168,11 +138,28 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Dodatkowe odnośniki do podstron usuniętych kart -->
+            <div class="card" id="skróty-podstron">
+                <div class="card-icon">🔗</div>
+                <h2>Ważne informacje</h2>
+                <div style="margin-bottom: 0.8rem;">
+                    <a href="ogloszenia.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 1rem; display: inline-block;">
+                        📰 Przejdź do ogłoszeń duszpasterskich &rarr;
+                    </a>
+                </div>
+                <div>
+                    <a href="intencje.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 1rem; display: inline-block;">
+                        📖 Przejdź do intencji mszalnych &rarr;
+                    </a>
+                </div>
+            </div>
+
         </div>
 
         <!-- SIDEBAR (PRAWA KOLUMNA) -->
         <aside class="sidebar">
-            <!-- SIDEBAR: MSZE ŚWIĘTE -->
+            <!-- SIDEBAR: MSZE ŚWIĘTE (Zamienione miejscami - teraz na samej górze sidebara) -->
             <div class="card" id="msze">
                 <div class="card-icon">⛪</div>
                 <h2>Msze Święte</h2>
@@ -247,7 +234,7 @@
         </aside>
     </main>
 
-    <footer id="main-footer"></footer>
+    <footer id="main-header"></footer>
 
     <script>
         /* LOGIKA SLAJDERA */
@@ -315,13 +302,11 @@
         window.addEventListener('resize', updateSlider);
         setTimeout(updateSlider, 100);
 
-        /* POBIERANIE SKRÓTÓW I KOMUNIKATÓW Z GOOGLE SHEETS */
+        /* POBIERANIE KOMUNIKATU Z GOOGLE SHEETS */
         const SPREADSHEET_ID = '1K_-KbC3fgJ7_MKPBn920MTatdV2u8bQviCN7riFcX8U';
 
         document.addEventListener("DOMContentLoaded", function () {
             ladujKomunikat();
-            ladujSkrotOgloszen();
-            ladujSkrotIntencji();
         });
 
         async function ladujKomunikat() {
@@ -342,9 +327,9 @@
                 }
 
                 const wiersze = rows.slice(1).map(r => ({
-                    tytul: r.c && r.c[0] ? r.c[0].v : '',
-                    tresc: r.c && r.c[1] ? r.c[1].v : '',
-                    ikona: r.c && r.c[2] ? r.c[2].v : '📜'
+                    tytul: r.c[0] ? r.c[0].v : '',
+                    tresc: r.c[1] ? r.c[1].v : '',
+                    ikona: r.c[2] ? r.c[2].v : '📜'
                 })).filter(item => item.tytul || item.tresc);
 
                 if (wiersze.length === 0) {
@@ -365,98 +350,6 @@
             } catch (error) {
                 console.error("Błąd pobierania komunikatu:", error);
                 container.style.display = "none";
-            }
-        }
-
-        function wyciagnijTrescZWiersza(row) {
-            if (!row || !row.c) return '';
-            for (let cell of row.c) {
-                if (cell && cell.v !== null && cell.v !== undefined) {
-                    let str = String(cell.v).trim();
-                    // Pomijamy puste ciągi i ciągi oznaczające datę z Google Viz
-                    if (str && !str.startsWith('Date(')) {
-                        return str;
-                    }
-                }
-            }
-            return '';
-        }
-
-        async function ladujSkrotOgloszen() {
-            const preview = document.getElementById("ogloszenia-preview");
-            if (!preview) return;
-
-            try {
-                const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent('Ogloszenia')}`;
-                const response = await fetch(url);
-                const text = await response.text();
-                const jsonText = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
-                const data = JSON.parse(jsonText);
-
-                const rows = data.table.rows;
-                if (!rows || rows.length <= 1) {
-                    preview.innerHTML = "<p>Brak aktualnych ogłoszeń.</p>";
-                    return;
-                }
-
-                const wiersze = rows.slice(1).map(r => wyciagnijTrescZWiersza(r)).filter(t => t.length > 0);
-
-                if (wiersze.length === 0) {
-                    preview.innerHTML = "<p>Zapraszamy do zapoznania się z aktualnymi ogłoszeniami.</p>";
-                    return;
-                }
-
-                const najnowszyTekst = wiersze[wiersze.length - 1];
-
-                const maxLen = 220;
-                let textSnippet = najnowszyTekst.replace(/\s+/g, ' ');
-                if (textSnippet.length > maxLen) {
-                    textSnippet = textSnippet.substring(0, maxLen) + "...";
-                }
-
-                preview.innerHTML = `<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>`;
-            } catch (error) {
-                console.error("Błąd pobierania skrótu ogłoszeń:", error);
-                preview.innerHTML = `<p>Zapraszamy do zapoznania się z aktualnymi ogłoszeniami.</p>`;
-            }
-        }
-
-        async function ladujSkrotIntencji() {
-            const preview = document.getElementById("intencje-preview");
-            if (!preview) return;
-
-            try {
-                const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent('Intencje')}`;
-                const response = await fetch(url);
-                const text = await response.text();
-                const jsonText = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
-                const data = JSON.parse(jsonText);
-
-                const rows = data.table.rows;
-                if (!rows || rows.length <= 1) {
-                    preview.innerHTML = "<p>Brak aktualnych intencji.</p>";
-                    return;
-                }
-
-                const wiersze = rows.slice(1).map(r => wyciagnijTrescZWiersza(r)).filter(t => t.length > 0);
-
-                if (wiersze.length === 0) {
-                    preview.innerHTML = "<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>";
-                    return;
-                }
-
-                const najnowszyTekst = wiersze[wiersze.length - 1];
-
-                const maxLen = 220;
-                let textSnippet = najnowszyTekst.replace(/\s+/g, ' ');
-                if (textSnippet.length > maxLen) {
-                    textSnippet = textSnippet.substring(0, maxLen) + "...";
-                }
-
-                preview.innerHTML = `<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>`;
-            } catch (error) {
-                console.error("Błąd pobierania skrótu intencji:", error);
-                preview.innerHTML = `<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>`;
             }
         }
     </script>
