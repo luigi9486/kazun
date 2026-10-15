@@ -247,7 +247,7 @@
         </aside>
     </main>
 
-    <footer id="main-header"></footer>
+    <footer id="main-footer"></footer>
 
     <script>
         /* LOGIKA SLAJDERA */
@@ -342,9 +342,9 @@
                 }
 
                 const wiersze = rows.slice(1).map(r => ({
-                    tytul: r.c[0] ? r.c[0].v : '',
-                    tresc: r.c[1] ? r.c[1].v : '',
-                    ikona: r.c[2] ? r.c[2].v : '📜'
+                    tytul: r.c && r.c[0] ? r.c[0].v : '',
+                    tresc: r.c && r.c[1] ? r.c[1].v : '',
+                    ikona: r.c && r.c[2] ? r.c[2].v : '📜'
                 })).filter(item => item.tytul || item.tresc);
 
                 if (wiersze.length === 0) {
@@ -368,6 +368,20 @@
             }
         }
 
+        function wyciagnijTrescZWiersza(row) {
+            if (!row || !row.c) return '';
+            for (let cell of row.c) {
+                if (cell && cell.v !== null && cell.v !== undefined) {
+                    let str = String(cell.v).trim();
+                    // Pomijamy puste ciągi i ciągi oznaczające datę z Google Viz
+                    if (str && !str.startsWith('Date(')) {
+                        return str;
+                    }
+                }
+            }
+            return '';
+        }
+
         async function ladujSkrotOgloszen() {
             const preview = document.getElementById("ogloszenia-preview");
             if (!preview) return;
@@ -385,39 +399,22 @@
                     return;
                 }
 
-                // Dynamicznie wyszukujemy kolumnę z treścią (pomijając datę)
-                const wiersze = rows.slice(1).map(r => {
-                    let trescVal = '';
-                    if (r.c) {
-                        for (let i = 1; i < r.c.length; i++) {
-                            if (r.c[i] && r.c[i].v !== null && r.c[i].v !== undefined) {
-                                let valStr = String(r.c[i].v);
-                                if (!valStr.startsWith('Date(')) {
-                                    trescVal = valStr;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    return { tresc: trescVal };
-                }).filter(item => item.tresc);
+                const wiersze = rows.slice(1).map(r => wyciagnijTrescZWiersza(r)).filter(t => t.length > 0);
 
                 if (wiersze.length === 0) {
                     preview.innerHTML = "<p>Zapraszamy do zapoznania się z aktualnymi ogłoszeniami.</p>";
                     return;
                 }
 
-                const najnowsze = wiersze[wiersze.length - 1];
+                const najnowszyTekst = wiersze[wiersze.length - 1];
 
                 const maxLen = 220;
-                let textSnippet = najnowsze.tresc.trim().replace(/\s+/g, ' ');
+                let textSnippet = najnowszyTekst.replace(/\s+/g, ' ');
                 if (textSnippet.length > maxLen) {
                     textSnippet = textSnippet.substring(0, maxLen) + "...";
                 }
 
-                preview.innerHTML = `
-                    <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
-                `;
+                preview.innerHTML = `<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>`;
             } catch (error) {
                 console.error("Błąd pobierania skrótu ogłoszeń:", error);
                 preview.innerHTML = `<p>Zapraszamy do zapoznania się z aktualnymi ogłoszeniami.</p>`;
@@ -441,39 +438,22 @@
                     return;
                 }
 
-                // Dynamicznie wyszukujemy kolumnę z treścią (pomijając datę)
-                const wiersze = rows.slice(1).map(r => {
-                    let trescVal = '';
-                    if (r.c) {
-                        for (let i = 1; i < r.c.length; i++) {
-                            if (r.c[i] && r.c[i].v !== null && r.c[i].v !== undefined) {
-                                let valStr = String(r.c[i].v);
-                                if (!valStr.startsWith('Date(')) {
-                                    trescVal = valStr;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    return { tresc: trescVal };
-                }).filter(item => item.tresc);
+                const wiersze = rows.slice(1).map(r => wyciagnijTrescZWiersza(r)).filter(t => t.length > 0);
 
                 if (wiersze.length === 0) {
                     preview.innerHTML = "<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>";
                     return;
                 }
 
-                const najnowsze = wiersze[wiersze.length - 1];
+                const najnowszyTekst = wiersze[wiersze.length - 1];
 
                 const maxLen = 220;
-                let textSnippet = najnowsze.tresc.trim().replace(/\s+/g, ' ');
+                let textSnippet = najnowszyTekst.replace(/\s+/g, ' ');
                 if (textSnippet.length > maxLen) {
                     textSnippet = textSnippet.substring(0, maxLen) + "...";
                 }
 
-                preview.innerHTML = `
-                    <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
-                `;
+                preview.innerHTML = `<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>`;
             } catch (error) {
                 console.error("Błąd pobierania skrótu intencji:", error);
                 preview.innerHTML = `<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>`;
