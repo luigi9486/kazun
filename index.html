@@ -385,11 +385,10 @@
                     return;
                 }
 
+                // Pobieramy wyłącznie Kolumnę C (r.c[2]) jako treść
                 const wiersze = rows.slice(1).map(r => ({
-                    data: r.c[0] ? (r.c[0].f || r.c[0].v) : '',
-                    tytul: r.c[1] ? r.c[1].v : '',
                     tresc: r.c[2] ? r.c[2].v : ''
-                })).filter(item => item.tytul || item.tresc);
+                })).filter(item => item.tresc);
 
                 if (wiersze.length === 0) {
                     preview.innerHTML = "<p>Zapraszamy do zapoznania się z aktualnymi ogłoszeniami.</p>";
@@ -405,7 +404,6 @@
                 }
 
                 preview.innerHTML = `
-                    ${najnowsze.tytul ? `<h2>${najnowsze.tytul}</h2>` : ''}
                     <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
                 `;
             } catch (error) {
@@ -431,11 +429,10 @@
                     return;
                 }
 
+                // Pobieramy wyłącznie Kolumnę C (r.c[2]) jako treść
                 const wiersze = rows.slice(1).map(r => ({
-                    data: r.c[0] ? (r.c[0].f || r.c[0].v) : '',
-                    tytul: r.c[1] ? r.c[1].v : '',
                     tresc: r.c[2] ? r.c[2].v : ''
-                })).filter(item => item.tytul || item.tresc);
+                })).filter(item => item.tresc);
 
                 if (wiersze.length === 0) {
                     preview.innerHTML = "<p>Zapraszamy do zapoznania się z intencjami mszalnymi.</p>";
@@ -451,7 +448,6 @@
                 }
 
                 preview.innerHTML = `
-                    ${najnowsze.tytul ? `<h2>${najnowsze.tytul}</h2>` : ''}
                     <p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">${textSnippet}</p>
                 `;
             } catch (error) {
