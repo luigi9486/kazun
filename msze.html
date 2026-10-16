@@ -1,101 +1,308 @@
-            <!-- KARTA: I PIĄTEK MIESIĄCA -->
-            <details class="accordion-card">
-                <summary class="accordion-header">
-                    <span>❤️ I PIĄTEK MIESIĄCA</span>
-                </summary>
-                <div class="accordion-body">
-                    
-                    <!-- OKRES STANDARDOWY -->
-                    <div style="font-weight: bold; color: var(--accent-gold); margin-bottom: 0.6rem; border-bottom: 1px solid rgba(214, 158, 46, 0.3); padding-bottom: 0.3rem;">
-                        ☀️ Okres letni (marzec – październik)
-                    </div>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Msze Święte i Nabożeństwa - Parafia Kazuń Bielany</title>
+    
+    <link rel="stylesheet" href="style.css">
 
-                    <div class="location-group">
-                        <div class="location-title">📍 Kaplica w Małocicach</div>
-                        <ul class="schedule-list">
-                            <li>
-                                <span>Sakrament Pokuty i Pojednania</span>
-                                <span class="time-badge">15:30</span>
-                            </li>
-                            <li>
-                                <span>Msza Święta</span>
-                                <span class="time-badge">16:00</span>
-                            </li>
-                            <li>
-                                <span>Nabożeństwo I piątku</span>
-                                <span class="time-badge">16:30</span>
-                            </li>
-                        </ul>
-                    </div>
+    <style>
+        /* Wymuszenie czystego, pełnego układu bez konfliktów ze stroną główną */
+        main.page-container {
+            display: block !important;
+            max-width: 1000px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-                    <div class="location-group" style="margin-top: 1rem;">
-                        <div class="location-title">📍 Kościół Parafialny w Kazuniu</div>
-                        <ul class="schedule-list">
-                            <li>
-                                <span>Sakrament Pokuty i Pojednania</span>
-                                <span class="time-badge">17:30</span>
-                            </li>
-                            <li>
-                                <span>Msza Święta</span>
-                                <span class="time-badge">18:00</span>
-                            </li>
-                            <li>
-                                <span>Nabożeństwo I piątku</span>
-                                <span class="time-badge">18:30</span>
-                            </li>
-                        </ul>
-                    </div>
+        /* Nagłówek podstrony - stonowany i proporcjonalny */
+        .page-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
 
-                    <!-- OKRES ZIMOWY -->
-                    <div style="font-weight: bold; color: var(--accent-gold); margin-top: 1.8rem; margin-bottom: 0.6rem; border-bottom: 1px solid rgba(214, 158, 46, 0.3); padding-bottom: 0.3rem;">
-                        ❄️ Okres zimowy (listopad – luty)
-                    </div>
+        .page-title h1 {
+            font-family: 'Georgia', serif;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+        }
 
-                    <div class="location-group">
-                        <div class="location-title">📍 Kaplica w Małocicach</div>
-                        <ul class="schedule-list">
-                            <li>
-                                <span>Sakrament Pokuty i Pojednania</span>
-                                <span class="time-badge">14:30</span>
-                            </li>
-                            <li>
-                                <span>Msza Święta</span>
-                                <span class="time-badge">15:00</span>
-                            </li>
-                            <li>
-                                <span>Nabożeństwo I piątku</span>
-                                <span class="time-badge">15:30</span>
-                            </li>
-                        </ul>
-                    </div>
+        /* Sekcja Odpustów */
+        .indulgences-box {
+            background: rgba(214, 158, 46, 0.08);
+            border: 1px solid rgba(214, 158, 46, 0.3);
+            border-radius: 10px;
+            padding: 0.9rem 1.1rem;
+            margin-top: 1rem;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
 
-                    <div class="location-group" style="margin-top: 1rem;">
-                        <div class="location-title">📍 Kościół Parafialny w Kazuniu</div>
-                        <ul class="schedule-list">
-                            <li>
-                                <span>Sakrament Pokuty i Pojednania</span>
-                                <span class="time-badge">17:30</span>
-                            </li>
-                            <li>
-                                <span>Msza Święta</span>
-                                <span class="time-badge">18:00</span>
-                            </li>
-                            <li>
-                                <span>Nabożeństwo I piątku</span>
-                                <span class="time-badge">18:30</span>
-                            </li>
-                        </ul>
-                    </div>
+        .indulgences-title {
+            font-weight: bold;
+            color: var(--accent-gold);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-                    <!-- DODATKOWE INFORMACJE -->
-                    <div style="margin-top: 1.5rem; padding-top: 0.8rem; border-top: 1px dashed rgba(214, 158, 46, 0.25); font-size: 0.95rem; line-height: 1.7;">
-                        <p style="margin: 0;">
-                            W I piątek miesiąca odprawiane są <a href="teksty.html#serce-pana-jezusa" class="votive-link-btn" style="display: inline; margin: 0 0.1rem;">Msze Św. wotywne o Najświętszym Sercu Pana Jezusa</a>. Podczas nabożeństwa odmawiana jest <a href="teksty.html#litania-serce-jezusa" class="votive-link-btn" style="display: inline; margin: 0 0.1rem;">litania do Najświętszego Serca Pana Jezusa</a>.
-                        </p>
-                        <p style="margin-top: 0.8rem; margin-bottom: 0;">
-                            Po nabożeństwie całonocna adoracja Najświętszego Sakramentu (od piątku godz. 15:00 do soboty godz. 8:00).
-                        </p>
-                    </div>
+        /* Elastyczny układ kart dla Mszy Świętych */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
 
+        /* Listy godzinowe */
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.6rem;
+        }
+
+        .schedule-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed rgba(214, 158, 46, 0.25);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.92rem;
+        }
+
+        .schedule-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Tagi z godzinami */
+        .time-badge {
+            font-weight: 700;
+            color: var(--accent-gold);
+            background: rgba(214, 158, 46, 0.12);
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            font-size: 0.88rem;
+        }
+
+        /* Karta Spowiedzi i Adoracji (poprawiona kolejność borderów) */
+        .confession-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(214, 158, 46, 0.2);
+            border-top: 4px solid var(--accent-gold);
+            padding: 1.3rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .confession-content {
+            margin-top: 0.8rem;
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        /* Sekcja Akordeonu / Rozwijanych Kart */
+        .votive-section {
+            margin-top: 2rem;
+        }
+
+        .votive-section h2.section-header {
+            font-family: 'Georgia', serif;
+            color: var(--accent-gold);
+            text-align: center;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Stylowanie elementu details/summary dla akordeonu */
+        details.accordion-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 0.8rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(214, 158, 46, 0.2);
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        details.accordion-card[open] {
+            border-color: var(--accent-gold);
+        }
+
+        summary.accordion-header {
+            padding: 1rem 1.2rem;
+            font-size: 0.98rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            background: rgba(214, 158, 46, 0.04);
+        }
+
+        summary.accordion-header::-webkit-details-marker {
+            display: none;
+        }
+
+        summary.accordion-header::after {
+            content: '▼';
+            font-size: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary.accordion-header::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
+            padding: 1.2rem 1.5rem;
+            border-top: 1px solid rgba(214, 158, 46, 0.15);
+            font-size: 0.92rem;
+        }
+
+        /* Stylowe przyciski odnośników formularzy */
+        .votive-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .votive-link-btn {
+            color: var(--accent-gold);
+            font-weight: bold;
+            text-decoration: none;
+            padding: 0.3rem 0.6rem;
+            border: 1px solid rgba(214, 158, 46, 0.4);
+            border-radius: 6px;
+            background: rgba(214, 158, 46, 0.08);
+            transition: background 0.2s, border-color 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .votive-link-btn:hover {
+            background: rgba(214, 158, 46, 0.2);
+            border-color: var(--accent-gold);
+        }
+
+        @media (max-width: 600px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-title h1 {
+                font-size: 1.25rem;
+            }
+            .votive-section h2.section-header {
+                font-size: 1.15rem;
+            }
+            summary.accordion-header {
+                font-size: 0.9rem;
+                padding: 0.9rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamiczny nagłówek ładowany przez nav.js -->
+    <header id="main-header"></header>
+
+    <main class="page-container">
+        
+        <!-- Tytuł podstrony -->
+        <div class="page-title">
+            <h1>HARMONOGRAM MSZY ŚWIĘTYCH</h1>
+        </div>
+
+        <!-- ETAP 1A: Harmonogram Mszy Świętych -->
+        <div class="services-grid">
+            
+            <!-- Kościół w Kazuniu -->
+            <div class="card">
+                <div class="card-icon">⛪</div>
+                <h2>Kościół Parafialny w Kazuniu</h2>
+                
+                <div class="location-group">
+                    <div class="location-title">NIEDZIELE I ŚWIĘTA</div>
+                    <ul class="schedule-list">
+                        <li><span>Msza Św. w Kazuniu</span> <span class="time-badge">7:30</span></li>
+                        <li><span>Msza Św. w Kazuniu (z udziałem dzieci)</span> <span class="time-badge">11:00</span></li>
+                        <li><span>Msza Św. w Kazuniu (w intencji parafian)</span> <span class="time-badge">12:30</span></li>
+                        <li><span>Msza Św. w Kazuniu (z udziałem młodzieży)</span> <span class="time-badge">18:00</span></li>
+                    </ul>
                 </div>
-            </details>
+
+                <div class="location-group" style="margin-top: 1.5rem;">
+                    <div class="location-title">DZIEŃ POWSZEDNI</div>
+                    <ul class="schedule-list">
+                        <li><span>Msza Św. w Kazuniu</span> <span class="time-badge">18:00</span></li>
+                    </ul>
+                </div>
+
+                <!-- Odpust Parafialny w Kazuniu -->
+                <div class="indulgences-box">
+                    <div class="indulgences-title">🎉 Odpust Parafialny</div>
+                    <p style="margin: 0;">• <strong>19 marca</strong> – św. Józefa</p>
+                    <p style="margin: 0.2rem 0 0 0;">• <strong>16 lipca</strong> – Matki Bożej Szkaplerznej</p>
+                </div>
+            </div>
+
+            <!-- Kaplica w Małocicach -->
+            <div class="card">
+                <div class="card-icon">🏠</div>
+                <h2>Kaplica w Małocicach</h2>
+                
+                <div class="location-group">
+                    <div class="location-title">NIEDZIELE I ŚWIĘTA</div>
+                    <ul class="schedule-list">
+                        <li><span>Msza Św. w Małocicach</span> <span class="time-badge">9:30</span></li>
+                    </ul>
+                </div>
+
+                <div class="location-group" style="margin-top: 1.5rem;">
+                    <div class="location-title">DNI POWSZEDNIE</div>
+                    <p style="font-size: 0.9rem; line-height: 1.5; margin-top: 0.5rem; opacity: 0.9;">
+                        Msze Św. w dni powszednie odbywają się, gdy wypada święto lub uroczystość. Godziny zgodnie z ogłoszeniami.
+                    </p>
+                </div>
+
+                <!-- Odpust w Małocicach -->
+                <div class="indulgences-box">
+                    <div class="indulgences-title">🎉 Święto Patronalne</div>
+                    <p style="margin: 0;">• <strong>14 września</strong> – Święto Podwyższenia Krzyża Świętego</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ETAP 1B: Sakrament Pokuty i Pojednania -->
+        <section class="confession-card">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <span style="font-size: 1.8rem;">✝️</span>
+                <h2 style="margin: 0; font-family: 'Georgia', serif; color: var(--accent-gold);">Sakrament Pokuty i Pojednania</h2>
+            </div>
+
+            <div class="confession-content">
+                <p>• W dni powszednie 15 minut przed Mszą Świętą,</p>
+                <p>• W niedziele i święta 15 minut przed Mszą Świętą,</p>
+                <p>• W I piątek miesiąca w Kazuniu od godz. 17:30,</p>
+                <p>• W I piątek miesiąca w Małocicach od godz. 15:30 (w okresie zimowym XI – II od godz. 14:30),</p>
+                <p>• Zgodnie z ogłoszeniami parafialnymi,</p>
+                <p>• Na wezwanie.</p>
+            </div>
+        </section>
+
+        <!-- KARTA: Adoracja Najświętszego
