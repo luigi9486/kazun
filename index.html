@@ -13,7 +13,6 @@
   gtag('config', 'G-8KFWFQ9SMJ');
 </script>
 
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parafia Matki Bożej Szkaplerznej w Kazuniu Bielany</title>
   
@@ -132,7 +131,7 @@
         <!-- SEKCJA GŁÓWNA (LEWA KOLUMNA) -->
         <div class="main-content">
 
-            <!-- KARTA: DYNAMICZNY KOMUNIKAT / JUBILEUSZ -->
+            <!-- KARTA: DYNAMICZNE KOMUNIKATY / AKORDEON -->
             <div class="card" id="jubileusz" style="display: none; border-left: 4px solid var(--accent-gold); background: rgba(214, 158, 46, 0.08);">
             </div>
 
@@ -315,7 +314,7 @@
         window.addEventListener('resize', updateSlider);
         setTimeout(updateSlider, 100);
 
-        /* POBIERANIE KOMUNIKATU Z GOOGLE SHEETS */
+        /* POBIERANIE KOMUNIKATÓW Z GOOGLE SHEETS (ROZWIJANA LISTA) */
         const SPREADSHEET_ID = '1K_-KbC3fgJ7_MKPBn920MTatdV2u8bQviCN7riFcX8U';
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -339,29 +338,43 @@
                     return;
                 }
 
+                // Pobieramy wszystkie wiersze i odwracamy kolejność (najnowszy na górze)
                 const wiersze = rows.slice(1).map(r => ({
                     tytul: r.c[0] ? r.c[0].v : '',
                     tresc: r.c[1] ? r.c[1].v : '',
                     ikona: r.c[2] ? r.c[2].v : '📜'
-                })).filter(item => item.tytul || item.tresc);
+                })).filter(item => item.tytul || item.tresc).reverse();
 
                 if (wiersze.length === 0) {
                     container.style.display = "none";
                     return;
                 }
 
-                const najnowszy = wiersze[wiersze.length - 1];
+                // Generujemy HTML dla komunikatów
+                let htmlContent = '';
+                wiersze.forEach((k, index) => {
+                    const isFirst = index === 0;
 
-                container.innerHTML = `
-                    <div class="card-icon">${najnowszy.ikona || '📜'}</div>
-                    <h2>${najnowszy.tytul}</h2>
-                    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0;">
-                        ${najnowszy.tresc}
-                    </p>
-                `;
+                    htmlContent += `
+                        <div style="${index > 0 ? 'margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed rgba(214, 158, 46, 0.3);' : ''}">
+                            <details ${isFirst ? 'open' : ''} style="cursor: pointer;">
+                                <summary style="font-size: 1.1rem; font-weight: 600; color: var(--accent-gold); display: flex; align-items: center; gap: 0.5rem; list-style: none;">
+                                    <span style="font-size: 1.2rem;">${k.ikona || '📜'}</span>
+                                    <span style="flex-grow: 1;">${k.tytul}</span>
+                                    <span style="font-size: 0.9rem; opacity: 0.7;">▼</span>
+                                </summary>
+                                <div style="margin-top: 0.6rem; font-size: 1rem; line-height: 1.6; color: inherit; cursor: default;">
+                                    ${k.tresc}
+                                </div>
+                            </details>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = htmlContent;
                 container.style.display = "block";
             } catch (error) {
-                console.error("Błąd pobierania komunikatu:", error);
+                console.error("Błąd pobierania komunikatów:", error);
                 container.style.display = "none";
             }
         }
