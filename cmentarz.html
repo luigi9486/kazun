@@ -29,7 +29,8 @@
             border-radius: 14px;
             padding: 1.5rem;
             box-shadow: var(--shadow);
-            text-align: center;
+            text-align: left;
+            margin-bottom: 1.5rem;
         }
 
         .iframe-wrapper {
@@ -40,13 +41,24 @@
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid var(--border-color, #e0e0e0);
-            background: #ffffff; /* Tło ładowania ramki */
+            background: #ffffff;
         }
 
         .iframe-wrapper iframe {
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        .regulation-list {
+            line-height: 1.6;
+            padding-left: 1.2rem;
+            margin-top: 1rem;
+            color: inherit;
+        }
+
+        .regulation-list li {
+            margin-bottom: 0.8rem;
         }
     </style>
 </head>
@@ -56,19 +68,47 @@
     <header id="main-header"></header>
 
     <main class="cemetery-container">
+        
+        <!-- KARTA: REGULAMIN CMENTARZA (DOMYŚLNIE ZAWINIĘTA) -->
         <div class="cemetery-card">
-            <!-- 
-            <h1 style="font-family: 'Georgia', serif; color: var(--accent-gold, #c5a059); margin-bottom: 0.5rem;">Cmentarz Parafialny</h1>
-            <p style="opacity: 0.8; max-width: 700px; margin: 0 auto 1rem;">
-                Zapraszamy do skorzystania z internetowej wyszukiwarki grobów na naszym cmentarzu parafialnym w Kazuniu Bielanach.
-            </p>
-            -->
+            <details style="cursor: pointer;">
+                <summary style="font-size: 1.2rem; font-weight: 600; color: var(--accent-gold, #c5a059); display: flex; align-items: center; gap: 0.5rem; list-style: none; outline: none;">
+                    <span style="font-size: 1.3rem;">📜</span>
+                    <span style="flex-grow: 1;">Regulamin Prawny Cmentarza Parafialnego</span>
+                    <span style="font-size: 0.9rem; opacity: 0.7;">▼</span>
+                </summary>
+                
+                <div style="cursor: default; margin-top: 1rem; border-top: 1px dashed rgba(214, 158, 46, 0.3); padding-top: 1rem;">
+                    <ol class="regulation-list">
+                        <li>Cmentarz grzebalny jest miejscem pochówku członków Kościoła Rzymskokatolickiego i pełnego wiary oczekiwania na zmartwychwstanie ciał. Miejscem ciszy, modlitwy, refleksji, wiary, nadziei i miłości. Jest miejscem świętym kultu religijnego, chronionym Prawem Kościelnym i Państwowym.</li>
+                        <li>W trosce o czystość i piękno cmentarza – śmieci wyrzucamy do kontenera a żywe kwiaty i wieńce sortujemy obok kontenera.</li>
+                        <li>Jedynym dysponentem grobu jest osoba posiadająca aktualny dokument poświadczający nabyte lub ponowione prawo do tego grobu.</li>
+                        <li>Prawo własności miejsca należy przedłużać co 20 lat od daty nabycia.</li>
+                        <li>Place nabyte a niezabudowane powinny posiadać tabliczkę z numerem księgi cmentarnej. Miejsca nie oznaczone w ten sposób będą traktowane jako wolne.</li>
+                        <li>Wszystkie prace budowlane na cmentarzu mogą być wykonywane wyłącznie za pisemną zgodą Zarządcy Cmentarza pod nadzorem Grabarza.</li>
+                        <li>Inwestorzy lub wykonawcy przedstawiają plan nagrobku napisy na nim oraz zgłaszają u Grabarza rozpoczęcie i zakończenie robót składając opłatę za tzw. wjazd kamieniarski.</li>
+                        <li>W czasie prac wykonawcy winni posiadać aktualny dokument prawa własności placu inwestora i zgodę na wjazd.</li>
+                        <li>Zabrania się nasadzania i wycinania drzew i krzewów oraz stawiania ławek.</li>
+                        <li>Zakazuje się palenia tytoniu na terenie całego cmentarza.</li>
+                        <li>Sprawy cmentarne załatwiamy na Plebanii w kancelarii parafialnej w soboty godz. 10-12.</li>
+                        <li>Zachęcamy do umieszczania na płytach nagrobkowych fragmentów Pisma Świętego i modlitw świadczących o naszej wierze w zmartwychwstanie i życie wieczne.</li>
+                    </ol>
 
-            <!-- Osadzona wyszukiwarka E-Cmentarze -->
+                    <div style="text-align: right; margin-top: 1.5rem; font-weight: 600;">
+                        <p style="margin: 0;">Zarządca Cmentarza</p>
+                        <p style="margin: 0;">Proboszcz Parafii</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- WYSZUKIWARKA GROBÓW -->
+        <div class="cemetery-card">
             <div class="iframe-wrapper">
                 <iframe src="https://www.ecmentarze.pl/iframe/kazunbielany" title="Wyszukiwarka grobów - Cmentarz Kazuń Bielany"></iframe>
             </div>
         </div>
+
     </main>
 
     <!-- Dynamiczna stopka ładowana przez nav.js -->
