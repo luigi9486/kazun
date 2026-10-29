@@ -108,12 +108,13 @@
 
         /* Podkarty dla zespołów / podgrup (np. w Żywym Różańcu i Świadectwach) */
         details.subgroup-card {
-            background: rgba(197, 160, 89, 0.03);
+            background: var(--card-bg, rgba(197, 160, 89, 0.03));
             border: 1px dashed rgba(197, 160, 89, 0.3);
             border-radius: 8px;
             margin-top: 1rem;
             margin-bottom: 0.8rem;
             overflow: hidden;
+            color: var(--text-color);
         }
 
         details.subgroup-card[open] {
@@ -130,6 +131,7 @@
             justify-content: space-between;
             align-items: center;
             list-style: none;
+            background: transparent;
         }
 
         summary.subgroup-header::-webkit-details-marker {
@@ -149,6 +151,7 @@
         .subgroup-body {
             padding: 1rem 1.2rem;
             border-top: 1px dashed rgba(197, 160, 89, 0.2);
+            color: var(--text-color);
         }
 
         .contact-link {
@@ -245,16 +248,16 @@
                 <!-- PODKARTA: ŚWIADECTWA -->
                 <details class="subgroup-card">
                     <summary class="subgroup-header">
-                        <span>✨ Świadecwa uczestników Adoracji</span>
+                        <span>✨ Świadectwa uczestników Adoracji</span>
                     </summary>
                     <div class="subgroup-body">
-                        <p style="font-style: italic; margin-bottom: 1.2rem; color: var(--text-color); opacity: 0.9;">
+                        <p style="font-style: italic; margin-bottom: 1.2rem; color: var(--text-color);">
                             Słowa są zbyt małe, żeby w pełni opisać doświadczenie Spotkania z Jezusem Eucharystycznym, które dokonuje się podczas Adoracji Najświętszego Sakramentu.<br>
                             Umieszczamy świadectwa osób, które spróbowały wyrazić to, co trudne do wyrażenia słowami, aby Was zachęcić do tej formy spotkania z Żywym Bogiem.
                         </p>
 
                         <!-- Świadectwo 1 -->
-                        <details class="subgroup-card" style="margin-top: 0.5rem; background: #fff;">
+                        <details class="subgroup-card" style="margin-top: 0.5rem;">
                             <summary class="subgroup-header">
                                 <span>💬 Świadectwo 1 – „Budowanie relacji i pokój w sercu”</span>
                             </summary>
@@ -265,13 +268,13 @@
                                     <li>lustrem odbijającym prawdę o moim sercu, któremu daleko do świętości,</li>
                                     <li>ratunkiem, gdy tonę w pustce, samotności, lęku, nieprzebaczeniu, grzechu.</li>
                                 </ul>
-                                <p>Ja jestem z Bogiem na 100%, zaufałam Bogu całkowicie: oddałam moje ciało, moją duszę do dyspozycji Pana. A w zamian dostaję tyle miłości, dobra od ludzi, pokoju w sercu.</p>
+                                <p>Ja jestem z Bogiem na 100%, zaufałam Bogu całkowicie: oddałam moje ciało, moją duszę do dyspozycji Pana. A w zamian dostaję tyle miłości, dobra od ludzkości, pokoju w sercu.</p>
                                 <p>W mym sercu Bóg żyje, czuję Pana nie tylko na Adoracji, ale i w życiu codziennym. Jednak najwięcej miłości spływa na mnie na „Adoracji Nocnej”.</p>
                             </div>
                         </details>
 
                         <!-- Świadectwo 2 -->
-                        <details class="subgroup-card" style="margin-top: 0.5rem; background: #fff;">
+                        <details class="subgroup-card" style="margin-top: 0.5rem;">
                             <summary class="subgroup-header">
                                 <span>💬 Świadectwo 2 – „Dla zabieganych i zapracowanych”</span>
                             </summary>
@@ -286,7 +289,7 @@
                         </details>
 
                         <!-- Świadectwo 3 -->
-                        <details class="subgroup-card" style="margin-top: 0.5rem; background: #fff;">
+                        <details class="subgroup-card" style="margin-top: 0.5rem;">
                             <summary class="subgroup-header">
                                 <span>💬 Świadectwo 3 – „Fitness dla duszy”</span>
                             </summary>
