@@ -196,7 +196,7 @@
                 </div>
             </div>
 
-            <!-- SIDEBAR: ADORACJA NAJŚWIETSZEGO SAKRAMENTU -->
+            <!-- SIDEBAR: ADORACJA NAJŚWIĘTSZEGO SAKRAMENTU -->
             <div class="card" id="adoracja">
                 <div class="card-icon">🕯️</div>
                 <h2>Adoracja Najświętszego Sakramentu</h2>
@@ -327,7 +327,7 @@
         window.addEventListener('resize', updateSlider);
         setTimeout(updateSlider, 100);
 
-        /* POBIERANIE KOMUNIKATÓW Z GOOGLE SHEETS (Z OBSŁUGĄ HTML, ZDJĘĆ ORAZ ZAKRESU DAT) */
+        /* POBIERANIE KOMUNIKATÓW Z GOOGLE SHEETS (BEZPIECZNA WERSJA Z DATAMI) */
         const SPREADSHEET_ID = '1K_-KbC3fgJ7_MKPBn920MTatdV2u8bQviCN7riFcX8U';
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -351,57 +351,50 @@
                     return;
                 }
 
-                // Pobieramy dzisiejszą datę (bez godzin dla dokładnego porównywania)
                 const dzisiaj = new Date();
                 dzisiaj.setHours(0, 0, 0, 0);
 
-                // Pobieramy wiersze i mapujemy dane z uwzględnieniem Data_OD (index 3) oraz Data_DO (index 4)
+                // Pomocnicza funkcja do bezpiecznego parsowania daty
+                function parseSheetDate(rawDate) {
+                    if (!rawDate) return null;
+                    let d = null;
+                    if (typeof rawDate === 'string' && rawDate.startsWith('Date(')) {
+                        const p = rawDate.match(/\d+/g);
+                        if (p) d = new Date(p[0], p[1], p[2]);
+                    } else {
+                        d = new Date(rawDate);
+                    }
+                    return (d && !isNaN(d.getTime())) ? d : null;
+                }
+
                 const wiersze = rows.slice(1).map(r => ({
                     tytul: r.c[0] ? (r.c[0].f || r.c[0].v || '') : '',
                     tresc: r.c[1] ? (r.c[1].f || r.c[1].v || '') : '',
                     ikona: r.c[2] ? (r.c[2].f || r.c[2].v || '📜') : '📜',
-                    dataOd: r.c[3] ? (r.c[3].v || null) : null,
-                    dataDo: r.c[4] ? (r.c[4].v || null) : null
+                    dataOd: r.c[3] ? r.c[3].v : null,
+                    dataDo: r.c[4] ? r.c[4].v : null
                 })).filter(item => {
-                    // Weryfikacja czy wiersz ma tytuł lub treść
                     if (!item.tytul && !item.tresc) return false;
 
-                    // Parsowanie dat z Google Sheets
-                    let dOd = null;
-                    let dDo = null;
+                    let dOd = parseSheetDate(item.dataOd);
+                    let dDo = parseSheetDate(item.dataDo);
 
-                    if (item.dataOd) {
-                        if (typeof item.dataOd === 'string' && item.dataOd.startsWith('Date(')) {
-                            const p = item.dataOd.match(/\d+/g);
-                            if (p) dOd = new Date(p[0], p[1], p[2]);
-                        } else {
-                            dOd = new Date(item.dataOd);
-                        }
+                    if (dDo) {
+                        dDo.setHours(23, 59, 59, 999);
                     }
 
-                    if (item.dataDo) {
-                        if (typeof item.dataDo === 'string' && item.dataDo.startsWith('Date(')) {
-                            const p = item.dataDo.match(/\d+/g);
-                            if (p) dDo = new Date(p[0], p[1], p[2], 23, 59, 59);
-                        } else {
-                            dDo = new Date(item.dataDo);
-                            dDo.setHours(23, 59, 59, 999);
-                        }
-                    }
-
-                    // Sprawdzanie czy dzisiejszy dzień mieści się w zakresie
+                    // Jeśli dat nie podano lub są puste, komunikat wyświetla się normalnie
                     const odKiedyOK = !dOd || dzisiaj >= dOd;
                     const doKiedyOK = !dDo || dzisiaj <= dDo;
 
                     return odKiedyOK && doKiedyOK;
-                }).reverse(); // Odwracamy kolejność (najnowszy na górze)
+                }).reverse();
 
                 if (wiersze.length === 0) {
                     container.style.display = "none";
                     return;
                 }
 
-                // Generujemy HTML dla komunikatów
                 let htmlContent = '';
                 wiersze.forEach((k, index) => {
                     const isFirst = index === 0;
