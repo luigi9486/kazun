@@ -177,4 +177,261 @@
 
                 <div class="location-group">
                     <div class="location-title">📍 Kościół Kazuń Bielany</div>
-                    <p><strong>Święta i
+                    <p><strong>Święta i Niedziele:</strong></p>
+                    <p>7:30, 11:00, 12:30, 18:00</p>
+                    <p><strong>Dni powszednie:</strong></p>
+                    <p>18:00</p>
+                </div>
+
+                <div class="location-group">
+                    <div class="location-title">📍 Kaplica Małocice</div>
+                    <p><strong>Święta i Niedziele:</strong></p>
+                    <p>9:30</p>
+                </div>
+
+                <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px dashed rgba(214, 158, 46, 0.25);">
+                    <a href="msze.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block;">
+                        Pełny harmonogram nabożeństw i spowiedzi &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- SIDEBAR: ADORACJA NAJŚWIETSZEGO SAKRAMENTU -->
+            <div class="card" id="adoracja">
+                <div class="card-icon">🕯️</div>
+                <h2>Adoracja Najświętszego Sakramentu</h2>
+                <p><strong>Niedziela – Piątek:</strong> 15:00 – 21:00</p>
+                <p><strong>I Piątek miesiąca:</strong> Adoracja całonocna</p>
+            </div>
+
+            <!-- SIDEBAR: ARCHIDIECEZJA WARSZAWSKA -->
+            <div class="card" id="archidiecezja">
+                <div class="card-icon">🏛️</div>
+                <h2>Archidiecezja Warszawska</h2>
+                <p>Nasza parafia należy do Archidiecezji Warszawskiej. Zachęcamy do śledzenia komunikatów z życia diecezji.</p>
+                
+                <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px dashed rgba(214, 158, 46, 0.25);">
+                    <a href="https://archwwa.pl" target="_blank" rel="noopener" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block;">
+                        📰 Wiadomości i komunikaty Archidiecezji &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- SIDEBAR: PRZEKAŻ 1,5% PODATKU -->
+            <div class="card" id="epit">
+                <div class="card-icon">✍️</div>
+                <h2>Przekaż 1,5% Podatku</h2>
+                <p>Wspieraj dzieła duszpasterskie i charytatywne przy corocznym rozliczaniu podatku PIT (KRS: 0000309499).</p>
+                
+                <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px dashed rgba(214, 158, 46, 0.25);">
+                    <a href="https://www.e-pity.pl/pity-2025/organizacja-pozytku-publicznego-2026-KRS-0000309499--45031" target="_blank" rel="noopener" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block;">
+                        💻 Rozlicz e-PIT online (KRS 0000309499) &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- SIDEBAR: MODLITWA W DRODZE -->
+            <div class="card" id="modlitwa-w-drodze">
+                <div class="card-icon">🎧</div>
+                <h2>Modlitwa w Drodze</h2>
+                <p>Codzienne rozważania ewangeliczne w formie nagrań audio – idealna pomoc w modlitwie każdego dnia.</p>
+                
+                <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px dashed rgba(214, 158, 46, 0.25);">
+                    <a href="https://modlitwawdrodze.pl/" target="_blank" rel="noopener" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-block;">
+                        🎧 Słuchaj na Modlitwa w Drodze &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- SIDEBAR: O STRONIE / ADMINISTRATORZY -->
+            <div class="card" id="o-stronie">
+                <div class="card-icon">💻</div>
+                <h2>O stronie</h2>
+                <p>Ta witryna wraz z profilami na Facebooku i YouTube powstaje społecznie (non profit) jako cyfrowa ręka Księdza Proboszcza. Wszelkie uwagi, sugestie oraz zgłoszenia błędów technicznych prosimy kierować na nasz adres e-mail:</p>
+                <div style="margin-top: 0.8rem; font-weight: 600;">
+                    <a href="mailto:parafiakazunbielany@gmail.com" style="color: var(--accent-gold); text-decoration: underline;">
+                        parafiakazunbielany@gmail.com
+                    </a>
+                </div>
+                <p style="margin-top: 0.6rem; font-style: italic; opacity: 0.85;">Ludwik i Piotr</p>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Stopka -->
+    <footer id="main-footer"></footer>
+
+    <script>
+        /* LOGIKA SLAJDERA */
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const sliderContainer = document.getElementById('sliderContainer');
+        const sliderWrapper = document.getElementById('sliderWrapper');
+        const dotsContainer = document.getElementById('dotsContainer');
+
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (dots[index]) dots[index].classList.remove('active');
+            });
+
+            slides[currentSlide].classList.add('active');
+            if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+
+            const slideWidth = slides[0].offsetWidth;
+            const wrapperWidth = sliderWrapper.offsetWidth;
+            const gap = 15;
+
+            const centerOffset = (wrapperWidth - slideWidth) / 2;
+            const offset = (currentSlide * (slideWidth + gap)) - centerOffset;
+
+            sliderContainer.style.transform = `translateX(${-offset}px)`;
+        }
+
+        function showSlide(index) {
+            if (index >= slides.length) currentSlide = 0;
+            else if (index < 0) currentSlide = slides.length - 1;
+            else currentSlide = index;
+
+            updateSlider();
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        let autoSlide = setInterval(() => changeSlide(1), 5000);
+
+        document.querySelectorAll('.slider-btn, .dot').forEach(btn => {
+            btn.addEventListener('click', () => {
+                clearInterval(autoSlide);
+                autoSlide = setInterval(() => changeSlide(1), 5000);
+            });
+        });
+
+        window.addEventListener('resize', updateSlider);
+        setTimeout(updateSlider, 100);
+
+        /* POBIERANIE KOMUNIKATÓW Z GOOGLE SHEETS (Z OBSŁUGĄ HTML, ZDJĘĆ ORAZ ZAKRESU DAT) */
+        const SPREADSHEET_ID = '1K_-KbC3fgJ7_MKPBn920MTatdV2u8bQviCN7riFcX8U';
+
+        document.addEventListener("DOMContentLoaded", function () {
+            ladujKomunikat();
+        });
+
+        async function ladujKomunikat() {
+            const container = document.getElementById("jubileusz");
+            if (!container) return;
+
+            try {
+                const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent('Komunikaty')}`;
+                const response = await fetch(url);
+                const text = await response.text();
+                const jsonText = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
+                const data = JSON.parse(jsonText);
+
+                const rows = data.table.rows;
+                if (!rows || rows.length <= 1) {
+                    container.style.display = "none";
+                    return;
+                }
+
+                // Pobieramy dzisiejszą datę (bez godzin dla dokładnego porównywania)
+                const dzisiaj = new Date();
+                dzisiaj.setHours(0, 0, 0, 0);
+
+                // Pobieramy wiersze i mapujemy dane z uwzględnieniem Data_OD (index 3) oraz Data_DO (index 4)
+                const wiersze = rows.slice(1).map(r => ({
+                    tytul: r.c[0] ? (r.c[0].f || r.c[0].v || '') : '',
+                    tresc: r.c[1] ? (r.c[1].f || r.c[1].v || '') : '',
+                    ikona: r.c[2] ? (r.c[2].f || r.c[2].v || '📜') : '📜',
+                    dataOd: r.c[3] ? (r.c[3].v || null) : null,
+                    dataDo: r.c[4] ? (r.c[4].v || null) : null
+                })).filter(item => {
+                    // Weryfikacja czy wiersz ma tytuł lub treść
+                    if (!item.tytul && !item.tresc) return false;
+
+                    // Parsowanie dat z Google Sheets
+                    let dOd = null;
+                    let dDo = null;
+
+                    if (item.dataOd) {
+                        if (typeof item.dataOd === 'string' && item.dataOd.startsWith('Date(')) {
+                            const p = item.dataOd.match(/\d+/g);
+                            if (p) dOd = new Date(p[0], p[1], p[2]);
+                        } else {
+                            dOd = new Date(item.dataOd);
+                        }
+                    }
+
+                    if (item.dataDo) {
+                        if (typeof item.dataDo === 'string' && item.dataDo.startsWith('Date(')) {
+                            const p = item.dataDo.match(/\d+/g);
+                            if (p) dDo = new Date(p[0], p[1], p[2], 23, 59, 59);
+                        } else {
+                            dDo = new Date(item.dataDo);
+                            dDo.setHours(23, 59, 59, 999);
+                        }
+                    }
+
+                    // Sprawdzanie czy dzisiejszy dzień mieści się w zakresie
+                    const odKiedyOK = !dOd || dzisiaj >= dOd;
+                    const doKiedyOK = !dDo || dzisiaj <= dDo;
+
+                    return odKiedyOK && doKiedyOK;
+                }).reverse(); // Odwracamy kolejność (najnowszy na górze)
+
+                if (wiersze.length === 0) {
+                    container.style.display = "none";
+                    return;
+                }
+
+                // Generujemy HTML dla komunikatów
+                let htmlContent = '';
+                wiersze.forEach((k, index) => {
+                    const isFirst = index === 0;
+
+                    htmlContent += `
+                        <div style="${index > 0 ? 'margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed rgba(214, 158, 46, 0.3);' : ''}">
+                            <details ${isFirst ? 'open' : ''} style="cursor: pointer;">
+                                <summary style="font-size: 1.1rem; font-weight: 600; color: var(--accent-gold); display: flex; align-items: center; gap: 0.5rem; list-style: none;">
+                                    <span style="font-size: 1.2rem;">${k.ikona}</span>
+                                    <span style="flex-grow: 1;">${k.tytul}</span>
+                                    <span style="font-size: 0.9rem; opacity: 0.7;">▼</span>
+                                </summary>
+                                <div class="komunikat-tresc" style="margin-top: 0.6rem; font-size: 1rem; line-height: 1.6; color: inherit; cursor: default;">
+                                    ${k.tresc}
+                                </div>
+                            </details>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = htmlContent;
+                container.style.display = "block";
+            } catch (error) {
+                console.error("Błąd pobierania komunikatów:", error);
+                container.style.display = "none";
+            }
+        }
+    </script>
+
+    <script src="nav.js"></script>
+    
+</body>
+</html>
