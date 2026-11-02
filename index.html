@@ -328,7 +328,7 @@
         window.addEventListener('resize', updateSlider);
         setTimeout(updateSlider, 100);
 
-        /* POBIERANIE KOMUNIKATÓW Z GOOGLE SHEETS (BEZPIECZNA WERSJA Z DATAMI) */
+        /* POBIERANIE KOMUNIKATÓW Z GOOGLE SHEETS (CYKLICZNE DD.MM + REVERSE) */
         const SPREADSHEET_ID = '1K_-KbC3fgJ7_MKPBn920MTatdV2u8bQviCN7riFcX8U';
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -353,24 +353,39 @@
                 }
 
                 const dzisiaj = new Date();
-                dzisiaj.setHours(0, 0, 0, 0);
+                const dzisiajNorm = new Date(2000, dzisiaj.getMonth(), dzisiaj.getDate());
 
-                // Bezpieczna funkcja parsowania dat z Google Sheets
-                function parseSheetDate(cell) {
+                function parseSheetDateNormalized(cell) {
                     if (!cell || cell.v === null || cell.v === undefined) return null;
                     
                     let raw = cell.v;
+                    let formatted = cell.f ? cell.f : '';
                     let d = null;
 
                     if (typeof raw === 'string' && raw.startsWith('Date(')) {
                         const p = raw.match(/\d+/g);
                         if (p && p.length >= 3) {
-                            d = new Date(parseInt(p[0]), parseInt(p[1]), parseInt(p[2]));
+                            d = new Date(2000, parseInt(p[1]), parseInt(p[2]));
                         }
-                    } else if (cell.f) {
-                        d = new Date(cell.f);
                     } else {
-                        d = new Date(raw);
+                        let strVal = formatted || String(raw);
+                        const dotParts = strVal.trim().match(/^(\d{1,2})\.(\d{1,2})(?:\.(\d{2,4}))?/);
+                        
+                        if (dotParts) {
+                            const day = parseInt(dotParts[1]);
+                            const month = parseInt(dotParts[2]) - 1;
+                            d = new Date(2000, month, day);
+                        } else {
+                            d = new Date(raw);
+                            if (!isNaN(d.getTime())) {
+                                d.setFullYear(2000);
+                            } else if (formatted) {
+                                d = new Date(formatted);
+                                if (!isNaN(d.getTime())) {
+                                    d.setFullYear(2000);
+                                }
+                            }
+                        }
                     }
 
                     return (d && !isNaN(d.getTime())) ? d : null;
@@ -385,15 +400,28 @@
                 })).filter(item => {
                     if (!item.tytul && !item.tresc) return false;
 
-                    let dOd = parseSheetDate(item.dataOdCell);
-                    let dDo = parseSheetDate(item.dataDoCell);
+                    let dOd = parseSheetDateNormalized(item.dataOdCell);
+                    let dDo = parseSheetDateNormalized(item.dataDoCell);
 
                     if (dDo) {
                         dDo.setHours(23, 59, 59, 999);
                     }
 
-                    const odKiedyOK = !dOd || dzisiaj >= dOd;
-                    const doKiedyOK = !dDo || dzisiaj <= dDo;
+                    let odKiedyOK = true;
+                    let doKiedyOK = true;
+
+                    if (dOd && dDo) {
+                        if (dDo < dOd) {
+                            odKiedyOK = (dzisiajNorm >= dOd || dzisiajNorm <= dDo);
+                            doKiedyOK = true;
+                        } else {
+                            odKiedyOK = dzisiajNorm >= dOd;
+                            doKiedyOK = dzisiajNorm <= dDo;
+                        }
+                    } else {
+                        if (dOd) odKiedyOK = dzisiajNorm >= dOd;
+                        if (dDo) doKiedyOK = dzisiajNorm <= dDo;
+                    }
 
                     return odKiedyOK && doKiedyOK;
                 }).reverse();
