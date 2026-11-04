@@ -246,7 +246,7 @@
                 <p><strong>Osoba prowadząca:</strong> Klaudia (<a href="tel:539056909" class="contact-link">539 056 909</a>)</p>
                 <div class="meeting-info">🕒 Dyżury adoracyjne: Niedziela – Piątek (16:00 – 21:00) | I Piątek miesiąca: Adoracja całonocna</div>
 
-                <!-- NOWA PODKARTA: POMOCE DLA OSÓB PODEJMUJĄCYCH ADORACJĘ -->
+                <!-- PODKARTA: POMOCE DLA OSÓB PODEJMUJĄCYCH ADORACJĘ -->
                 <details class="subgroup-card">
                     <summary class="subgroup-header">
                         <span>📖 Pomoce dla osób podejmujących Adorację Najświętszego Sakramentu</span>
@@ -449,5 +449,21 @@
     <footer id="main-footer"></footer> 
 
     <script src="nav.js"></script>
+    
+    <!-- Skrypt śledzący otwieranie grup w Google Analytics -->
+    <script>
+        document.querySelectorAll('details.group-card').forEach((card) => {
+            card.addEventListener('toggle', (event) => {
+                if (card.open) {
+                    const titleElement = card.querySelector('.group-title');
+                    const title = titleElement ? titleElement.innerText : 'Nieznana grupa';
+
+                    gtag('event', 'otwarcie_grupy', {
+                        'nazwa_grupy': title
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
