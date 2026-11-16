@@ -50,13 +50,6 @@ main.gallery-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent-gold, #c5a059);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .gallery-icon {
@@ -85,12 +78,18 @@ main.gallery-container {
     margin-bottom: 1.2rem;
 }
 
-/* Siatka lokalnych miniaturek wewnątrz karty */
+/* Siatka lokalnych miniaturek */
 .local-photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 0.8rem;
     margin: 1rem 0;
+}
+
+/* Ukryta domyślnie dodatkowa siatka zdjęć */
+.extra-photos {
+    display: none;
+    margin-top: 0.8rem;
 }
 
 .local-photo-item {
@@ -114,7 +113,7 @@ main.gallery-container {
     display: block;
 }
 
-/* Przycisk przejścia do albumu Google Photos */
+/* Przyciski */
 .gallery-btn {
     display: inline-block;
     text-align: center;
@@ -128,12 +127,26 @@ main.gallery-container {
     transition: background-color 0.2s ease;
     width: 100%;
     box-sizing: border-box;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    border: none;
+    cursor: pointer;
 }
 
 .gallery-btn:hover {
     background-color: #a88442;
     color: #ffffff;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    color: var(--accent-gold, #c5a059);
+    border: 2px solid var(--accent-gold, #c5a059);
+    margin-top: 0.8rem;
+}
+
+.toggle-btn:hover {
+    background-color: rgba(197, 160, 89, 0.1);
+    color: var(--accent-gold, #c5a059);
 }
 </style>
 </head>
@@ -147,7 +160,7 @@ main.gallery-container {
         Galerie Zdjęć
     </h1>
     <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto 2rem auto;">
-        Zapraszamy do obejrzenia fotorelacji. Przeglądaj wybrane zdjęcia bezpośrednio na stronie lub otwórz pełne albumy w wysokiej jakości.
+        Zapraszamy do obejrzenia fotorelacji bezpośrednio na stronie. Wybierz galerię, aby przejrzeć zdjęcia.
     </p>
 
     <div class="gallery-grid">
@@ -158,23 +171,45 @@ main.gallery-container {
                 <div class="gallery-icon">📸</div>
                 <h2 class="gallery-title">Zdjęcia kościoła i okolic</h2>
                 <div class="gallery-date">📅 Fotorelacja parafialna</div>
-                <p>Wybrane zdjęcia kościoła i okolic dostępne bezpośrednio na stronie.</p>
+                <p>Wybrane zdjęcia kościoła i okolic (od najnowszych). Kliknij w miniaturę, aby powiększyć zdjęcie.</p>
                 
-                <!-- Siatka miniaturek z podfolderu zdjecia_1 -->
+                <!-- Widoczne od razu najnowsze miniaturki (od góry najnowsze: listopad -> październik -> wrzesień) -->
                 <div class="local-photo-grid">
-                    <a href="galeria/zdjecia_1/foto1.jpg" target="_blank" class="local-photo-item">
-                        <img src="galeria/zdjecia_1/foto1.jpg" alt="Kościół i okolice">
+                    <a href="galeria/zdjecia_1/20261101_130753.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/20261101_130753.jpg" alt="Kościół i okolice">
                     </a>
-                    <a href="galeria/zdjecia_1/foto2.jpg" target="_blank" class="local-photo-item">
-                        <img src="galeria/zdjecia_1/foto2.jpg" alt="Kościół i okolice">
+                    <a href="galeria/zdjecia_1/20261023_191123.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/20261023_191123.jpg" alt="Kościół i okolice">
                     </a>
-                    <a href="galeria/zdjecia_1/foto3.jpg" target="_blank" class="local-photo-item">
-                        <img src="galeria/zdjecia_1/foto3.jpg" alt="Kościół i okolice">
+                    <a href="galeria/zdjecia_1/20260927_190321.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/20260927_190321.jpg" alt="Kościół i okolice">
+                    </a>
+                    <a href="galeria/zdjecia_1/20260925_080544.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/20260925_080544.jpg" alt="Kościół i okolice">
+                    </a>
+                </div>
+
+                <!-- Rozwijana sekcja z kolejnymi zdjęciami z folderu -->
+                <div id="extra-zdjecia-1" class="local-photo-grid extra-photos">
+                    <a href="galeria/zdjecia_1/20260925_080636.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/20260925_080636.jpg" alt="Kościół i okolice">
+                    </a>
+                    <a href="galeria/zdjecia_1/20260925_080722.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/20260925_080722.jpg" alt="Kościół i okolice">
+                    </a>
+                    <a href="galeria/zdjecia_1/20260925_080956.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/20260925_080956.jpg" alt="Kościół i okolice">
+                    </a>
+                    <a href="galeria/zdjecia_1/20260925_081145.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/20260925_081145.jpg" alt="Kościół i okolice">
                     </a>
                 </div>
             </div>
             
-            <a href="https://photos.app.goo.gl/roKviJ5vZRZdJfNi9" target="_blank" class="gallery-btn">📁 Otwórz pełny album w Zdjęciach Google</a>
+            <div>
+                <button onclick="toggleGallery('extra-zdjecia-1', this)" class="gallery-btn toggle-btn">Pokaż więcej zdjęć</button>
+                <a href="https://photos.app.goo.gl/roKviJ5vZRZdJfNi9" target="_blank" class="gallery-btn">📁 Otwórz pełny album w Zdjęciach Google</a>
+            </div>
         </div>
 
         <!-- GALERIA 2: ZDJĘCIA OD LESZKA (galeria/zdjecia_2) -->
@@ -185,21 +220,17 @@ main.gallery-container {
                 <div class="gallery-date">📅 Zbiory archiwalne</div>
                 <p>Wybrane kadry z kolekcji udostępnionej przez Pana Leszka Gizińskiego.</p>
                 
-                <!-- Siatka miniaturek z podfolderu zdjecia_2 -->
+                <!-- Pojedyncza miniaturka z folderu zdjecia_2 -->
                 <div class="local-photo-grid">
-                    <a href="galeria/zdjecia_2/foto1.jpg" target="_blank" class="local-photo-item">
-                        <img src="galeria/zdjecia_2/foto1.jpg" alt="Zbiory Leszka Gizińskiego">
-                    </a>
-                    <a href="galeria/zdjecia_2/foto2.jpg" target="_blank" class="local-photo-item">
-                        <img src="galeria/zdjecia_2/foto2.jpg" alt="Zbiory Leszka Gizińskiego">
-                    </a>
-                    <a href="galeria/zdjecia_2/foto3.jpg" target="_blank" class="local-photo-item">
-                        <img src="galeria/zdjecia_2/foto3.jpg" alt="Zbiory Leszka Gizińskiego">
+                    <a href="galeria/zdjecia_2/kosciol kazun zima.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_2/kosciol kazun zima.jpg" alt="Kościół Kazuń zimą">
                     </a>
                 </div>
             </div>
             
-            <a href="https://photos.app.goo.gl/HXZ4BKtXYp7gp3VF8" target="_blank" class="gallery-btn">📁 Otwórz pełny album w Zdjęciach Google</a>
+            <div>
+                <a href="https://photos.app.goo.gl/HXZ4BKtXYp7gp3VF8" target="_blank" class="gallery-btn">📁 Otwórz pełny album w Zdjęciach Google</a>
+            </div>
         </div>
 
     </div>
@@ -210,6 +241,20 @@ main.gallery-container {
         Dokładamy wszelkich starań, aby publikowane relacje fotograficzne odzwierciedlały wspólnotowy i otwarty charakter uroczystości parafialnych. Osoby, które nie wyrażają zgody na publikację swojego wizerunku (lub wizerunku swoich małoletnich dzieci), proszone są o złożenie pisemnego oświadczenia wraz z dołączonym zdjęciem weryfikacyjnym bezpośrednio w kancelarii parafialnej.
     </div>
 </main>
+
+<!-- Skrypt obsługujący rozwijanie/zwijanie galerii -->
+<script>
+function toggleGallery(elementId, btn) {
+    const extraGrid = document.getElementById(elementId);
+    if (extraGrid.style.display === "grid") {
+        extraGrid.style.display = "none";
+        btn.textContent = "Pokaż więcej zdjęć";
+    } else {
+        extraGrid.style.display = "grid";
+        btn.textContent = "Pokaż mniej";
+    }
+}
+</script>
 
 <!-- Dynamiczna stopka ładowana przez nav.js -->
 <footer id="main-header"></footer>
