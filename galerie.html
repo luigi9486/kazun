@@ -1,4 +1,4 @@
-w<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
@@ -12,7 +12,6 @@ w<!DOCTYPE html>
 
   gtag('config', 'G-8KFWFQ9SMJ');
 </script>
-
     
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galerie Zdjęć - Parafia Kazuń Bielany</title>
@@ -27,12 +26,18 @@ main.gallery-container {
     padding: 0 1rem;
 }
 
-/* Układ siatki kafelków */
+/* Układ siatki kafelków głównych */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 2rem;
     margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Karta pojedynczej galerii */
@@ -78,7 +83,35 @@ main.gallery-container {
     line-height: 1.5;
     color: var(--text-color, #333);
     margin-bottom: 1.2rem;
-    flex-grow: 1;
+}
+
+/* Siatka lokalnych miniaturek wewnątrz karty */
+.local-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.local-photo-item {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #f9f9f9;
+}
+
+.local-photo-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.local-photo-item img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: block;
 }
 
 /* Przycisk przejścia do albumu Google Photos */
@@ -93,6 +126,9 @@ main.gallery-container {
     font-weight: bold;
     font-size: 0.9rem;
     transition: background-color 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 1rem;
 }
 
 .gallery-btn:hover {
@@ -111,33 +147,60 @@ main.gallery-container {
         Galerie Zdjęć
     </h1>
     <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto 2rem auto;">
-        Zapraszamy do obejrzenia fotorelacji z uroczystości i życia naszej parafii. Kliknij przycisk przy wybranym albumie, aby otworzyć pełną galerię zdjęć.
+        Zapraszamy do obejrzenia fotorelacji. Przeglądaj wybrane zdjęcia bezpośrednio na stronie lub otwórz pełne albumy w wysokiej jakości.
     </p>
 
     <div class="gallery-grid">
 
-        <!-- GALERIA 1 -->
+        <!-- GALERIA 1: ZDJĘCIA KOŚCIOŁA I OKOLIC (galeria/zdjecia_1) -->
         <div class="gallery-card">
             <div>
                 <div class="gallery-icon">📸</div>
                 <h2 class="gallery-title">Zdjęcia kościoła i okolic</h2>
-                <div class="gallery-date">📅 Album zdjęć</div>
-                <p>Zdjęcia kościoła i okolic.</p>
+                <div class="gallery-date">📅 Fotorelacja parafialna</div>
+                <p>Wybrane zdjęcia kościoła i okolic dostępne bezpośrednio na stronie.</p>
+                
+                <!-- Siatka miniaturek z podfolderu zdjecia_1 -->
+                <div class="local-photo-grid">
+                    <a href="galeria/zdjecia_1/foto1.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/foto1.jpg" alt="Kościół i okolice">
+                    </a>
+                    <a href="galeria/zdjecia_1/foto2.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/foto2.jpg" alt="Kościół i okolice">
+                    </a>
+                    <a href="galeria/zdjecia_1/foto3.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_1/foto3.jpg" alt="Kościół i okolice">
+                    </a>
+                </div>
             </div>
-            <a href="https://photos.app.goo.gl/roKviJ5vZRZdJfNi9" target="_blank" class="gallery-btn">Zobacz galerię</a>
+            
+            <a href="https://photos.app.goo.gl/roKviJ5vZRZdJfNi9" target="_blank" class="gallery-btn">📁 Otwórz pełny album w Zdjęciach Google</a>
         </div>
 
-       <!--  GALERIA 2 -->
+        <!-- GALERIA 2: ZDJĘCIA OD LESZKA (galeria/zdjecia_2) -->
         <div class="gallery-card">
             <div>
-                <div class="gallery-icon">🖼️</div>
+                <div class="gallery-icon">✨</div>
                 <h2 class="gallery-title">Zdjęcia udostępnione przez Leszka Gizińskiego</h2>
-                <div class="gallery-date">📅 Album zdjęć</div>
-                <p>Zdjęcia udostępnione przez Leszka Gizińskiego.</p>
+                <div class="gallery-date">📅 Zbiory archiwalne</div>
+                <p>Wybrane kadry z kolekcji udostępnionej przez Pana Leszka Gizińskiego.</p>
+                
+                <!-- Siatka miniaturek z podfolderu zdjecia_2 -->
+                <div class="local-photo-grid">
+                    <a href="galeria/zdjecia_2/foto1.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_2/foto1.jpg" alt="Zbiory Leszka Gizińskiego">
+                    </a>
+                    <a href="galeria/zdjecia_2/foto2.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_2/foto2.jpg" alt="Zbiory Leszka Gizińskiego">
+                    </a>
+                    <a href="galeria/zdjecia_2/foto3.jpg" target="_blank" class="local-photo-item">
+                        <img src="galeria/zdjecia_2/foto3.jpg" alt="Zbiory Leszka Gizińskiego">
+                    </a>
+                </div>
             </div>
-            <a href="https://photos.app.goo.gl/HXZ4BKtXYp7gp3VF8" target="_blank" class="gallery-btn">Zobacz galerię</a>
+            
+            <a href="https://photos.app.goo.gl/HXZ4BKtXYp7gp3VF8" target="_blank" class="gallery-btn">📁 Otwórz pełny album w Zdjęciach Google</a>
         </div>
-      
 
     </div>
 
@@ -149,7 +212,7 @@ main.gallery-container {
 </main>
 
 <!-- Dynamiczna stopka ładowana przez nav.js -->
-<footer id="main-footer"></footer>
+<footer id="main-header"></footer>
 
 <script src="nav.js"></script>
 </body>
