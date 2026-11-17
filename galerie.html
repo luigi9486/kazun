@@ -31,7 +31,7 @@ main.gallery-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 @media (max-width: 768px) {
@@ -67,15 +67,8 @@ main.gallery-container {
 .gallery-date {
     font-size: 0.85rem;
     color: #666;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     font-weight: 500;
-}
-
-.gallery-card p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: var(--text-color, #333);
-    margin-bottom: 1.2rem;
 }
 
 /* Siatka lokalnych miniaturek */
@@ -159,9 +152,6 @@ main.gallery-container {
     <h1 style="text-align: center; font-family: 'Georgia', serif; margin-bottom: 0.5rem; color: var(--accent-gold, #c5a059);">
         Galerie Zdjęć
     </h1>
-    <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto 2rem auto;">
-        Zapraszamy do obejrzenia fotorelacji bezpośrednio na stronie. Wybierz galerię, aby przejrzeć zdjęcia.
-    </p>
 
     <div class="gallery-grid">
 
@@ -171,11 +161,9 @@ main.gallery-container {
                 <div class="gallery-icon">📸</div>
                 <h2 class="gallery-title">Zdjęcia kościoła i okolic</h2>
                 <div class="gallery-date">📅 Fotorelacja parafialna</div>
-                <p>Najnowsze zdjęcia z życia parafii. Kliknij w miniaturę, aby powiększyć zdjęcie.</p>
                 
-                <!-- PIERWSZE MINIATURKI: Najnowsze z listopada (ułożone od najnowszego do starszego) -->
+                <!-- PIERWSZE MINIATURKI: Najnowsze z listopada -->
                 <div class="local-photo-grid">
-                  
                     <a href="galeria/zdjecia_1/20261111_175739.jpg" target="_blank" class="local-photo-item">
                         <img src="galeria/zdjecia_1/20261111_175739.jpg" alt="Kościół i okolice">
                     </a>
@@ -190,7 +178,7 @@ main.gallery-container {
                     </a>
                 </div>
 
-                <!-- ROZWIJANA SEKCJA: Starsze zdjęcia (październik i wrzesień, od najnowszego do najstarszego) -->
+                <!-- ROZWIJANA SEKCJA: Starsze zdjęcia -->
                 <div id="extra-zdjecia-1" class="local-photo-grid extra-photos">
                     <a href="galeria/zdjecia_1/20261102_085824.jpg" target="_blank" class="local-photo-item">
                         <img src="galeria/zdjecia_1/20261102_085824.jpg" alt="Kościół i okolice">
@@ -420,7 +408,6 @@ main.gallery-container {
                 <div class="gallery-icon">✨</div>
                 <h2 class="gallery-title">Zdjęcia udostępnione przez Leszka Gizińskiego</h2>
                 <div class="gallery-date">📅 Zbiory archiwalne</div>
-                <p>Wybrane kadry z kolekcji udostępnionej przez Pana Leszka Gizińskiego.</p>
                 
                 <!-- Pojedyncza miniaturka z folderu zdjecia_2 -->
                 <div class="local-photo-grid">
