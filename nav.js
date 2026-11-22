@@ -1,6 +1,6 @@
 /**
- * Sprawdza, czy w danym miesiącu panuje noc w okolicach Kazunia.
- * Przybliżone godziny wschodu i zachodu dla środka każdego miesiąca.
+- Sprawdza, czy w danym miesiącu panuje noc w okolicach Kazunia.
+- Przybliżone godziny wschodu i zachodu dla środka każdego miesiąca.
  */
 function isNightTime() {
     const now = new Date();
@@ -37,8 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
     <span>Parafia Matki Bożej Szkaplerznej w Kazuniu Bielany</span>
 </a>
 
-        
-            
             <ul class="nav-links">
                 <li><a href="ogloszenia.html"><span>Ogłoszenia</span></a></li>
                 <li><a href="intencje.html"><span>Intencje mszalne</span></a></li>
@@ -48,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="historia.html"><span>O Parafii</span></a></li>
                 <li><a href="cmentarz.html"><span>Cmentarz</span></a></li>
                 <li><a href="galerie.html"><span>Galerie</span></a></li>
+                <li><a href="transmisja.html"><span>Transmisja</span></a></li>
             </ul>
 
             <button class="theme-toggle" onclick="toggleTheme()">
