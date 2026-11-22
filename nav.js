@@ -46,13 +46,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="historia.html"><span>O Parafii</span></a></li>
                 <li><a href="cmentarz.html"><span>Cmentarz</span></a></li>
                 <li><a href="galerie.html"><span>Galerie</span></a></li>
-                <li><a href="transmisja.html"><span>Transmisja</span></a></li>
             </ul>
 
-            <button class="theme-toggle" onclick="toggleTheme()">
-                <span id="themeIcon">🌙</span>
-                <span id="themeText">Tryb Nocny</span>
-            </button>
+            <div class="header-actions" style="display: inline-flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+                <a href="transmisja.html" class="theme-toggle stream-nav-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+                    <span>📺</span>
+                    <span>Transmisja</span>
+                </a>
+
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Tryb Nocny</span>
+                </button>
+            </div>
         </nav>
     `;
 
@@ -124,9 +130,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.insertAdjacentHTML("beforeend", cookieHTML);
     }
 
-    // Automatyczne podświetlanie aktywnej podstrony w menu
+    // Automatyczne podświetlanie aktywnej podstrony w menu i przycisku transmisji
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
-    const navLinks = document.querySelectorAll(".nav-links a");
+    const navLinks = document.querySelectorAll(".nav-links a, .stream-nav-btn");
 
     navLinks.forEach(link => {
         const linkPage = link.getAttribute("href");
